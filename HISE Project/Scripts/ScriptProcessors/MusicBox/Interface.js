@@ -120,6 +120,24 @@ const var MusicboxSamples = Synth.getChildSynth("Musicbox Samples");
 
 
 const var settingsButton = SettingsButton.createSettingsButton("settingsButton", 5, 5);
+
+const var PerformanceLabel = Content.addFloatingTile("PerformanceLabel", 24, 38);
+// [JSON PerformanceLabel]
+Content.setPropertiesFromJSON("PerformanceLabel", {
+  "width": 206,
+  "height": 32
+});
+// [/JSON PerformanceLabel]
+const var perfData = {
+  "Type": "PerformanceLabel",
+  "Font": "Oxygen Bold",
+  "FontSize": "12.0",
+  "ColourData": {
+    "textColour": "0xAAFFFFFF"
+  }
+};
+
+PerformanceLabel.setContentData(perfData);
 function onNoteOn()
 {
 	
