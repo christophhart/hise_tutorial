@@ -57,7 +57,8 @@ namespace SettingsButton
 		Content.setPropertiesFromJSON(name, {
 		"width": 26,
 		"height": 30,
-		"allowCallbacks": "Clicks & Hover"
+		"allowCallbacks": "Clicks & Hover",
+		"tooltip": "Show the audio settings dialogue"
 		});
     
     
