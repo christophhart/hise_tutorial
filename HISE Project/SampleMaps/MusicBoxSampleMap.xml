@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<samplemap ID="MusicBoxSampleMap" SaveMode="2" RRGroupAmount="1" MicPositions=";">
+  <sample ID="0" FileName="{PROJECT_FOLDER}Musicbox_A0_0_127.wav" Root="57"
+          HiKey="58" LoKey="57" LoVel="0" HiVel="127" RRGroup="1" Volume="0"
+          Pan="0" Normalized="0" Pitch="0" SampleStart="0" SampleEnd="221465"
+          SampleStartMod="0" LoopStart="0" LoopEnd="221465" LoopXFade="0"
+          LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+          SampleState="0" NormalizedPeak="-1" Duplicate="0" MonolithOffset="0"
+          MonolithLength="225280" SampleRate="44100"/>
+  <sample ID="1" FileName="{PROJECT_FOLDER}Musicbox_A1_0_127.wav" Root="69"
+          HiKey="70" LoKey="69" LoVel="0" HiVel="127" RRGroup="1" Volume="0"
+          Pan="0" Normalized="0" Pitch="0" SampleStart="0" SampleEnd="159702"
+          SampleStartMod="0" LoopStart="0" LoopEnd="159702" LoopXFade="0"
+          LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+          SampleState="0" NormalizedPeak="-1" Duplicate="0" MonolithOffset="225280"
+          MonolithLength="159744" SampleRate="44100"/>
+  <sample ID="2" FileName="{PROJECT_FOLDER}Musicbox_B0_0_127.wav" Root="59"
+          HiKey="60" LoKey="59" LoVel="0" HiVel="127" RRGroup="1" Volume="0"
+          Pan="0" Normalized="0" Pitch="0" SampleStart="0" SampleEnd="210233"
+          SampleStartMod="0" LoopStart="0" LoopEnd="210233" LoopXFade="0"
+          LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+          SampleState="0" NormalizedPeak="-1" Duplicate="0" MonolithOffset="385024"
+          MonolithLength="212992" SampleRate="44100"/>
+  <sample ID="3" FileName="{PROJECT_FOLDER}Musicbox_B1_0_127.wav" Root="71"
+          HiKey="72" LoKey="71" LoVel="0" HiVel="127" RRGroup="1" Volume="0"
+          Pan="0" Normalized="0" Pitch="0" SampleStart="0" SampleEnd="117807"
+          SampleStartMod="0" LoopStart="0" LoopEnd="117807" LoopXFade="0"
+          LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+          SampleState="0" NormalizedPeak="-1" Duplicate="0" MonolithOffset="598016"
+          MonolithLength="118784" SampleRate="44100"/>
+  <sample ID="4" FileName="{PROJECT_FOLDER}Musicbox_C#1_0_127.wav" Root="61"
+          HiKey="65" LoKey="61" LoVel="0" HiVel="127" RRGroup="1" Volume="0"
+          Pan="0" Normalized="0" Pitch="0" SampleStart="0" SampleEnd="278611"
+          SampleStartMod="0" LoopStart="0" LoopEnd="278611" LoopXFade="0"
+          LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+          SampleState="0" NormalizedPeak="-1" Duplicate="0" MonolithOffset="716800"
+          MonolithLength="282624" SampleRate="44100"/>
+  <sample ID="5" FileName="{PROJECT_FOLDER}Musicbox_C#2_0_127.wav" Root="73"
+          HiKey="73" LoKey="73" LoVel="0" HiVel="127" RRGroup="1" Volume="0"
+          Pan="0" Normalized="0" Pitch="0" SampleStart="0" SampleEnd="126558"
+          SampleStartMod="0" LoopStart="0" LoopEnd="126558" LoopXFade="0"
+          LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+          SampleState="0" NormalizedPeak="-1" Duplicate="0" MonolithOffset="999424"
+          MonolithLength="126976" SampleRate="44100"/>
+  <sample ID="6" FileName="{PROJECT_FOLDER}Musicbox_D0_0_127.wav" Root="50"
+          HiKey="51" LoKey="50" LoVel="0" HiVel="127" RRGroup="1" Volume="0"
+          Pan="0" Normalized="0" Pitch="0" SampleStart="0" SampleEnd="221925"
+          SampleStartMod="0" LoopStart="0" LoopEnd="221925" LoopXFade="0"
+          LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+          SampleState="0" NormalizedPeak="-1" Duplicate="0" MonolithOffset="1126400"
+          MonolithLength="225280" SampleRate="44100"/>
+  <sample ID="7" FileName="{PROJECT_FOLDER}Musicbox_D2_0_127.wav" Root="74"
+          HiKey="75" LoKey="74" LoVel="0" HiVel="127" RRGroup="1" Volume="0"
+          Pan="0" Normalized="0" Pitch="0" SampleStart="0" SampleEnd="143233"
+          SampleStartMod="0" LoopStart="0" LoopEnd="143233" LoopXFade="0"
+          LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+          SampleState="0" NormalizedPeak="-1" Duplicate="0" MonolithOffset="1351680"
+          MonolithLength="143360" SampleRate="44100"/>
+  <sample ID="8" FileName="{PROJECT_FOLDER}Musicbox_E0_0_127.wav" Root="52"
+          HiKey="53" LoKey="52" LoVel="0" HiVel="127" RRGroup="1" Volume="0"
+          Pan="0" Normalized="0" Pitch="0" SampleStart="0" SampleEnd="262144"
+          SampleStartMod="0" LoopStart="0" LoopEnd="262144" LoopXFade="0"
+          LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+          SampleState="0" NormalizedPeak="-1" Duplicate="0" MonolithOffset="1495040"
+          MonolithLength="262144" SampleRate="44100"/>
+  <sample ID="9" FileName="{PROJECT_FOLDER}Musicbox_E2_0_127.wav" Root="76"
+          HiKey="76" LoKey="76" LoVel="0" HiVel="127" RRGroup="1" Volume="0"
+          Pan="0" Normalized="0" Pitch="0" SampleStart="0" SampleEnd="131072"
+          SampleStartMod="0" LoopStart="0" LoopEnd="131072" LoopXFade="0"
+          LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+          SampleState="0" NormalizedPeak="-1" Duplicate="0" MonolithOffset="1757184"
+          MonolithLength="131072" SampleRate="44100"/>
+  <sample ID="10" FileName="{PROJECT_FOLDER}Musicbox_F#0_0_127.wav" Root="54"
+          HiKey="56" LoKey="54" LoVel="0" HiVel="127" RRGroup="1" Volume="0"
+          Pan="0" Normalized="0" Pitch="0" SampleStart="0" SampleEnd="196608"
+          SampleStartMod="0" LoopStart="0" LoopEnd="196608" LoopXFade="0"
+          LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+          SampleState="0" NormalizedPeak="-1" Duplicate="0" MonolithOffset="1888256"
+          MonolithLength="196608" SampleRate="44100"/>
+  <sample ID="11" FileName="{PROJECT_FOLDER}Musicbox_F#1_0_127.wav" Root="66"
+          HiKey="68" LoKey="66" LoVel="0" HiVel="127" RRGroup="1" Volume="0"
+          Pan="0" Normalized="0" Pitch="0" SampleStart="0" SampleEnd="161884"
+          SampleStartMod="0" LoopStart="0" LoopEnd="161884" LoopXFade="0"
+          LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+          SampleState="0" NormalizedPeak="-1" Duplicate="0" MonolithOffset="2084864"
+          MonolithLength="163840" SampleRate="44100"/>
+</samplemap>
