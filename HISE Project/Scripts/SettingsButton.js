@@ -9,25 +9,29 @@ namespace SettingsButton
 	
 	const var data_ = Engine.getSettingsWindowObject();
 	
-	data_.Content[0] =
-	{
-	"Type": "CustomSettings",
-	"Title": "Audio Settings",
-	"Driver": true,
-	"Device": true,
-	"Output": false,
-	"BufferSize": true,
-	"SampleRate": false,
-	"GlobalBPM": false,
-	"StreamingMode": false,
-	"GraphicRendering": false,
-	"ScaleFactor": false,
-	"SustainCC": false,
-	"ClearMidiCC": false,
-	"SampleLocation": true,
-	"DebugMode": true,
-	};
 	
+	
+	if(data_ != undefined)
+	{
+		data_.Content[0] =
+		{
+		"Type": "CustomSettings",
+		"Title": "Audio Settings",
+		"Driver": true,
+		"Device": true,
+		"Output": false,
+		"BufferSize": true,
+		"SampleRate": false,
+		"GlobalBPM": false,
+		"StreamingMode": false,
+		"GraphicRendering": false,
+		"ScaleFactor": false,
+		"SustainCC": false,
+		"ClearMidiCC": false,
+		"SampleLocation": true,
+		"DebugMode": true,
+		};
+	}
 	
 	const var icon_ = Content.createPath();
 	icon_.loadFromData([110,109,8,103,132,67,84,212,84,67,98,3,255,131,67,84,212,84,67,159,170,131,67,25,125,85,67,159,170,131,67,73,77,86,67,98,159,170,131,67,64,29,87,67,3,255,131,67,99,198,87,67,8,103,132,67,99,198,87,67,98,22,207,132,67,99,198,87,67,219,34,133,67,65,29,
@@ -73,6 +77,8 @@ namespace SettingsButton
 		});
     
     
+		widget.set("visible", data_ != undefined);
+		
     
 		widget.setPopupData(data_, [13, 20, 350, 295]);
 		return widget;
