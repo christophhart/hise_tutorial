@@ -1,25 +1,21 @@
 
+
+
+
+
 namespace SettingsButton
 {
-	const var data_ = {
+	
+	
+	const var data_ = Engine.getSettingsWindowObject();
+	
+	data_.Content[0] =
+	{
 	"Type": "CustomSettings",
-	"StyleData": {
-	},
-	"Font": "",
-	"FontSize": 14,
-	"LayoutData": {
-		"ID": "anonymous",
-		"Size": -0.5,
-		"Folded": 0,
-		"Visible": true,
-		"ForceFoldButton": 0,
-		"MinSize": -1
-	},
-	"ColourData": {
-	},
+	"Title": "Audio Settings",
 	"Driver": true,
 	"Device": true,
-	"Output": true,
+	"Output": false,
 	"BufferSize": true,
 	"SampleRate": false,
 	"GlobalBPM": false,
@@ -29,10 +25,10 @@ namespace SettingsButton
 	"SustainCC": false,
 	"ClearMidiCC": false,
 	"SampleLocation": true,
-	"DebugMode": false,
-	"ScaleFactorList": [0.5, 0.75, 1, 1.25, 1.5, 2 ]
+	"DebugMode": true,
 	};
-
+	
+	
 	const var icon_ = Content.createPath();
 	icon_.loadFromData([110,109,8,103,132,67,84,212,84,67,98,3,255,131,67,84,212,84,67,159,170,131,67,25,125,85,67,159,170,131,67,73,77,86,67,98,159,170,131,67,64,29,87,67,3,255,131,67,99,198,87,67,8,103,132,67,99,198,87,67,98,22,207,132,67,99,198,87,67,219,34,133,67,65,29,
 				87,67,219,34,133,67,73,77,86,67,98,219,34,133,67,25,125,85,67,22,207,132,67,84,212,84,67,8,103,132,67,84,212,84,67,99,109,202,224,133,67,213,37,87,67,108,212,190,133,67,113,201,87,67,108,102,251,133,67,94,183,88,67,108,99,3,134,67,201,214,88,67,108,103,
@@ -55,8 +51,8 @@ namespace SettingsButton
 		local widget = Content.addPanel(name, x, y);
     
 		Content.setPropertiesFromJSON(name, {
-		"width": 26,
-		"height": 30,
+		"width": 24,
+		"height": 28,
 		"allowCallbacks": "Clicks & Hover",
 		"tooltip": "Show the audio settings dialogue"
 		});
@@ -78,7 +74,7 @@ namespace SettingsButton
     
     
     
-		widget.setPopupData(data_, [13, 20, 350, 270]);
+		widget.setPopupData(data_, [13, 20, 350, 295]);
 		return widget;
 	};
 }
