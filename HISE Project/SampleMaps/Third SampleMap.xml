@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<samplemap ID="Third SampleMap" SaveMode="2" RRGroupAmount="1" MicPositions=";">
+  <sample ID="0" FileName="{PROJECT_FOLDER}Musicbox_F#0_0_127.wav" Root="89"
+          HiKey="89" LoKey="89" LoVel="0" HiVel="127" RRGroup="1" Volume="0"
+          Pan="0" Normalized="0" Pitch="0" SampleStart="0" SampleEnd="196608"
+          SampleStartMod="0" LoopStart="0" LoopEnd="196608" LoopXFade="0"
+          LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+          SampleState="0" NormalizedPeak="-1" Duplicate="0" MonolithOffset="0"
+          MonolithLength="196608" SampleRate="44100"/>
+</samplemap>
