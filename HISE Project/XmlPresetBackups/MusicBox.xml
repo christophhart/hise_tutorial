@@ -2,7 +2,7 @@
 
 <Processor Type="SynthChain" ID="MusicBox" Bypassed="0" Gain="1" Balance="0"
            VoiceLimit="128" KillFadeTime="20" IconColour="0" packageName=""
-           views="32.rk1bzA...zbyM2byM2byM2byM2byM2byM2byM2byM2L" currentView="-1"
+           views="32.rk1bzA................Oki...gA..EMzavkG...." currentView="-1"
            BuildVersion="649">
   <ChildProcessors>
     <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
@@ -10,8 +10,8 @@
         <Processor Type="ScriptProcessor" ID="Interface" Bypassed="0">
           <ChildProcessors/>
           <Content>
-            <Control type="ScriptSlider" id="modWheelAttKnob" value="0"/>
-            <Control type="ScriptSlider" id="clickAttackKnob" value="1"/>
+            <Control type="ScriptSlider" id="modWheelAttKnob" value="0.20999999"/>
+            <Control type="ScriptSlider" id="clickAttackKnob" value="0.41"/>
             <Control type="ScriptSlider" id="reverbAmountKnob" value="-100"/>
             <Control type="ScriptSlider" id="reverbSizeKnob" value="0.80000001"/>
             <Control type="ScriptSlider" id="reverbColourKnob" value="0.73000002"/>
@@ -23,7 +23,7 @@
         <Processor Type="ScriptProcessor" ID="ModwheelHandler" Bypassed="0">
           <ChildProcessors/>
           <Content>
-            <Control type="ScriptSlider" id="amount" value="0"/>
+            <Control type="ScriptSlider" id="amount" value="0.20999999"/>
           </Content>
         </Processor>
       </ChildProcessors>
@@ -67,11 +67,30 @@
           <RoutingMatrix NumSourceChannels="4" Channel0="-1" Send0="-1" Channel1="-1"
                          Send1="-1" Channel2="2" Send2="-1" Channel3="3" Send3="-1"/>
         </Processor>
+        <Processor Type="SimpleGain" ID="Master Gain" Bypassed="0" Gain="0" Delay="0"
+                   Width="100" Balance="0">
+          <ChildProcessors>
+            <Processor Type="ModulatorChain" ID="Gain Modulation" Bypassed="0" Intensity="1">
+              <ChildProcessors/>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="Delay Modulation" Bypassed="0" Intensity="1">
+              <ChildProcessors/>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="Width Modulation" Bypassed="0" Intensity="1">
+              <ChildProcessors/>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="Pan Modulation" Bypassed="0" Intensity="1">
+              <ChildProcessors/>
+            </Processor>
+          </ChildProcessors>
+          <RoutingMatrix NumSourceChannels="4" Channel0="0" Send0="-1" Channel1="1" Send1="-1"
+                         Channel2="-1" Send2="-1" Channel3="-1" Send3="-1"/>
+        </Processor>
       </ChildProcessors>
     </Processor>
     <Processor Type="StreamingSampler" ID="Musicbox Samples" Bypassed="0" Gain="1"
                Balance="0" VoiceLimit="128" KillFadeTime="20" IconColour="0"
-               PreloadSize="8192" BufferSize="4096" VoiceAmount="128" SamplerRepeatMode="-8.4215046e+08"
+               PreloadSize="8192" BufferSize="4096" VoiceAmount="128" SamplerRepeatMode="3.4528169e+09"
                RRGroupAmount="1" PitchTracking="1" OneShot="0" CrossfadeGroups="0"
                Purged="0" Reversed="0" NumChannels="1" SampleMap="">
       <ChildProcessors>
@@ -220,7 +239,7 @@
               <Content>
                 <Control type="ScriptButton" id="TimeAttenuate" value="1"/>
                 <Control type="ScriptSlider" id="Time" value="6.0999999"/>
-                <Control type="ScriptTable" id="TimeTable" value="2" data="24..........9C...vO...f+.........3O"/>
+                <Control type="ScriptTable" id="TimeTable" value="0" data="24..........9C...vO...f+.........3O"/>
               </Content>
             </Processor>
             <Processor Type="MidiMuter" ID="MidiMuter" Bypassed="0">
@@ -270,7 +289,7 @@
       </ChildProcessors>
       <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
     </Processor>
-    <Processor Type="Noise" ID="Mallet Click" Bypassed="0" Gain="1" Balance="0"
+    <Processor Type="Noise" ID="Mallet Click" Bypassed="0" Gain="0.41" Balance="0"
                VoiceLimit="128" KillFadeTime="20" IconColour="0">
       <ChildProcessors>
         <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
@@ -311,8 +330,7 @@
         <Processor Type="EffectChain" ID="FX" Bypassed="0">
           <ChildProcessors>
             <Processor Type="PolyphonicFilter" ID="Polyphonic Filter" Bypassed="0" Gain="1.1378917"
-                       Frequency="309.17999" Q="5.5999999" Mode="6" Quality="-8.4215046e+08"
-                       BipolarIntensity="0">
+                       Frequency="309.17999" Q="5.5999999" Mode="6" Quality="0" BipolarIntensity="0">
               <ChildProcessors>
                 <Processor Type="ModulatorChain" ID="Frequency Modulation" Bypassed="0"
                            Intensity="1">
