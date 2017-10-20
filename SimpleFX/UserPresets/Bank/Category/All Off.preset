@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Preset Version="0.1.0">
+  <Content Processor="Interface">
+    <Control type="ScriptSlider" id="WetSlider" value="0"/>
+    <Control type="ScriptSlider" id="SizeSlider" value="0"/>
+    <Control type="ScriptLabel" id="Label" value="Simple FX"/>
+  </Content>
+  <MidiAutomation/>
+</Preset>
