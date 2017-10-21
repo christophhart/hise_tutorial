@@ -49,8 +49,8 @@ namespace VuMeter
     
 		widget.setTimerCallback(function()
 		{
-			var lvalue = getNormalizedPeakValue(this.data.module.getCurrentLevel(false));
-			var rvalue = getNormalizedPeakValue(this.data.module.getCurrentLevel(true));
+			var lvalue = getNormalizedPeakValue(Engine.getMasterPeakLevel(false));
+			var rvalue = getNormalizedPeakValue(Engine.getMasterPeakLevel(true));
     	
 			this.data.lvalue = Math.max(lvalue, this.data.lvalue - 0.04);
 			this.data.rvalue = Math.max(rvalue, this.data.rvalue - 0.04);
