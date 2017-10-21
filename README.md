@@ -12,5 +12,5 @@ It contains the HISE project folder as well as a .gitignore file.
    - *SimpleFX* for a simple FX plugin project that can be exported as Audio effect.
 4. Load the instrument from the XML file using the **File -> Load XML Preset Backup** function.
 
-These project is supposed to be compilable on every platform / format so let me know if something breaks or doesn't work.
+These projects are supposed to be compilable on every platform / format so let me know if something breaks or doesn't work. If it doesn't work please make sure you are using the latest HISE version (and the latest source code).
 
