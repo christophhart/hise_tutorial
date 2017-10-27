@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Processor Type="SynthChain" ID="DynamicsFX" Bypassed="0" Gain="1" Balance="0"
+           VoiceLimit="128" KillFadeTime="20" IconColour="0" packageName=""
+           views="32.rk1bzA.....B.........LDZg4lakwF..nXMK......" currentView="-1"
+           BuildVersion="650">
+  <ChildProcessors>
+    <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
+      <ChildProcessors>
+        <Processor Type="ScriptProcessor" ID="Script Processor" Bypassed="0">
+          <ChildProcessors/>
+          <Content/>
+        </Processor>
+        <Processor Type="ScriptProcessor" ID="Interface" Bypassed="0">
+          <ChildProcessors/>
+          <Content>
+            <Control type="ScriptButton" id="GateEnabled" value="0"/>
+            <Control type="ScriptSlider" id="gateThreshold" value="-24"/>
+            <Control type="ScriptSlider" id="GateAttack" value="0.30000001"/>
+            <Control type="ScriptSlider" id="GateRelease" value="3.4000001"/>
+            <Control type="ScriptButton" id="CompEnabled" value="0"/>
+            <Control type="ScriptSlider" id="CompThreshold" value="-32.400002"/>
+            <Control type="ScriptSlider" id="CompRatio" value="15.67"/>
+            <Control type="ScriptSlider" id="CompressorAttack" value="143"/>
+            <Control type="ScriptSlider" id="CompressorRelease" value="4.1999998"/>
+            <Control type="ScriptButton" id="LimiterEnabled" value="0"/>
+            <Control type="ScriptSlider" id="LimiterThreshold" value="-36"/>
+            <Control type="ScriptSlider" id="LimiterAttack" value="2"/>
+            <Control type="ScriptSlider" id="LimiterRelease" value="10"/>
+          </Content>
+        </Processor>
+      </ChildProcessors>
+    </Processor>
+    <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1">
+      <ChildProcessors/>
+    </Processor>
+    <Processor Type="ModulatorChain" ID="PitchModulation" Bypassed="1" Intensity="0">
+      <ChildProcessors/>
+    </Processor>
+    <Processor Type="EffectChain" ID="FX" Bypassed="0">
+      <ChildProcessors>
+        <Processor Type="SimpleGain" ID="Input" Bypassed="0" Gain="0" Delay="0"
+                   Width="100" Balance="0">
+          <ChildProcessors>
+            <Processor Type="ModulatorChain" ID="Gain Modulation" Bypassed="0" Intensity="1">
+              <ChildProcessors/>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="Delay Modulation" Bypassed="0" Intensity="1">
+              <ChildProcessors/>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="Width Modulation" Bypassed="0" Intensity="1">
+              <ChildProcessors/>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="Pan Modulation" Bypassed="0" Intensity="1">
+              <ChildProcessors/>
+            </Processor>
+          </ChildProcessors>
+          <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+        </Processor>
+        <Processor Type="Dynamics" ID="Dynamics" Bypassed="0" GateEnabled="0" GateThreshold="-24"
+                   GateAttack="0.30000001" GateRelease="3.4000001" CompressorEnabled="0"
+                   CompressorThreshold="-32.400002" CompressorRatio="15.669999"
+                   CompressorAttack="143" CompressorRelease="100" LimiterEnabled="0"
+                   LimiterThreshold="-36" LimiterAttack="2" LimiterRelease="10">
+          <ChildProcessors/>
+          <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+        </Processor>
+      </ChildProcessors>
+    </Processor>
+  </ChildProcessors>
+  <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+  <macro_controls>
+    <macro name="Macro 1" value="0" midi_cc="-1"/>
+    <macro name="Macro 2" value="0" midi_cc="-1"/>
+    <macro name="Macro 3" value="0" midi_cc="-1"/>
+    <macro name="Macro 4" value="0" midi_cc="-1"/>
+    <macro name="Macro 5" value="0" midi_cc="-1"/>
+    <macro name="Macro 6" value="0" midi_cc="-1"/>
+    <macro name="Macro 7" value="0" midi_cc="-1"/>
+    <macro name="Macro 8" value="0" midi_cc="-1"/>
+  </macro_controls>
+  <MidiAutomation/>
+</Processor>
