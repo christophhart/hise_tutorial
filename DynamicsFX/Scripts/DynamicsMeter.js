@@ -180,10 +180,12 @@ namespace DynamicsMeter
 			g.setGradientFill([0xFF444444, 0.0, 0.0, 0xFF333333, 0.0, this.getHeight()]);
     	
 			g.fillPath(this.data.p, [0, 0, this.getWidth(), this.getHeight()]);
-			g.setColour(0x44FFFFFF);
+			g.setColour(0x8890FFB1);
     	
 			g.fillPath(this.data.l, [0, 0, this.getWidth()+1, this.getHeight()+1]);
 			g.drawPath(this.data.l, [0, 0, this.getWidth()+1, this.getHeight()+1], 2.0);
+			
+			g.setColour(0x44FFFFFF);
 			g.drawRect([0, 0, this.getWidth(), this.getHeight()], 1.0);
 		});
     

@@ -2,32 +2,197 @@
 
 <Processor Type="SynthChain" ID="DynamicsFX" Bypassed="0" Gain="1" Balance="0"
            VoiceLimit="128" KillFadeTime="20" IconColour="0" packageName=""
-           views="32.rk1bzA.....B.........LDZg4lakwF..nXMK......" currentView="-1"
+           views="32.rk1bzA................Ech...fA............." currentView="-1"
            BuildVersion="650">
   <ChildProcessors>
     <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
       <ChildProcessors>
-        <Processor Type="ScriptProcessor" ID="Script Processor" Bypassed="0">
-          <ChildProcessors/>
-          <Content/>
-        </Processor>
         <Processor Type="ScriptProcessor" ID="Interface" Bypassed="0">
           <ChildProcessors/>
           <Content>
+            <Control type="ScriptLabel" id="ScriptLabel14" value="Input"/>
+            <Control type="ScriptLabel" id="ScriptLabel7" value="Gate"/>
+            <Control type="ScriptLabel" id="ScriptLabel8" value="Threshhold"/>
             <Control type="ScriptButton" id="GateEnabled" value="0"/>
-            <Control type="ScriptSlider" id="gateThreshold" value="-24"/>
-            <Control type="ScriptSlider" id="GateAttack" value="0.30000001"/>
-            <Control type="ScriptSlider" id="GateRelease" value="3.4000001"/>
+            <Control type="ScriptSlider" id="gateThreshold" value="-26.100000381469726562"/>
+            <Control type="ScriptSlider" id="GateAttack" value="0"/>
+            <Control type="ScriptSlider" id="GateRelease" value="0"/>
+            <Control type="ScriptLabel" id="ScriptLabel9" value="Attack"/>
+            <Control type="ScriptLabel" id="ScriptLabel10" value="Release"/>
+            <Control type="ScriptLabel" id="ScriptLabel1" value="Compressor"/>
             <Control type="ScriptButton" id="CompEnabled" value="0"/>
-            <Control type="ScriptSlider" id="CompThreshold" value="-32.400002"/>
-            <Control type="ScriptSlider" id="CompRatio" value="15.67"/>
-            <Control type="ScriptSlider" id="CompressorAttack" value="143"/>
-            <Control type="ScriptSlider" id="CompressorRelease" value="4.1999998"/>
+            <Control type="ScriptSlider" id="CompThreshold" value="-17.399999618530273438"/>
+            <Control type="ScriptSlider" id="CompRatio" value="3.5999999046325683594"/>
+            <Control type="ScriptSlider" id="CompressorAttack" value="76"/>
+            <Control type="ScriptSlider" id="CompressorRelease" value="9"/>
+            <Control type="ScriptLabel" id="ScriptLabel2" value="Threshhold"/>
+            <Control type="ScriptLabel" id="ScriptLabel3" value="Ratio"/>
+            <Control type="ScriptLabel" id="ScriptLabel4" value="Release"/>
+            <Control type="ScriptLabel" id="ScriptLabel5" value="Attack"/>
+            <Control type="ScriptLabel" id="ScriptLabel6" value="Limiter"/>
             <Control type="ScriptButton" id="LimiterEnabled" value="0"/>
-            <Control type="ScriptSlider" id="LimiterThreshold" value="-36"/>
-            <Control type="ScriptSlider" id="LimiterAttack" value="2"/>
-            <Control type="ScriptSlider" id="LimiterRelease" value="10"/>
+            <Control type="ScriptSlider" id="LimiterThreshold" value="-10.5"/>
+            <Control type="ScriptSlider" id="LimiterAttack" value="0"/>
+            <Control type="ScriptSlider" id="LimiterRelease" value="0"/>
+            <Control type="ScriptLabel" id="ScriptLabel11" value="Threshhold"/>
+            <Control type="ScriptLabel" id="ScriptLabel12" value="Attack"/>
+            <Control type="ScriptLabel" id="ScriptLabel13" value="Release"/>
+            <Control type="ScriptSlider" id="InputGain" value="0"/>
+            <Control type="ScriptSlider" id="OutputGain" value="0"/>
+            <Control type="ScriptLabel" id="ScriptLabel15" value="Output"/>
           </Content>
+          <UIData>
+            <ContentProperties DeviceType="Desktop">
+              <Component type="ScriptPanel" id="Panel1" x="0" y="0" width="600" height="500"
+                         borderSize="0" borderRadius="0" itemColour2="4279440147" itemColour="4280427042"/>
+              <Component type="ScriptLabel" id="ScriptLabel14" x="12" y="-5" width="161"
+                         height="32" fontName="Oxygen" fontStyle="Bold" fontSize="15"
+                         text="Input" editable="0" bgColour="16777215"/>
+              <Component type="ScriptPanel" id="InputMeter" x="130" y="20" width="32"
+                         height="230" bgColour="4279505940" itemColour="4287692721" itemColour2="4279505940"
+                         textColour="4283782485" opaque="1"/>
+              <Component type="ScriptPanel" id="OutputMeter" x="440" y="20" width="32"
+                         height="230" bgColour="4279505940" itemColour="4287692721" itemColour2="4279505940"
+                         textColour="4283782485" opaque="1"/>
+              <Component type="ScriptPanel" id="compressorPanel" x="170" y="20" width="260"
+                         height="230" opaque="1"/>
+              <Component type="ScriptPanel" id="GatePanel" x="10" y="260" width="180"
+                         height="230" borderSize="1" borderRadius="3" textColour="218103807"
+                         itemColour2="738197504" itemColour="251658240">
+                <Component type="ScriptLabel" id="ScriptLabel7" x="9" y="9" width="161"
+                           height="32" parentComponent="GatePanel" fontName="Oxygen" fontStyle="Bold"
+                           fontSize="18" text="Gate" editable="0" bgColour="385875967"/>
+                <Component type="ScriptLabel" id="ScriptLabel8" x="16" y="44" width="74"
+                           height="32" parentComponent="GatePanel" fontName="Oxygen" fontStyle="Bold"
+                           fontSize="14" text="Threshhold" editable="0"/>
+                <Component type="ScriptButton" id="GateEnabled" x="11" y="9" text="Gate On"
+                           processorId="Dynamics" parameterId="GateEnabled" parentComponent="GatePanel"
+                           textColour="218103807" borderSize="1" borderRadius="3" numStrips="6"
+                           scaleFactor="0.5" width="182" height="32" filmstripImage="{PROJECT_FOLDER}Button.png"/>
+                <Component type="ScriptSlider" id="gateThreshold" x="21" y="68" text="G Threshold"
+                           min="-100" max="0" processorId="Dynamics" parameterId="GateThreshold"
+                           mode="Decibel" stepSize="0.10000000000000000555" middlePosition="-18"
+                           suffix=" dB" filmstripImage="{PROJECT_FOLDER}Knob.png" numStrips="64"
+                           scaleFactor="0.5" width="64" height="64" parentComponent="GatePanel"
+                           showValuePopup="Below"/>
+                <Component type="ScriptSlider" id="GateAttack" x="98" y="114" text="G Attack"
+                           max="20000" processorId="Dynamics" parameterId="GateAttack" mode="Time"
+                           stepSize="1" middlePosition="999.99999999999977263" defaultValue="10"
+                           suffix=" ms" width="64" height="64" filmstripImage="{PROJECT_FOLDER}Knob.png"
+                           numStrips="64" scaleFactor="0.5" parentComponent="GatePanel"
+                           showValuePopup="Below"/>
+                <Component type="ScriptSlider" id="GateRelease" x="21" y="159" text="G Release"
+                           max="20000" processorId="Dynamics" parameterId="GateRelease"
+                           mode="Time" stepSize="1" middlePosition="999.99999999999977263"
+                           defaultValue="50" suffix=" ms" width="64" height="64" filmstripImage="{PROJECT_FOLDER}Knob.png"
+                           numStrips="64" scaleFactor="0.5" parentComponent="GatePanel"
+                           showValuePopup="Below"/>
+                <Component type="ScriptLabel" id="ScriptLabel9" x="92" y="89" width="74"
+                           height="32" parentComponent="GatePanel" fontName="Oxygen" fontStyle="Bold"
+                           fontSize="14" text="Attack" editable="0"/>
+                <Component type="ScriptLabel" id="ScriptLabel10" x="16" y="135" width="74"
+                           height="32" parentComponent="GatePanel" fontName="Oxygen" fontStyle="Bold"
+                           fontSize="14" text="Release" editable="0"/>
+              </Component>
+              <Component type="ScriptPanel" id="CompressorPanel" x="200" y="260" width="200"
+                         height="230" borderSize="1" borderRadius="3" textColour="218103807"
+                         itemColour2="738197504" itemColour="251658240">
+                <Component type="ScriptLabel" id="ScriptLabel1" x="10" y="9" width="180"
+                           height="32" parentComponent="CompressorPanel" fontName="Oxygen"
+                           fontStyle="Bold" fontSize="18" text="Compressor" editable="0"
+                           bgColour="385875967"/>
+                <Component type="ScriptButton" id="CompEnabled" x="11" y="9" text="Comp On"
+                           processorId="Dynamics" parameterId="CompressorEnabled" parentComponent="CompressorPanel"
+                           filmstripImage="{PROJECT_FOLDER}Button.png" numStrips="6" scaleFactor="0.5"
+                           width="182" height="32"/>
+                <Component type="ScriptSlider" id="CompThreshold" x="20" y="70" text="C Treshold"
+                           min="-100" max="0" processorId="Dynamics" parameterId="CompressorThreshold"
+                           mode="Decibel" stepSize="0.10000000000000000555" middlePosition="-18"
+                           suffix=" dB" width="64" height="64" filmstripImage="{PROJECT_FOLDER}Knob.png"
+                           numStrips="64" scaleFactor="0.5" parentComponent="CompressorPanel"
+                           showValuePopup="Below" itemColour2="4279308561" itemColour="4279374354"/>
+                <Component type="ScriptSlider" id="CompRatio" x="117" y="69" text="C Ratio"
+                           min="1" max="32" processorId="Dynamics" parameterId="CompressorRatio"
+                           middlePosition="4" width="64" height="64" filmstripImage="{PROJECT_FOLDER}Knob.png"
+                           numStrips="64" scaleFactor="0.5" parentComponent="CompressorPanel"
+                           showValuePopup="Below"/>
+                <Component type="ScriptSlider" id="CompressorAttack" x="21" y="160" text="C Attack"
+                           max="20000" processorId="Dynamics" parameterId="CompressorAttack"
+                           mode="Time" stepSize="1" middlePosition="999.99999999999977263"
+                           defaultValue="30" suffix=" ms" width="64" height="64" filmstripImage="{PROJECT_FOLDER}Knob.png"
+                           numStrips="64" scaleFactor="0.5" parentComponent="CompressorPanel"
+                           showValuePopup="Below"/>
+                <Component type="ScriptSlider" id="CompressorRelease" x="117" y="160" text="C Release"
+                           max="20000" mode="Time" stepSize="1" middlePosition="999.99999999999977263"
+                           defaultValue="10" suffix=" ms" width="64" height="64" filmstripImage="{PROJECT_FOLDER}Knob.png"
+                           numStrips="64" scaleFactor="0.5" parentComponent="CompressorPanel"
+                           showValuePopup="Below"/>
+                <Component type="ScriptLabel" id="ScriptLabel2" x="17" y="43" width="74"
+                           height="32" parentComponent="CompressorPanel" fontName="Oxygen"
+                           fontStyle="Bold" fontSize="14" text="Threshhold" editable="0"/>
+                <Component type="ScriptLabel" id="ScriptLabel3" x="111" y="43" width="74"
+                           height="32" parentComponent="CompressorPanel" fontName="Oxygen"
+                           fontStyle="Bold" fontSize="14" text="Ratio" editable="0"/>
+                <Component type="ScriptLabel" id="ScriptLabel4" x="111" y="132" width="74"
+                           height="32" parentComponent="CompressorPanel" fontName="Oxygen"
+                           fontStyle="Bold" fontSize="14" text="Release" editable="0"/>
+                <Component type="ScriptLabel" id="ScriptLabel5" x="15" y="132" width="74"
+                           height="32" parentComponent="CompressorPanel" fontName="Oxygen"
+                           fontStyle="Bold" fontSize="14" text="Attack" editable="0"/>
+              </Component>
+              <Component type="ScriptPanel" id="LimiterPanel" x="410" y="260" width="180"
+                         height="230" borderSize="1" borderRadius="3" textColour="218103807"
+                         itemColour2="738197504" itemColour="251658240">
+                <Component type="ScriptLabel" id="ScriptLabel6" x="11" y="10" width="160"
+                           height="32" parentComponent="LimiterPanel" fontName="Oxygen"
+                           fontStyle="Bold" fontSize="18" text="Limiter" editable="0" bgColour="385875967"/>
+                <Component type="ScriptButton" id="LimiterEnabled" x="11" y="9" text="Limiter On"
+                           processorId="Dynamics" parameterId="LimiterEnabled" parentComponent="LimiterPanel"
+                           textColour="218103807" borderSize="1" borderRadius="3" numStrips="6"
+                           scaleFactor="0.5" width="182" height="32" filmstripImage="{PROJECT_FOLDER}Button.png"/>
+                <Component type="ScriptSlider" id="LimiterThreshold" x="98" y="69" text="L Threshold"
+                           min="-100" max="0" processorId="Dynamics" parameterId="LimiterThreshold"
+                           mode="Decibel" stepSize="0.10000000000000000555" middlePosition="-18"
+                           suffix=" dB" width="64" height="64" filmstripImage="{PROJECT_FOLDER}Knob.png"
+                           numStrips="64" scaleFactor="0.5" parentComponent="LimiterPanel"
+                           showValuePopup="Below"/>
+                <Component type="ScriptSlider" id="LimiterAttack" x="21" y="114" text="L Attack"
+                           max="20000" processorId="Dynamics" parameterId="LimiterAttack"
+                           mode="Time" stepSize="1" middlePosition="999.99999999999977263"
+                           defaultValue="10" suffix=" ms" width="64" height="64" filmstripImage="{PROJECT_FOLDER}Knob.png"
+                           numStrips="64" scaleFactor="0.5" parentComponent="LimiterPanel"
+                           showValuePopup="Below"/>
+                <Component type="ScriptSlider" id="LimiterRelease" x="98" y="160" text="L Release"
+                           max="20000" processorId="Dynamics" parameterId="LimiterRelease"
+                           mode="Time" stepSize="1" middlePosition="999.99999999999977263"
+                           defaultValue="10" suffix=" ms" width="64" height="64" filmstripImage="{PROJECT_FOLDER}Knob.png"
+                           numStrips="64" scaleFactor="0.5" parentComponent="LimiterPanel"
+                           showValuePopup="Below"/>
+                <Component type="ScriptLabel" id="ScriptLabel11" x="91" y="47" width="74"
+                           height="32" parentComponent="LimiterPanel" fontName="Oxygen"
+                           fontStyle="Bold" fontSize="14" text="Threshhold" editable="0"/>
+                <Component type="ScriptLabel" id="ScriptLabel12" x="13" y="90" width="74"
+                           height="32" parentComponent="LimiterPanel" fontName="Oxygen"
+                           fontStyle="Bold" fontSize="14" text="Attack" editable="0"/>
+                <Component type="ScriptLabel" id="ScriptLabel13" x="89" y="136" width="74"
+                           height="32" parentComponent="LimiterPanel" fontName="Oxygen"
+                           fontStyle="Bold" fontSize="14" text="Release" editable="0"/>
+              </Component>
+              <Component type="ScriptSlider" id="InputGain" x="52" y="21" width="77" height="234"
+                         filmstripImage="{PROJECT_FOLDER}Slider.png" numStrips="100" scaleFactor="0.66"
+                         middlePosition="-18" processorId="Input" parameterId="Gain" showValuePopup="Below"
+                         itemColour="4279703319" bgColour="872415231" min="-100" max="12"
+                         stepSize="0.1" suffix=" dB"/>
+              <Component type="ScriptSlider" id="OutputGain" x="474" y="21" width="77"
+                         height="234" filmstripImage="{PROJECT_FOLDER}Slider.png" numStrips="100"
+                         scaleFactor="0.66" middlePosition="-18" processorId="Output"
+                         parameterId="Gain" showValuePopup="Below" itemColour="4279703319"
+                         bgColour="872415231" min="-100" max="12" stepSize="0.1" suffix=" dB"/>
+              <Component type="ScriptLabel" id="ScriptLabel15" x="439" y="0" width="161"
+                         height="32" fontName="Oxygen" fontStyle="Bold" fontSize="15"
+                         text="Output" editable="0" bgColour="16777215"/>
+            </ContentProperties>
+          </UIData>
         </Processor>
       </ChildProcessors>
     </Processor>
@@ -57,15 +222,64 @@
           </ChildProcessors>
           <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
         </Processor>
-        <Processor Type="Dynamics" ID="Dynamics" Bypassed="0" GateEnabled="0" GateThreshold="-24"
-                   GateAttack="0.30000001" GateRelease="3.4000001" CompressorEnabled="0"
-                   CompressorThreshold="-32.400002" CompressorRatio="15.669999"
-                   CompressorAttack="143" CompressorRelease="100" LimiterEnabled="0"
-                   LimiterThreshold="-36" LimiterAttack="2" LimiterRelease="10">
+        <Processor Type="Dynamics" ID="Dynamics" Bypassed="0" GateEnabled="0" GateThreshold="-26.100000381469726562"
+                   GateAttack="0.0099999997764825820923" GateRelease="0.0099999997764825820923"
+                   CompressorEnabled="0" CompressorThreshold="-17.399999618530273438"
+                   CompressorRatio="3.5999999046325683594" CompressorAttack="76"
+                   CompressorRelease="100" LimiterEnabled="0" LimiterThreshold="-10.5"
+                   LimiterAttack="0.0099999997764825820923" LimiterRelease="0.0099999997764825820923">
           <ChildProcessors/>
           <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
         </Processor>
+        <Processor Type="SimpleGain" ID="Output" Bypassed="0" Gain="0" Delay="0"
+                   Width="100" Balance="0">
+          <ChildProcessors>
+            <Processor Type="ModulatorChain" ID="Gain Modulation" Bypassed="0" Intensity="1">
+              <ChildProcessors/>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="Delay Modulation" Bypassed="0" Intensity="1">
+              <ChildProcessors/>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="Width Modulation" Bypassed="0" Intensity="1">
+              <ChildProcessors/>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="Pan Modulation" Bypassed="0" Intensity="1">
+              <ChildProcessors/>
+            </Processor>
+          </ChildProcessors>
+          <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+        </Processor>
       </ChildProcessors>
+    </Processor>
+    <Processor Type="SineSynth" ID="Sine Wave Generator" Bypassed="0" Gain="0.25"
+               Balance="0" VoiceLimit="256" KillFadeTime="20" IconColour="0"
+               OctaveTranspose="0" SemiTones="0" UseFreqRatio="0" CoarseFreqRatio="1"
+               FineFreqRatio="0" SaturationAmount="0">
+      <ChildProcessors>
+        <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
+          <ChildProcessors/>
+        </Processor>
+        <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1">
+          <ChildProcessors>
+            <Processor Type="SimpleEnvelope" ID="DefaultEnvelope" Bypassed="0" Monophonic="0"
+                       Retrigger="1" Intensity="1" Attack="5" Release="10" LinearMode="1">
+              <ChildProcessors>
+                <Processor Type="ModulatorChain" ID="Attack Time Modulation" Bypassed="0"
+                           Intensity="1">
+                  <ChildProcessors/>
+                </Processor>
+              </ChildProcessors>
+            </Processor>
+          </ChildProcessors>
+        </Processor>
+        <Processor Type="ModulatorChain" ID="PitchModulation" Bypassed="0" Intensity="0">
+          <ChildProcessors/>
+        </Processor>
+        <Processor Type="EffectChain" ID="FX" Bypassed="0">
+          <ChildProcessors/>
+        </Processor>
+      </ChildProcessors>
+      <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
     </Processor>
   </ChildProcessors>
   <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>

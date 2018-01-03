@@ -15,7 +15,7 @@ namespace VuMeter
 		Content.setPropertiesFromJSON(name, {
 		"width": 32,
 		"height": 100,
-		"itemColour": 0x88FFFFFF,
+		"itemColour": 0xFF90FFB1,
 		"itemColour2": 4279505940,
 		"bgColour": 4279505940,
 		"textColour": 4283782485,
