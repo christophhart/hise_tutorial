@@ -2,7 +2,7 @@
 
 <Processor Type="SynthChain" ID="BasicSynth" Bypassed="0" Gain="1" Balance="0"
            VoiceLimit="64" KillFadeTime="20" IconColour="0" packageName=""
-           views="32.rk1bzA................aNC..ffA............." currentView="-1"
+           views="32.rk1bzA...zbyM2byM2byM2byM2byM2byM2byM2byM2L" currentView="-1"
            BuildVersion="650">
   <ChildProcessors>
     <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
@@ -39,7 +39,7 @@
             <Control type="ScriptLabel" id="ScriptLabel56" value="Release"/>
             <Control type="ScriptLabel" id="ScriptLabel57" value="ENVELOPE"/>
             <Control type="ScriptLabel" id="ScriptLabel58" value="ENVELOPE"/>
-            <Control type="ScriptSlider" id="Knob6" value="-28.100000381469726562"/>
+            <Control type="ScriptSlider" id="Knob6" value="-28.100000381469726563"/>
             <Control type="ScriptSlider" id="Knob7" value="605"/>
             <Control type="ScriptSlider" id="Knob8" value="0"/>
             <Control type="ScriptSlider" id="Knob9" value="0"/>
@@ -87,7 +87,7 @@
             <Control type="ScriptSlider" id="ConvolutionWetSlider" value="-4.9000000953674316406"/>
             <Control type="ScriptLabel" id="ScriptLabel39" value="Wet"/>
             <Control type="ScriptAudioWaveform" id="ConvolutionWaveform" value="0"
-                     rangeStart="0" rangeEnd="8192" fileName="/Volumes/Shared/Projekte/NeoSoulKeys/NeoSoulKeys_iOS/AudioFiles/Dark Tube.aif"/>
+                     rangeStart="0" rangeEnd="0" fileName=""/>
             <Control type="ScriptButton" id="ConvolutionButton" value="1"/>
             <Control type="ScriptSlider" id="lowEqSlider" value="-5.5999999046325683594"/>
             <Control type="ScriptLabel" id="ScriptLabel35" value="Low"/>
@@ -123,7 +123,6 @@
             <Control type="ScriptLabel" id="ScriptLabel20" value="F X"/>
             <Control type="ScriptLabel" id="ScriptLabel21" value="S Y N T H"/>
             <Control type="ScriptLabel" id="ScriptLabel22" value="P R E S E T S"/>
-            <Control type="ScriptLabel" id="ScriptLabel23" value="S E T T I N G S"/>
             <Control type="ScriptLabel" id="ScriptLabel23" value="S E T T I N G S"/>
           </Content>
           <UIData>
@@ -794,7 +793,7 @@
         <Processor Type="EffectChain" ID="FX" Bypassed="0">
           <ChildProcessors>
             <Processor Type="PolyphonicFilter" ID="Polyphonic Filter" Bypassed="0" Gain="0"
-                       Frequency="20000" Q="1" Mode="6" Quality="0" BipolarIntensity="0">
+                       Frequency="20000" Q="1" Mode="6" Quality="-842150464" BipolarIntensity="0">
               <ChildProcessors>
                 <Processor Type="ModulatorChain" ID="Frequency Modulation" Bypassed="0"
                            Intensity="1">
@@ -893,8 +892,7 @@
             </Processor>
             <Processor Type="Convolution" ID="Convolution Reverb" Bypassed="1" DryGain="-100"
                        WetGain="-4.9000005722045898438" Latency="0" ImpulseLength="1"
-                       ProcessInput="1" FileName="/Volumes/Shared/Projekte/NeoSoulKeys/NeoSoulKeys_iOS/AudioFiles/Dark Tube.aif"
-                       min="0" max="8192" loopStart="0" loopEnd="0">
+                       ProcessInput="1" FileName="" min="0" max="0" loopStart="0" loopEnd="0">
               <ChildProcessors/>
               <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
             </Processor>
