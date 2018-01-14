@@ -1,17 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Processor Type="SynthChain" ID="SampleMapExample" Bypassed="0" Gain="1"
-           Balance="0" VoiceLimit="128" KillFadeTime="20" IconColour="0"
-           packageName="" views="32.rk1bzA...zbyM2byM2byM2byM2byM2byM2byM2byM2L"
-           currentView="-1" BuildVersion="649">
+<Processor Type="SynthChain" ID="MusicBox" Bypassed="0" Gain="1" Balance="0"
+           VoiceLimit="128" KillFadeTime="20" IconColour="0" packageName=""
+           views="32.rk1bzA...zbyM2byM2byM2byM2byM2byM2byM2byM2L" currentView="-1"
+           BuildVersion="650">
   <ChildProcessors>
     <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
       <ChildProcessors>
         <Processor Type="ScriptProcessor" ID="Interface" Bypassed="0">
           <ChildProcessors/>
           <Content>
-            <Control type="ScriptComboBox" id="ComboBox" value="1"/>
+            <Control type="ScriptSlider" id="modWheelAttKnob" value="0.20999999344348907471"/>
+            <Control type="ScriptSlider" id="clickAttackKnob" value="0.40999999642372131348"/>
+            <Control type="ScriptSlider" id="reverbAmountKnob" value="-100"/>
+            <Control type="ScriptSlider" id="reverbSizeKnob" value="0.80000001192092895508"/>
+            <Control type="ScriptSlider" id="reverbColourKnob" value="0.73000001907348632813"/>
+            <Control type="ScriptSlider" id="predelayKnob" value="17"/>
+            <Control type="ScriptButton" id="releaseTriggerButton" value="0"/>
+            <Control type="ScriptButton" id="noteOffButton" value="0"/>
           </Content>
+          <UIData>
+            <ContentProperties DeviceType="Desktop">
+              <Component type="ScriptPanel" id="presetDecButton" x="290" y="7" width="20"
+                         height="20" tooltip="Load previous user preset" allowCallbacks="Clicks &amp; Hover"/>
+              <Component type="ScriptPanel" id="presetIncButton" x="482" y="7" width="20"
+                         height="20" tooltip="Load next user preset" allowCallbacks="Clicks &amp; Hover"/>
+              <Component type="ScriptPanel" id="presetDisplayPanel" x="314" y="4" width="163"
+                         height="25" tooltip="Click to show the Preset browser" allowCallbacks="Clicks &amp; Hover"/>
+              <Component type="ScriptImage" id="bgImage" x="0" y="40" fileName="{PROJECT_FOLDER}Background.png"
+                         width="505" height="252"/>
+              <Component type="ScriptSlider" id="modWheelAttKnob" x="87" y="139" style="Knob"
+                         middlePosition="-1" stepSize="0.010000000000000000208" min="0"
+                         max="1" suffix="" filmstripImage="{PROJECT_FOLDER}knob_128frames.png"
+                         width="32" height="38" numStrips="128" tooltip="Dampens the velocity according to the modwheel position"/>
+              <Component type="ScriptSlider" id="clickAttackKnob" x="212" y="139" style="Knob"
+                         middlePosition="-1" stepSize="0.010000000000000000208" min="0"
+                         max="1" suffix="" filmstripImage="{PROJECT_FOLDER}knob_128frames.png"
+                         width="32" height="38" numStrips="128" tooltip="Controls the volume of the click noise"/>
+              <Component type="ScriptSlider" id="reverbAmountKnob" x="345" y="139" style="Knob"
+                         middlePosition="-12" stepSize="0.10000000000000000555" min="-100"
+                         max="0" suffix="" filmstripImage="{PROJECT_FOLDER}knob_128frames.png"
+                         width="32" height="38" numStrips="128" tooltip="Controls the reverb amount"/>
+              <Component type="ScriptSlider" id="reverbSizeKnob" x="419" y="139" style="Knob"
+                         middlePosition="-1" stepSize="0.010000000000000000208" min="0"
+                         max="1" suffix="" filmstripImage="{PROJECT_FOLDER}knob_128frames.png"
+                         width="32" height="38" numStrips="128" tooltip="Controls the room size of the reverb"/>
+              <Component type="ScriptSlider" id="reverbColourKnob" x="419" y="214" style="Knob"
+                         middlePosition="-1" stepSize="0.010000000000000000208" min="0"
+                         max="1" suffix="" filmstripImage="{PROJECT_FOLDER}knob_128frames.png"
+                         width="32" height="38" numStrips="128" tooltip="Controls the timbre of the reverb"/>
+              <Component type="ScriptSlider" id="predelayKnob" x="344" y="214" style="Knob"
+                         middlePosition="-1" stepSize="1" max="50" suffix="" filmstripImage="{PROJECT_FOLDER}knob_128frames.png"
+                         width="32" height="38" numStrips="128" tooltip="Controls the predelay of the reverb"/>
+              <Component type="ScriptButton" id="releaseTriggerButton" x="75" y="238"
+                         width="56" height="22" filmstripImage="{PROJECT_FOLDER}onoffSwitch.png"
+                         tooltip="Enables a muted ring off sound"/>
+              <Component type="ScriptButton" id="noteOffButton" x="207" y="239" width="48"
+                         height="20" filmstripImage="{PROJECT_FOLDER}switch.png" tooltip="Lets the note ring off naturally (ignores note offs)"/>
+              <Component type="ScriptPanel" id="settingsButton" x="5" y="5" width="24"
+                         height="28" tooltip="Show the audio settings dialogue" allowCallbacks="Clicks &amp; Hover"
+                         visible="0"/>
+              <Component type="ScriptFloatingTile" id="PerformanceLabel" x="31" y="2"
+                         width="186" height="32"/>
+              <Component type="ScriptPanel" id="outputMeter" x="328" y="72" width="28"
+                         height="28" bgColour="3815994" itemColour="2298478591" itemColour2="2284333096"
+                         textColour="4283782485"/>
+              <Component type="ScriptFloatingTile" id="Tooltips" x="27" y="41" width="453"
+                         height="26"/>
+              <Component type="ScriptFloatingTile" id="Keyboard" x="0" y="292" width="505"
+                         height="72"/>
+            </ContentProperties>
+          </UIData>
+        </Processor>
+        <Processor Type="ScriptProcessor" ID="ModwheelHandler" Bypassed="0">
+          <ChildProcessors/>
+          <Content>
+            <Control type="ScriptSlider" id="amount" value="0.20999999344348907471"/>
+          </Content>
+          <UIData>
+            <ContentProperties DeviceType="Desktop">
+              <Component type="ScriptSlider" id="amount" x="0" y="0" style="Knob" middlePosition="-1"
+                         stepSize="0.010000000000000000208" min="0" max="1" suffix=""
+                         filmstripImage="Use default skin"/>
+            </ContentProperties>
+          </UIData>
         </Processor>
       </ChildProcessors>
     </Processor>
@@ -22,13 +94,68 @@
       <ChildProcessors/>
     </Processor>
     <Processor Type="EffectChain" ID="FX" Bypassed="0">
-      <ChildProcessors/>
+      <ChildProcessors>
+        <Processor Type="RouteFX" ID="Routing Matrix" Bypassed="0">
+          <ChildProcessors/>
+          <RoutingMatrix NumSourceChannels="4" Channel0="0" Send0="2" Channel1="1" Send1="3"
+                         Channel2="-1" Send2="-1" Channel3="-1" Send3="-1"/>
+        </Processor>
+        <Processor Type="SimpleGain" ID="ReverbSendGain" Bypassed="0" Gain="-100"
+                   Delay="17" Width="100" Balance="0">
+          <ChildProcessors>
+            <Processor Type="ModulatorChain" ID="Gain Modulation" Bypassed="0" Intensity="1">
+              <ChildProcessors/>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="Delay Modulation" Bypassed="0" Intensity="1">
+              <ChildProcessors/>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="Width Modulation" Bypassed="0" Intensity="1">
+              <ChildProcessors/>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="Pan Modulation" Bypassed="0" Intensity="1">
+              <ChildProcessors/>
+            </Processor>
+          </ChildProcessors>
+          <RoutingMatrix NumSourceChannels="4" Channel0="-1" Send0="-1" Channel1="-1"
+                         Send1="-1" Channel2="2" Send2="-1" Channel3="3" Send3="-1"/>
+        </Processor>
+        <Processor Type="SimpleReverb" ID="Simple Reverb" Bypassed="0" RoomSize="0.80000001192092895508"
+                   Damping="0.73000001907348632813" WetLevel="1" DryLevel="0" Width="0.80000001192092895508"
+                   FreezeMode="0.10000000149011611938">
+          <ChildProcessors/>
+          <RoutingMatrix NumSourceChannels="4" Channel0="-1" Send0="-1" Channel1="-1"
+                         Send1="-1" Channel2="2" Send2="-1" Channel3="3" Send3="-1"/>
+        </Processor>
+        <Processor Type="SimpleGain" ID="Master Gain" Bypassed="0" Gain="0" Delay="0"
+                   Width="100" Balance="0">
+          <ChildProcessors>
+            <Processor Type="ModulatorChain" ID="Gain Modulation" Bypassed="0" Intensity="1">
+              <ChildProcessors/>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="Delay Modulation" Bypassed="0" Intensity="1">
+              <ChildProcessors/>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="Width Modulation" Bypassed="0" Intensity="1">
+              <ChildProcessors/>
+            </Processor>
+            <Processor Type="ModulatorChain" ID="Pan Modulation" Bypassed="0" Intensity="1">
+              <ChildProcessors/>
+            </Processor>
+          </ChildProcessors>
+          <RoutingMatrix NumSourceChannels="4" Channel0="0" Send0="-1" Channel1="1" Send1="-1"
+                         Channel2="-1" Send2="-1" Channel3="-1" Send3="-1"/>
+        </Processor>
+      </ChildProcessors>
     </Processor>
-    <Processor Type="StreamingSampler" ID="MySampler" Bypassed="0" Gain="1"
+    <Processor Type="StreamingSampler" ID="Musicbox Samples" Bypassed="0" Gain="1"
                Balance="0" VoiceLimit="128" KillFadeTime="20" IconColour="0"
-               PreloadSize="8192" BufferSize="4096" VoiceAmount="128" SamplerRepeatMode="-8.4215046e+08"
+               PreloadSize="8192" BufferSize="4096" VoiceAmount="128" SamplerRepeatMode="-2147483648"
                RRGroupAmount="1" PitchTracking="1" OneShot="0" CrossfadeGroups="0"
-               Purged="0" Reversed="0" NumChannels="1" SampleMap="">
+               Purged="0" Reversed="0" NumChannels="1" Group0Table="24...............vO...f+....9C...vO"
+               Group1Table="24...............vO...f+....9C...vO" Group2Table="24...............vO...f+....9C...vO"
+               Group3Table="24...............vO...f+....9C...vO" Group4Table="24...............vO...f+....9C...vO"
+               Group5Table="24...............vO...f+....9C...vO" Group6Table="24...............vO...f+....9C...vO"
+               Group7Table="24...............vO...f+....9C...vO" SampleMap="">
       <ChildProcessors>
         <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
           <ChildProcessors/>
@@ -44,16 +171,29 @@
                 </Processor>
               </ChildProcessors>
             </Processor>
+            <Processor Type="Velocity" ID="Sampler Gain Velocity" Bypassed="0" Intensity="1"
+                       UseTable="1" Inverted="0" DecibelMode="0" VelocityTableData="24...............vO...f+....9C...ZO">
+              <ChildProcessors/>
+            </Processor>
           </ChildProcessors>
         </Processor>
         <Processor Type="ModulatorChain" ID="PitchModulation" Bypassed="0" Intensity="0">
-          <ChildProcessors/>
+          <ChildProcessors>
+            <Processor Type="Constant" ID="Constant" Bypassed="0" Intensity="-1">
+              <ChildProcessors/>
+            </Processor>
+          </ChildProcessors>
         </Processor>
         <Processor Type="EffectChain" ID="FX" Bypassed="0">
           <ChildProcessors/>
         </Processor>
         <Processor Type="ModulatorChain" ID="Sample Start" Bypassed="0" Intensity="1">
-          <ChildProcessors/>
+          <ChildProcessors>
+            <Processor Type="Velocity" ID="Sample Start Velocity" Bypassed="0" Intensity="1"
+                       UseTable="1" Inverted="0" DecibelMode="0" VelocityTableData="24...............vO...f+....9C...ZO">
+              <ChildProcessors/>
+            </Processor>
+          </ChildProcessors>
         </Processor>
         <Processor Type="ModulatorChain" ID="Group Fade" Bypassed="0" Intensity="1">
           <ChildProcessors/>
@@ -63,18 +203,238 @@
       <channels>
         <channelData enabled="1" level="0" suffix=""/>
       </channels>
-      <samplemap ID="First SampleMap" SaveMode="2" RRGroupAmount="1" MicPositions=";">
-        <sample ID="0" FileName="{PROJECT_FOLDER}Musicbox_A0_0_127.wav" Root="45"
-                HiKey="45" LoKey="45" LoVel="0" HiVel="127" RRGroup="1" Volume="0"
+      <samplemap ID="MusicBoxSampleMap" SaveMode="2" RRGroupAmount="1" MicPositions=";">
+        <sample ID="0" FileName="{PROJECT_FOLDER}Musicbox_A0_0_127.wav" Root="57"
+                HiKey="58" LoKey="57" LoVel="0" HiVel="127" RRGroup="1" Volume="0"
                 Pan="0" Normalized="0" Pitch="0" SampleStart="0" SampleEnd="221465"
                 SampleStartMod="0" LoopStart="0" LoopEnd="221465" LoopXFade="0"
                 LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
                 SampleState="0" NormalizedPeak="-1" MonolithOffset="0" MonolithLength="225280"
                 SampleRate="44100" Duplicate="0"/>
+        <sample ID="1" FileName="{PROJECT_FOLDER}Musicbox_A1_0_127.wav" Root="69"
+                HiKey="70" LoKey="69" LoVel="0" HiVel="127" RRGroup="1" Volume="0"
+                Pan="0" Normalized="0" Pitch="0" SampleStart="0" SampleEnd="159702"
+                SampleStartMod="0" LoopStart="0" LoopEnd="159702" LoopXFade="0"
+                LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+                SampleState="0" NormalizedPeak="-1" MonolithOffset="225280" MonolithLength="159744"
+                SampleRate="44100" Duplicate="0"/>
+        <sample ID="2" FileName="{PROJECT_FOLDER}Musicbox_B0_0_127.wav" Root="59"
+                HiKey="60" LoKey="59" LoVel="0" HiVel="127" RRGroup="1" Volume="0"
+                Pan="0" Normalized="0" Pitch="0" SampleStart="0" SampleEnd="210233"
+                SampleStartMod="0" LoopStart="0" LoopEnd="210233" LoopXFade="0"
+                LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+                SampleState="0" NormalizedPeak="-1" MonolithOffset="385024" MonolithLength="212992"
+                SampleRate="44100" Duplicate="0"/>
+        <sample ID="3" FileName="{PROJECT_FOLDER}Musicbox_B1_0_127.wav" Root="71"
+                HiKey="72" LoKey="71" LoVel="0" HiVel="127" RRGroup="1" Volume="0"
+                Pan="0" Normalized="0" Pitch="0" SampleStart="0" SampleEnd="117807"
+                SampleStartMod="0" LoopStart="0" LoopEnd="117807" LoopXFade="0"
+                LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+                SampleState="0" NormalizedPeak="-1" MonolithOffset="598016" MonolithLength="118784"
+                SampleRate="44100" Duplicate="0"/>
+        <sample ID="4" FileName="{PROJECT_FOLDER}Musicbox_C#1_0_127.wav" Root="61"
+                HiKey="65" LoKey="61" LoVel="0" HiVel="127" RRGroup="1" Volume="0"
+                Pan="0" Normalized="0" Pitch="0" SampleStart="0" SampleEnd="278611"
+                SampleStartMod="0" LoopStart="0" LoopEnd="278611" LoopXFade="0"
+                LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+                SampleState="0" NormalizedPeak="-1" MonolithOffset="716800" MonolithLength="282624"
+                SampleRate="44100" Duplicate="0"/>
+        <sample ID="5" FileName="{PROJECT_FOLDER}Musicbox_C#2_0_127.wav" Root="73"
+                HiKey="73" LoKey="73" LoVel="0" HiVel="127" RRGroup="1" Volume="0"
+                Pan="0" Normalized="0" Pitch="0" SampleStart="0" SampleEnd="126558"
+                SampleStartMod="0" LoopStart="0" LoopEnd="126558" LoopXFade="0"
+                LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+                SampleState="0" NormalizedPeak="-1" MonolithOffset="999424" MonolithLength="126976"
+                SampleRate="44100" Duplicate="0"/>
+        <sample ID="6" FileName="{PROJECT_FOLDER}Musicbox_D0_0_127.wav" Root="50"
+                HiKey="51" LoKey="50" LoVel="0" HiVel="127" RRGroup="1" Volume="0"
+                Pan="0" Normalized="0" Pitch="0" SampleStart="0" SampleEnd="221925"
+                SampleStartMod="0" LoopStart="0" LoopEnd="221925" LoopXFade="0"
+                LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+                SampleState="0" NormalizedPeak="-1" MonolithOffset="1126400"
+                MonolithLength="225280" SampleRate="44100" Duplicate="0"/>
+        <sample ID="7" FileName="{PROJECT_FOLDER}Musicbox_D2_0_127.wav" Root="74"
+                HiKey="75" LoKey="74" LoVel="0" HiVel="127" RRGroup="1" Volume="0"
+                Pan="0" Normalized="0" Pitch="0" SampleStart="0" SampleEnd="143233"
+                SampleStartMod="0" LoopStart="0" LoopEnd="143233" LoopXFade="0"
+                LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+                SampleState="0" NormalizedPeak="-1" MonolithOffset="1351680"
+                MonolithLength="143360" SampleRate="44100" Duplicate="0"/>
+        <sample ID="8" FileName="{PROJECT_FOLDER}Musicbox_E0_0_127.wav" Root="52"
+                HiKey="53" LoKey="52" LoVel="0" HiVel="127" RRGroup="1" Volume="0"
+                Pan="0" Normalized="0" Pitch="0" SampleStart="0" SampleEnd="262144"
+                SampleStartMod="0" LoopStart="0" LoopEnd="262144" LoopXFade="0"
+                LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+                SampleState="0" NormalizedPeak="-1" MonolithOffset="1495040"
+                MonolithLength="262144" SampleRate="44100" Duplicate="0"/>
+        <sample ID="9" FileName="{PROJECT_FOLDER}Musicbox_E2_0_127.wav" Root="76"
+                HiKey="76" LoKey="76" LoVel="0" HiVel="127" RRGroup="1" Volume="0"
+                Pan="0" Normalized="0" Pitch="0" SampleStart="0" SampleEnd="131072"
+                SampleStartMod="0" LoopStart="0" LoopEnd="131072" LoopXFade="0"
+                LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+                SampleState="0" NormalizedPeak="-1" MonolithOffset="1757184"
+                MonolithLength="131072" SampleRate="44100" Duplicate="0"/>
+        <sample ID="10" FileName="{PROJECT_FOLDER}Musicbox_F#0_0_127.wav" Root="54"
+                HiKey="56" LoKey="54" LoVel="0" HiVel="127" RRGroup="1" Volume="0"
+                Pan="0" Normalized="0" Pitch="0" SampleStart="0" SampleEnd="196608"
+                SampleStartMod="0" LoopStart="0" LoopEnd="196608" LoopXFade="0"
+                LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+                SampleState="0" NormalizedPeak="-1" MonolithOffset="1888256"
+                MonolithLength="196608" SampleRate="44100" Duplicate="0"/>
+        <sample ID="11" FileName="{PROJECT_FOLDER}Musicbox_F#1_0_127.wav" Root="66"
+                HiKey="68" LoKey="66" LoVel="0" HiVel="127" RRGroup="1" Volume="0"
+                Pan="0" Normalized="0" Pitch="0" SampleStart="0" SampleEnd="161884"
+                SampleStartMod="0" LoopStart="0" LoopEnd="161884" LoopXFade="0"
+                LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+                SampleState="0" NormalizedPeak="-1" MonolithOffset="2084864"
+                MonolithLength="163840" SampleRate="44100" Duplicate="0"/>
       </samplemap>
     </Processor>
+    <Processor Type="SineSynth" ID="Ring Off Sound" Bypassed="0" Gain="0.11614484339952468872"
+               Balance="0" VoiceLimit="128" KillFadeTime="20" IconColour="0"
+               OctaveTranspose="1" SemiTones="0" UseFreqRatio="0" CoarseFreqRatio="1"
+               FineFreqRatio="0" SaturationAmount="0">
+      <ChildProcessors>
+        <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
+          <ChildProcessors>
+            <Processor Type="ReleaseTrigger" ID="Release Trigger" Bypassed="0">
+              <ChildProcessors/>
+              <Content>
+                <Control type="ScriptButton" id="TimeAttenuate" value="1"/>
+                <Control type="ScriptSlider" id="Time" value="6.0999999000000002525"/>
+                <Control type="ScriptTable" id="TimeTable" value="0" data="24..........9C...vO...f+.........3O"/>
+              </Content>
+            </Processor>
+            <Processor Type="MidiMuter" ID="MidiMuter" Bypassed="0">
+              <ChildProcessors/>
+              <Content>
+                <Control type="ScriptButton" id="ignoreButton" value="1"/>
+                <Control type="ScriptButton" id="fixStuckNotes" value="0"/>
+              </Content>
+            </Processor>
+          </ChildProcessors>
+        </Processor>
+        <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1">
+          <ChildProcessors>
+            <Processor Type="Velocity" ID="Sine Attenuator" Bypassed="0" Intensity="1"
+                       UseTable="1" Inverted="0" DecibelMode="0" VelocityTableData="24...............vO...f+....9C...lO">
+              <ChildProcessors/>
+            </Processor>
+            <Processor Type="AHDSR" ID="AHDSR Envelope" Bypassed="0" Monophonic="0"
+                       Retrigger="1" Intensity="1" AttackCurve="0" DecayCurve="0" Attack="39"
+                       AttackLevel="0" Hold="10" Decay="567" Sustain="-100" Release="20">
+              <ChildProcessors>
+                <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1">
+                  <ChildProcessors/>
+                </Processor>
+                <Processor Type="ModulatorChain" ID="Attack Level" Bypassed="0" Intensity="1">
+                  <ChildProcessors/>
+                </Processor>
+                <Processor Type="ModulatorChain" ID="Decay Time" Bypassed="0" Intensity="1">
+                  <ChildProcessors/>
+                </Processor>
+                <Processor Type="ModulatorChain" ID="Sustain Level" Bypassed="0" Intensity="1">
+                  <ChildProcessors/>
+                </Processor>
+                <Processor Type="ModulatorChain" ID="Release Time" Bypassed="0" Intensity="1">
+                  <ChildProcessors/>
+                </Processor>
+              </ChildProcessors>
+            </Processor>
+          </ChildProcessors>
+        </Processor>
+        <Processor Type="ModulatorChain" ID="PitchModulation" Bypassed="0" Intensity="0">
+          <ChildProcessors/>
+        </Processor>
+        <Processor Type="EffectChain" ID="FX" Bypassed="0">
+          <ChildProcessors/>
+        </Processor>
+      </ChildProcessors>
+      <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+    </Processor>
+    <Processor Type="Noise" ID="Mallet Click" Bypassed="0" Gain="0.40999999642372131348"
+               Balance="0" VoiceLimit="128" KillFadeTime="20" IconColour="0">
+      <ChildProcessors>
+        <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
+          <ChildProcessors/>
+        </Processor>
+        <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1">
+          <ChildProcessors>
+            <Processor Type="AHDSR" ID="AHDSR Envelope2" Bypassed="0" Monophonic="0"
+                       Retrigger="0" Intensity="1" AttackCurve="0" DecayCurve="0" Attack="0"
+                       AttackLevel="0" Hold="10" Decay="235" Sustain="-100" Release="20">
+              <ChildProcessors>
+                <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1">
+                  <ChildProcessors/>
+                </Processor>
+                <Processor Type="ModulatorChain" ID="Attack Level" Bypassed="0" Intensity="1">
+                  <ChildProcessors/>
+                </Processor>
+                <Processor Type="ModulatorChain" ID="Decay Time" Bypassed="0" Intensity="1">
+                  <ChildProcessors/>
+                </Processor>
+                <Processor Type="ModulatorChain" ID="Sustain Level" Bypassed="0" Intensity="1">
+                  <ChildProcessors/>
+                </Processor>
+                <Processor Type="ModulatorChain" ID="Release Time" Bypassed="0" Intensity="1">
+                  <ChildProcessors/>
+                </Processor>
+              </ChildProcessors>
+            </Processor>
+            <Processor Type="Velocity" ID="Velocity Modulator4" Bypassed="0" Intensity="1"
+                       UseTable="1" Inverted="0" DecibelMode="0" VelocityTableData="24...............vO...f+....9SxLyeO">
+              <ChildProcessors/>
+            </Processor>
+          </ChildProcessors>
+        </Processor>
+        <Processor Type="ModulatorChain" ID="PitchModulation" Bypassed="0" Intensity="0">
+          <ChildProcessors/>
+        </Processor>
+        <Processor Type="EffectChain" ID="FX" Bypassed="0">
+          <ChildProcessors>
+            <Processor Type="PolyphonicFilter" ID="Polyphonic Filter" Bypassed="0" Gain="1.1378916501998901367"
+                       Frequency="309.17999267578125" Q="5.5999999046325683594" Mode="6"
+                       Quality="-842150464" BipolarIntensity="0">
+              <ChildProcessors>
+                <Processor Type="ModulatorChain" ID="Frequency Modulation" Bypassed="0"
+                           Intensity="1">
+                  <ChildProcessors>
+                    <Processor Type="Random" ID="Random Modulator" Bypassed="0" Intensity="0.21999999880790710449"
+                               UseTable="0">
+                      <ChildProcessors/>
+                    </Processor>
+                    <Processor Type="Velocity" ID="Velocity Modulator3" Bypassed="0" Intensity="0.30000001192092895508"
+                               UseTable="0" Inverted="0" DecibelMode="0">
+                      <ChildProcessors/>
+                    </Processor>
+                  </ChildProcessors>
+                </Processor>
+                <Processor Type="ModulatorChain" ID="Gain Modulation" Bypassed="0" Intensity="1">
+                  <ChildProcessors/>
+                </Processor>
+                <Processor Type="ModulatorChain" ID="Bipolar Freq Modulation" Bypassed="0"
+                           Intensity="1">
+                  <ChildProcessors/>
+                </Processor>
+              </ChildProcessors>
+            </Processor>
+            <Processor Type="PhaseFX" ID="Phase FX" Bypassed="0" Frequency1="0" Frequency2="0"
+                       Feedback="0.69999998807907104492" Mix="1">
+              <ChildProcessors>
+                <Processor Type="ModulatorChain" ID="Phase Modulation" Bypassed="0" Intensity="1">
+                  <ChildProcessors/>
+                </Processor>
+              </ChildProcessors>
+              <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+            </Processor>
+          </ChildProcessors>
+        </Processor>
+      </ChildProcessors>
+      <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+    </Processor>
   </ChildProcessors>
-  <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+  <RoutingMatrix NumSourceChannels="4" Channel0="0" Send0="-1" Channel1="1" Send1="-1"
+                 Channel2="0" Send2="-1" Channel3="1" Send3="-1"/>
   <macro_controls>
     <macro name="Macro 1" value="0" midi_cc="-1"/>
     <macro name="Macro 2" value="0" midi_cc="-1"/>

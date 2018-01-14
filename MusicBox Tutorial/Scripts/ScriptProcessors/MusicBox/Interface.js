@@ -186,7 +186,7 @@ function onControl(number, value)
 		}
 		case releaseTriggerButton:
 		{
-			MidiMuter.setAttribute(MidiMuter.ScriptedParameters.ignoreButton, !value);
+			MidiMuter.setAttribute(MidiMuter.ignoreButton, !value);
 			break;
 		}
 		case predelayKnob:
@@ -206,7 +206,7 @@ function onControl(number, value)
 		}
 		case modWheelAttKnob:
 		{
-			ModwheelHandler.setAttribute(ModwheelHandler.ScriptedParameters.amount, value);
+			ModwheelHandler.setAttribute(ModwheelHandler.amount, value);
 			break;
 		}
 		case noteOffButton:

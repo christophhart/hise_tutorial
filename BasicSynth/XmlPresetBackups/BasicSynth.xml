@@ -2,7 +2,7 @@
 
 <Processor Type="SynthChain" ID="BasicSynth" Bypassed="0" Gain="1" Balance="0"
            VoiceLimit="64" KillFadeTime="20" IconColour="0" packageName=""
-           views="32.rk1bzA...zbyM2byM2byM2byM2byM2byM2byM2byM2L" currentView="-1"
+           views="32.rk1bzA................eLBB.ffA............." currentView="-1"
            BuildVersion="650">
   <ChildProcessors>
     <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
@@ -10,27 +10,27 @@
         <Processor Type="ScriptProcessor" ID="Interface" Bypassed="0">
           <ChildProcessors/>
           <Content>
-            <Control type="ScriptSlider" id="Unisono Amount" value="1"/>
+            <Control type="ScriptSlider" id="UnisonoSlider" value="0"/>
             <Control type="ScriptComboBox" id="Waveform Selector" value="3"/>
-            <Control type="ScriptSlider" id="DetuneKnob" value="0"/>
+            <Control type="ScriptSlider" id="DetuneSlider" value="0"/>
             <Control type="ScriptLabel" id="ScriptLabel1" value="Voice Amount         Detune"/>
             <Control type="ScriptLabel" id="ScriptLabel2" value="OSC"/>
-            <Control type="ScriptSlider" id="Knob1" value="0"/>
-            <Control type="ScriptSlider" id="Knob2" value="201"/>
-            <Control type="ScriptSlider" id="Knob3" value="2283"/>
-            <Control type="ScriptSlider" id="Knob4" value="0"/>
-            <Control type="ScriptSlider" id="Knob5" value="180"/>
+            <Control type="ScriptSlider" id="GainAttackSlider" value="0"/>
+            <Control type="ScriptSlider" id="GainHoldSlider" value="0"/>
+            <Control type="ScriptSlider" id="GainDecaySlider" value="0"/>
+            <Control type="ScriptSlider" id="GainSustainSlider" value="0"/>
+            <Control type="ScriptSlider" id="GainReleaseSlider" value="0"/>
             <Control type="ScriptSlider" id="Unisono Amount1" value="165"/>
             <Control type="ScriptLabel" id="ScriptLabel3" value="Attack Time"/>
             <Control type="ScriptLabel" id="ScriptLabel4" value="AMP"/>
             <Control type="ScriptLabel" id="ScriptLabel5" value="Release Time"/>
-            <Control type="ScriptSlider" id="Unisono Amount9" value="0"/>
+            <Control type="ScriptSlider" id="GainSlider" value="0"/>
             <Control type="ScriptLabel" id="ScriptLabel16" value="Gain"/>
             <Control type="ScriptLabel" id="ScriptLabel17" value="Key"/>
-            <Control type="ScriptSlider" id="Unisono Amount10" value="0.82999998331069946289"/>
+            <Control type="ScriptSlider" id="KeySlider" value="0"/>
             <Control type="ScriptLabel" id="ScriptLabel18" value="LFO"/>
-            <Control type="ScriptSlider" id="Unisono Amount11" value="0"/>
-            <Control type="ScriptSlider" id="Unisono Amount12" value="1"/>
+            <Control type="ScriptSlider" id="GainLFOSlider" value="0"/>
+            <Control type="ScriptSlider" id="GainVelocitySlider" value="0"/>
             <Control type="ScriptLabel" id="ScriptLabel19" value="Velocity"/>
             <Control type="ScriptLabel" id="ScriptLabel44" value="Attack"/>
             <Control type="ScriptLabel" id="ScriptLabel45" value="Hold"/>
@@ -39,30 +39,30 @@
             <Control type="ScriptLabel" id="ScriptLabel56" value="Release"/>
             <Control type="ScriptLabel" id="ScriptLabel57" value="ENVELOPE"/>
             <Control type="ScriptLabel" id="ScriptLabel58" value="ENVELOPE"/>
-            <Control type="ScriptSlider" id="Knob6" value="-28.100000381469726563"/>
-            <Control type="ScriptSlider" id="Knob7" value="605"/>
-            <Control type="ScriptSlider" id="Knob8" value="0"/>
-            <Control type="ScriptSlider" id="Knob9" value="0"/>
-            <Control type="ScriptSlider" id="Knob10" value="9802"/>
+            <Control type="ScriptSlider" id="FilterSustainSlider" value="0"/>
+            <Control type="ScriptSlider" id="FilterDecaySlider" value="0"/>
+            <Control type="ScriptSlider" id="FilterHoldSlider" value="0"/>
+            <Control type="ScriptSlider" id="FilterAttackSlider" value="0"/>
+            <Control type="ScriptSlider" id="FilterReleaseSlider" value="0"/>
             <Control type="ScriptLabel" id="ScriptLabel59" value="Release"/>
             <Control type="ScriptLabel" id="ScriptLabel60" value="Sustain"/>
             <Control type="ScriptLabel" id="ScriptLabel61" value="Decay"/>
             <Control type="ScriptLabel" id="ScriptLabel62" value="Hold"/>
             <Control type="ScriptLabel" id="ScriptLabel63" value="Attack"/>
-            <Control type="ScriptSlider" id="Unisono Amount3" value="20000"/>
+            <Control type="ScriptSlider" id="FilterCuttoffSlider" value="0"/>
             <Control type="ScriptLabel" id="ScriptLabel7" value="Cutoff"/>
             <Control type="ScriptLabel" id="ScriptLabel9" value="Q"/>
-            <Control type="ScriptSlider" id="Unisono Amount4" value="1"/>
+            <Control type="ScriptSlider" id="FilterResonanceSlider" value="0"/>
             <Control type="ScriptLabel" id="ScriptLabel10" value="Envelope"/>
-            <Control type="ScriptSlider" id="Unisono Amount5" value="0"/>
-            <Control type="ScriptSlider" id="Unisono Amount6" value="0"/>
+            <Control type="ScriptSlider" id="Unisono Amount5" value="0.28999999165534973145"/>
+            <Control type="ScriptSlider" id="FilterVelocitySlider" value="0"/>
             <Control type="ScriptLabel" id="ScriptLabel11" value="Velocity"/>
             <Control type="ScriptLabel" id="ScriptLabel12" value="FILTER"/>
-            <Control type="ScriptSlider" id="Unisono Amount8" value="0"/>
+            <Control type="ScriptSlider" id="FilterLFOSlider" value="0"/>
             <Control type="ScriptLabel" id="ScriptLabel15" value="LFO"/>
-            <Control type="ScriptSlider" id="Unisono Amount7" value="1"/>
+            <Control type="ScriptSlider" id="FrequencySlider" value="0"/>
             <Control type="ScriptComboBox" id="Waveform Selector1" value="1"/>
-            <Control type="ScriptSlider" id="DetuneKnob3" value="0"/>
+            <Control type="ScriptSlider" id="SmoothingSlider" value="0"/>
             <Control type="ScriptLabel" id="ScriptLabel13" value="Frequency       Smoothing"/>
             <Control type="ScriptLabel" id="ScriptLabel14" value="LFO"/>
             <Control type="ScriptSlider" id="PhaserLowSlider" value="428"/>
@@ -124,6 +124,7 @@
             <Control type="ScriptLabel" id="ScriptLabel21" value="S Y N T H"/>
             <Control type="ScriptLabel" id="ScriptLabel22" value="P R E S E T S"/>
             <Control type="ScriptLabel" id="ScriptLabel23" value="S E T T I N G S"/>
+            <Control type="ScriptLabel" id="ScriptLabel23" value="S E T T I N G S"/>
           </Content>
           <UIData>
             <ContentProperties DeviceType="Desktop">
@@ -133,25 +134,26 @@
                 <Component type="ScriptPanel" id="SynthPage" x="0" y="0" width="1008" height="465"
                            parentComponent="Background" itemColour="0" textColour="16777215"
                            itemColour2="0">
-                  <Component type="ScriptPanel" id="OscPanel" x="13" y="54" width="218" height="194"
+                  <Component type="ScriptPanel" id="OscPanel" x="13" y="51" width="218" height="194"
                              parentComponent="SynthPage" itemColour2="1814834220" borderSize="1"
                              itemColour="812280426" textColour="268435455">
-                    <Component type="ScriptSlider" id="Unisono Amount" x="36" y="113" width="64"
+                    <Component type="ScriptSlider" id="UnisonoSlider" x="36" y="113" width="64"
                                height="64" filmstripImage="{PROJECT_FOLDER}Knob.png" numStrips="64"
                                stepSize="1.0" max="7" min="1" tooltip="Unisono Voice Amount: {VALUE}"
                                processorId="Syntesizer Group" parameterId="UnisonoVoiceAmount"
-                               parentComponent="OscPanel" showValuePopup="Below" scaleFactor="0.5"/>
+                               parentComponent="OscPanel" showValuePopup="Below" scaleFactor="0.5"
+                               isPluginParameter="1" pluginParameterName="Voice Amount"/>
                     <Component type="ScriptComboBox" id="Waveform Selector" x="44" y="53" width="128"
                                height="32" max="4" itemColour="134217727" itemColour2="1118481"
                                bgColour="16777215" items="Sine&#10;Triangle&#10;Saw&#10;Square&#10;&#10;"
                                text="Waveform" processorId="Waveform Generator" parameterId="WaveForm1"
-                               parentComponent="OscPanel"/>
-                    <Component type="ScriptSlider" id="DetuneKnob" x="128" y="113" width="64"
+                               parentComponent="OscPanel" isPluginParameter="1" pluginParameterName="OSC Waveform"/>
+                    <Component type="ScriptSlider" id="DetuneSlider" x="128" y="113" width="64"
                                height="64" filmstripImage="{PROJECT_FOLDER}Knob.png" numStrips="64"
                                text="Detune" tooltip="Unisono Detune: {VALUE}" mode="NormalizedPercentage"
                                suffix="%" middlePosition="0.5" processorId="Syntesizer Group"
                                parameterId="UnisonoDetune" parentComponent="OscPanel" showValuePopup="Below"
-                               scaleFactor="0.5"/>
+                               scaleFactor="0.5" isPluginParameter="1" pluginParameterName="Detune"/>
                     <Component type="ScriptLabel" id="ScriptLabel1" x="12" y="92" width="186"
                                height="26" editable="0" fontName="Oxygen" fontStyle="Bold" fontSize="16"
                                text="Voice Amount         Detune" parentComponent="OscPanel"/>
@@ -159,34 +161,37 @@
                                height="30" editable="0" fontName="Oxygen" fontStyle="Bold" fontSize="24"
                                text="OSC" parentComponent="OscPanel" bgColour="301989887"/>
                   </Component>
-                  <Component type="ScriptPanel" id="AmpEnvelopePanel" x="245" y="51" width="370"
+                  <Component type="ScriptPanel" id="AmpEnvelopePanel" x="253" y="51" width="370"
                              height="405" parentComponent="SynthPage" itemColour2="1814834220"
                              borderSize="1" itemColour="812280426" textColour="268435455">
-                    <Component type="ScriptSlider" id="Knob1" x="20" y="191" width="59" height="181"
-                               filmstripImage="{PROJECT_FOLDER}Slider.png" numStrips="100" parentComponent="AmpEnvelopePanel"
-                               processorId="Gain Envelope" mode="Time" max="20000" stepSize="1"
-                               suffix=" ms" middlePosition="999.99999999999977263" parameterId="Attack"
-                               scaleFactor="0.5"/>
-                    <Component type="ScriptSlider" id="Knob2" x="86" y="191" width="59" height="181"
-                               filmstripImage="{PROJECT_FOLDER}Slider.png" numStrips="100" parentComponent="AmpEnvelopePanel"
-                               processorId="Gain Envelope" mode="Time" max="20000" stepSize="1"
-                               suffix=" ms" middlePosition="999.99999999999977263" parameterId="Hold"
-                               scaleFactor="0.5"/>
-                    <Component type="ScriptSlider" id="Knob3" x="152" y="191" width="59" height="181"
-                               filmstripImage="{PROJECT_FOLDER}Slider.png" numStrips="100" parentComponent="AmpEnvelopePanel"
-                               processorId="Gain Envelope" mode="Time" max="20000" stepSize="1"
-                               suffix=" ms" middlePosition="999.99999999999977263" parameterId="Decay"
-                               scaleFactor="0.5"/>
-                    <Component type="ScriptSlider" id="Knob4" x="218" y="191" width="59" height="181"
-                               filmstripImage="{PROJECT_FOLDER}Slider.png" numStrips="100" parentComponent="AmpEnvelopePanel"
-                               processorId="Gain Envelope" mode="Decibel" min="-100" max="0"
-                               stepSize="0.10000000000000000555" suffix=" dB" middlePosition="-18"
-                               parameterId="Sustain" scaleFactor="0.5"/>
-                    <Component type="ScriptSlider" id="Knob5" x="284" y="191" width="59" height="181"
-                               filmstripImage="{PROJECT_FOLDER}Slider.png" numStrips="100" parentComponent="AmpEnvelopePanel"
-                               processorId="Gain Envelope" mode="Time" max="20000" stepSize="1"
-                               suffix=" ms" middlePosition="999.99999999999977263" parameterId="Release"
-                               scaleFactor="0.5"/>
+                    <Component type="ScriptSlider" id="GainAttackSlider" x="20" y="191" width="59"
+                               height="181" filmstripImage="{PROJECT_FOLDER}Slider.png" numStrips="100"
+                               parentComponent="AmpEnvelopePanel" processorId="Gain Envelope"
+                               mode="Time" max="20000" stepSize="1" suffix=" ms" middlePosition="999.99999999999977263"
+                               parameterId="Attack" scaleFactor="0.5" isPluginParameter="1"
+                               pluginParameterName="AMP Attack"/>
+                    <Component type="ScriptSlider" id="GainHoldSlider" x="86" y="191" width="59"
+                               height="181" filmstripImage="{PROJECT_FOLDER}Slider.png" numStrips="100"
+                               parentComponent="AmpEnvelopePanel" processorId="Gain Envelope"
+                               mode="Time" max="20000" stepSize="1" suffix=" ms" middlePosition="999.99999999999977263"
+                               parameterId="Hold" scaleFactor="0.5" isPluginParameter="1" pluginParameterName="AMP Hold"/>
+                    <Component type="ScriptSlider" id="GainDecaySlider" x="152" y="191" width="59"
+                               height="181" filmstripImage="{PROJECT_FOLDER}Slider.png" numStrips="100"
+                               parentComponent="AmpEnvelopePanel" processorId="Gain Envelope"
+                               mode="Time" max="20000" stepSize="1" suffix=" ms" middlePosition="999.99999999999977263"
+                               parameterId="Decay" scaleFactor="0.5" isPluginParameter="1" pluginParameterName="AMP Decay"/>
+                    <Component type="ScriptSlider" id="GainSustainSlider" x="218" y="191" width="59"
+                               height="181" filmstripImage="{PROJECT_FOLDER}Slider.png" numStrips="100"
+                               parentComponent="AmpEnvelopePanel" processorId="Gain Envelope"
+                               mode="Decibel" min="-100" max="0" stepSize="0.10000000000000000555"
+                               suffix=" dB" middlePosition="-18" parameterId="Sustain" scaleFactor="0.5"
+                               isPluginParameter="1" pluginParameterName="AMP Sustain"/>
+                    <Component type="ScriptSlider" id="GainReleaseSlider" x="284" y="191" width="59"
+                               height="181" filmstripImage="{PROJECT_FOLDER}Slider.png" numStrips="100"
+                               parentComponent="AmpEnvelopePanel" processorId="Gain Envelope"
+                               mode="Time" max="20000" stepSize="1" suffix=" ms" middlePosition="999.99999999999977263"
+                               parameterId="Release" scaleFactor="0.5" isPluginParameter="1"
+                               pluginParameterName="AMP Release"/>
                     <Component type="ScriptSlider" id="Unisono Amount1" x="87" y="323" width="64"
                                height="64" filmstripImage="{PROJECT_FOLDER}Knob.png" numStrips="100"
                                stepSize="1" max="20000" tooltip="AMP Envelope Attack Time: {VALUE}"
@@ -202,39 +207,40 @@
                     <Component type="ScriptLabel" id="ScriptLabel5" x="249" y="303" width="96"
                                height="26" editable="0" fontName="Oxygen" fontStyle="Bold" fontSize="16"
                                text="Release Time" parentComponent="AmpEnvelopePanel" visible="0"/>
-                    <Component type="ScriptSlider" id="Unisono Amount9" x="19" y="73" width="64"
+                    <Component type="ScriptSlider" id="GainSlider" x="19" y="73" width="64"
                                height="64" filmstripImage="{PROJECT_FOLDER}Knob.png" numStrips="64"
                                stepSize="0.10000000000000000555" max="0" tooltip="AMP Envelope Attack Time: {VALUE}"
                                processorId="AmpGain" parameterId="Gain" parentComponent="AmpEnvelopePanel"
                                mode="Decibel" suffix=" dB" middlePosition="-18" defaultValue="-12"
-                               showValuePopup="Below" min="-100" scaleFactor="0.5"/>
+                               showValuePopup="Below" min="-100" scaleFactor="0.5" isPluginParameter="1"
+                               pluginParameterName="Gain"/>
                     <Component type="ScriptLabel" id="ScriptLabel16" x="19" y="51" width="64"
                                height="26" editable="0" fontName="Oxygen" fontStyle="Bold" fontSize="16"
                                text="Gain" parentComponent="AmpEnvelopePanel"/>
                     <Component type="ScriptLabel" id="ScriptLabel17" x="108" y="51" width="64"
                                height="26" editable="0" fontName="Oxygen" fontStyle="Bold" fontSize="16"
                                text="Key" parentComponent="AmpEnvelopePanel"/>
-                    <Component type="ScriptSlider" id="Unisono Amount10" x="108" y="74" width="64"
+                    <Component type="ScriptSlider" id="KeySlider" x="108" y="74" width="64"
                                height="64" filmstripImage="{PROJECT_FOLDER}Knob.png" numStrips="64"
                                tooltip="AMP Envelope Attack Time: {VALUE}" processorId="GainKey"
                                parameterId="Intensity" parentComponent="AmpEnvelopePanel" mode="NormalizedPercentage"
                                suffix="%" middlePosition="0.5" defaultValue="40" showValuePopup="Below"
-                               scaleFactor="0.5"/>
+                               scaleFactor="0.5" isPluginParameter="1" pluginParameterName="Key"/>
                     <Component type="ScriptLabel" id="ScriptLabel18" x="197" y="51" width="64"
                                height="26" editable="0" fontName="Oxygen" fontStyle="Bold" fontSize="16"
                                text="LFO" parentComponent="AmpEnvelopePanel"/>
-                    <Component type="ScriptSlider" id="Unisono Amount11" x="197" y="74" width="64"
+                    <Component type="ScriptSlider" id="GainLFOSlider" x="197" y="74" width="64"
                                height="64" filmstripImage="{PROJECT_FOLDER}Knob.png" numStrips="64"
                                tooltip="AMP Envelope Attack Time: {VALUE}" processorId="Gain LFO"
                                parameterId="Intensity" parentComponent="AmpEnvelopePanel" mode="NormalizedPercentage"
                                suffix="%" middlePosition="0.5" defaultValue="40" showValuePopup="Below"
-                               scaleFactor="0.5"/>
-                    <Component type="ScriptSlider" id="Unisono Amount12" x="286" y="77" width="64"
+                               scaleFactor="0.5" isPluginParameter="1" pluginParameterName="Gain LFO Intensity"/>
+                    <Component type="ScriptSlider" id="GainVelocitySlider" x="286" y="77" width="64"
                                height="64" filmstripImage="{PROJECT_FOLDER}Knob.png" numStrips="64"
                                tooltip="AMP Envelope Attack Time: {VALUE}" processorId="VelocityGain"
                                parameterId="Intensity" parentComponent="AmpEnvelopePanel" mode="NormalizedPercentage"
                                suffix="%" middlePosition="0.5" defaultValue="40" showValuePopup="Below"
-                               scaleFactor="0.5"/>
+                               scaleFactor="0.5" isPluginParameter="1" pluginParameterName="Velocity"/>
                     <Component type="ScriptLabel" id="ScriptLabel19" x="286" y="51" width="64"
                                height="26" editable="0" fontName="Oxygen" fontStyle="Bold" fontSize="16"
                                text="Velocity" parentComponent="AmpEnvelopePanel"/>
@@ -257,37 +263,40 @@
                                height="30" editable="0" fontName="Oxygen" fontStyle="Bold" fontSize="24"
                                text="ENVELOPE" parentComponent="AmpEnvelopePanel" bgColour="301989887"/>
                   </Component>
-                  <Component type="ScriptPanel" id="FilterEnvelopePanel" x="625" y="51" width="370"
+                  <Component type="ScriptPanel" id="FilterEnvelopePanel" x="645" y="51" width="370"
                              height="405" parentComponent="SynthPage" itemColour2="1814834220"
                              borderSize="1" itemColour="812280426" textColour="268435455">
                     <Component type="ScriptLabel" id="ScriptLabel58" x="17" y="146" width="323"
                                height="30" editable="0" fontName="Oxygen" fontStyle="Bold" fontSize="24"
                                text="ENVELOPE" parentComponent="FilterEnvelopePanel" bgColour="301989887"/>
-                    <Component type="ScriptSlider" id="Knob6" x="215" y="190" width="59" height="181"
-                               filmstripImage="{PROJECT_FOLDER}Slider.png" numStrips="100" parentComponent="FilterEnvelopePanel"
-                               processorId="FilterEnvelope" mode="Decibel" min="-100" max="0"
-                               stepSize="0.10000000000000000555" suffix=" dB" middlePosition="-18"
-                               parameterId="Sustain" scaleFactor="0.5"/>
-                    <Component type="ScriptSlider" id="Knob7" x="149" y="190" width="59" height="181"
-                               filmstripImage="{PROJECT_FOLDER}Slider.png" numStrips="100" parentComponent="FilterEnvelopePanel"
-                               processorId="FilterEnvelope" mode="Time" max="20000" stepSize="1"
-                               suffix=" ms" middlePosition="999.99999999999977263" parameterId="Decay"
-                               scaleFactor="0.5"/>
-                    <Component type="ScriptSlider" id="Knob8" x="83" y="190" width="59" height="181"
-                               filmstripImage="{PROJECT_FOLDER}Slider.png" numStrips="100" parentComponent="FilterEnvelopePanel"
-                               processorId="FilterEnvelope" mode="Time" max="20000" stepSize="1"
-                               suffix=" ms" middlePosition="999.99999999999977263" parameterId="Hold"
-                               scaleFactor="0.5"/>
-                    <Component type="ScriptSlider" id="Knob9" x="17" y="190" width="59" height="181"
-                               filmstripImage="{PROJECT_FOLDER}Slider.png" numStrips="100" parentComponent="FilterEnvelopePanel"
-                               processorId="FilterEnvelope" mode="Time" max="20000" stepSize="1"
-                               suffix=" ms" middlePosition="999.99999999999977263" parameterId="Attack"
-                               scaleFactor="0.5"/>
-                    <Component type="ScriptSlider" id="Knob10" x="281" y="190" width="59" height="181"
-                               filmstripImage="{PROJECT_FOLDER}Slider.png" numStrips="100" parentComponent="FilterEnvelopePanel"
-                               processorId="FilterEnvelope" mode="Time" max="20000" stepSize="1"
-                               suffix=" ms" middlePosition="999.99999999999977263" parameterId="Release"
-                               scaleFactor="0.5"/>
+                    <Component type="ScriptSlider" id="FilterSustainSlider" x="215" y="190"
+                               width="59" height="181" filmstripImage="{PROJECT_FOLDER}Slider.png"
+                               numStrips="100" parentComponent="FilterEnvelopePanel" processorId="FilterEnvelope"
+                               mode="Decibel" min="-100" max="0" stepSize="0.10000000000000000555"
+                               suffix=" dB" middlePosition="-18" parameterId="Sustain" scaleFactor="0.5"
+                               isPluginParameter="1" pluginParameterName="Filter Sustain"/>
+                    <Component type="ScriptSlider" id="FilterDecaySlider" x="149" y="190" width="59"
+                               height="181" filmstripImage="{PROJECT_FOLDER}Slider.png" numStrips="100"
+                               parentComponent="FilterEnvelopePanel" processorId="FilterEnvelope"
+                               mode="Time" max="20000" stepSize="1" suffix=" ms" middlePosition="999.99999999999977263"
+                               parameterId="Decay" scaleFactor="0.5" isPluginParameter="1" pluginParameterName="Filter Decay"/>
+                    <Component type="ScriptSlider" id="FilterHoldSlider" x="83" y="190" width="59"
+                               height="181" filmstripImage="{PROJECT_FOLDER}Slider.png" numStrips="100"
+                               parentComponent="FilterEnvelopePanel" processorId="FilterEnvelope"
+                               mode="Time" max="20000" stepSize="1" suffix=" ms" middlePosition="999.99999999999977263"
+                               parameterId="Hold" scaleFactor="0.5" isPluginParameter="1" pluginParameterName="Filter Hold"/>
+                    <Component type="ScriptSlider" id="FilterAttackSlider" x="17" y="190" width="59"
+                               height="181" filmstripImage="{PROJECT_FOLDER}Slider.png" numStrips="100"
+                               parentComponent="FilterEnvelopePanel" processorId="FilterEnvelope"
+                               mode="Time" max="20000" stepSize="1" suffix=" ms" middlePosition="999.99999999999977263"
+                               parameterId="Attack" scaleFactor="0.5" isPluginParameter="1"
+                               pluginParameterName="Filter Attack"/>
+                    <Component type="ScriptSlider" id="FilterReleaseSlider" x="281" y="190"
+                               width="59" height="181" filmstripImage="{PROJECT_FOLDER}Slider.png"
+                               numStrips="100" parentComponent="FilterEnvelopePanel" processorId="FilterEnvelope"
+                               mode="Time" max="20000" stepSize="1" suffix=" ms" middlePosition="999.99999999999977263"
+                               parameterId="Release" scaleFactor="0.5" isPluginParameter="1"
+                               pluginParameterName="Filter Release"/>
                     <Component type="ScriptLabel" id="ScriptLabel59" x="286" y="371" width="64"
                                height="26" editable="0" fontName="Oxygen" fontStyle="Bold" fontSize="16"
                                text="Release" parentComponent="FilterEnvelopePanel"/>
@@ -303,24 +312,25 @@
                     <Component type="ScriptLabel" id="ScriptLabel63" x="16" y="371" width="64"
                                height="26" editable="0" fontName="Oxygen" fontStyle="Bold" fontSize="16"
                                text="Attack" parentComponent="FilterEnvelopePanel"/>
-                    <Component type="ScriptSlider" id="Unisono Amount3" x="19" y="77" width="64"
+                    <Component type="ScriptSlider" id="FilterCuttoffSlider" x="19" y="77" width="64"
                                height="64" filmstripImage="{PROJECT_FOLDER}Knob.png" numStrips="64"
                                tooltip="AMP Envelope Attack Time: {VALUE}" processorId="Polyphonic Filter"
                                parameterId="Frequency" parentComponent="FilterEnvelopePanel"
                                middlePosition="3000" defaultValue="3000" showValuePopup="Below"
-                               min="120" max="20000" suffix=" Hz" stepSize="1.0" scaleFactor="0.5"/>
+                               min="120" max="20000" suffix=" Hz" stepSize="1.0" scaleFactor="0.5"
+                               pluginParameterName="Cutoff" isPluginParameter="1"/>
                     <Component type="ScriptLabel" id="ScriptLabel7" x="19" y="55" width="64"
                                height="26" editable="0" fontName="Oxygen" fontStyle="Bold" fontSize="16"
                                text="Cutoff" parentComponent="FilterEnvelopePanel"/>
                     <Component type="ScriptLabel" id="ScriptLabel9" x="85" y="55" width="64"
                                height="26" editable="0" fontName="Oxygen" fontStyle="Bold" fontSize="16"
                                text="Q" parentComponent="FilterEnvelopePanel"/>
-                    <Component type="ScriptSlider" id="Unisono Amount4" x="85" y="77" width="64"
-                               height="64" filmstripImage="{PROJECT_FOLDER}Knob.png" numStrips="64"
-                               tooltip="AMP Envelope Attack Time: {VALUE}" processorId="Polyphonic Filter"
+                    <Component type="ScriptSlider" id="FilterResonanceSlider" x="85" y="77"
+                               width="64" height="64" filmstripImage="{PROJECT_FOLDER}Knob.png"
+                               numStrips="64" tooltip="AMP Envelope Attack Time: {VALUE}" processorId="Polyphonic Filter"
                                parameterId="Q" parentComponent="FilterEnvelopePanel" middlePosition="1"
                                defaultValue="1.0" showValuePopup="Below" max="8" min="0.10000000000000000555"
-                               scaleFactor="0.5"/>
+                               scaleFactor="0.5" isPluginParameter="1" pluginParameterName="Q"/>
                     <Component type="ScriptLabel" id="ScriptLabel10" x="152" y="55" width="64"
                                height="26" editable="0" fontName="Oxygen" fontStyle="Bold" fontSize="16"
                                text="Envelope" parentComponent="FilterEnvelopePanel"/>
@@ -329,25 +339,28 @@
                                tooltip="AMP Envelope Attack Time: {VALUE}" processorId="FilterEnvelope"
                                parameterId="Intensity" parentComponent="FilterEnvelopePanel"
                                middlePosition="0.5" defaultValue="1.0" showValuePopup="Below"
-                               mode="NormalizedPercentage" suffix="%" scaleFactor="0.5"/>
-                    <Component type="ScriptSlider" id="Unisono Amount6" x="285" y="77" width="64"
-                               height="64" filmstripImage="{PROJECT_FOLDER}Knob.png" numStrips="64"
-                               tooltip="AMP Envelope Attack Time: {VALUE}" processorId="Velocity Modulator"
+                               mode="NormalizedPercentage" suffix="%" scaleFactor="0.5" isPluginParameter="1"
+                               pluginParameterName="Filter Envelope"/>
+                    <Component type="ScriptSlider" id="FilterVelocitySlider" x="285" y="77"
+                               width="64" height="64" filmstripImage="{PROJECT_FOLDER}Knob.png"
+                               numStrips="64" tooltip="AMP Envelope Attack Time: {VALUE}" processorId="Velocity Modulator"
                                parameterId="Intensity" parentComponent="FilterEnvelopePanel"
                                middlePosition="0.5" defaultValue="1.0" showValuePopup="Below"
-                               mode="NormalizedPercentage" suffix="%" scaleFactor="0.5"/>
+                               mode="NormalizedPercentage" suffix="%" scaleFactor="0.5" isPluginParameter="1"
+                               pluginParameterName="Filter Velocity"/>
                     <Component type="ScriptLabel" id="ScriptLabel11" x="285" y="55" width="64"
                                height="26" editable="0" fontName="Oxygen" fontStyle="Bold" fontSize="16"
                                text="Velocity" parentComponent="FilterEnvelopePanel"/>
                     <Component type="ScriptLabel" id="ScriptLabel12" x="19" y="11" width="330"
                                height="30" editable="0" fontName="Oxygen" fontStyle="Bold" fontSize="24"
                                text="FILTER" parentComponent="FilterEnvelopePanel" bgColour="301989887"/>
-                    <Component type="ScriptSlider" id="Unisono Amount8" x="218" y="78" width="64"
+                    <Component type="ScriptSlider" id="FilterLFOSlider" x="218" y="78" width="64"
                                height="64" filmstripImage="{PROJECT_FOLDER}Knob.png" numStrips="64"
                                tooltip="AMP Envelope Attack Time: {VALUE}" processorId="Filter LFO"
                                parameterId="Intensity" parentComponent="FilterEnvelopePanel"
                                middlePosition="0.5" defaultValue="1.0" showValuePopup="Below"
-                               mode="NormalizedPercentage" suffix="%" scaleFactor="0.5"/>
+                               mode="NormalizedPercentage" suffix="%" scaleFactor="0.5" isPluginParameter="1"
+                               pluginParameterName="Filter LFO"/>
                     <Component type="ScriptLabel" id="ScriptLabel15" x="218" y="55" width="64"
                                height="26" editable="0" fontName="Oxygen" fontStyle="Bold" fontSize="16"
                                text="LFO" parentComponent="FilterEnvelopePanel"/>
@@ -355,23 +368,23 @@
                   <Component type="ScriptPanel" id="LFOPanel" x="13" y="262" width="218" height="194"
                              parentComponent="SynthPage" itemColour2="1814834220" borderSize="1"
                              itemColour="812280426" textColour="268435455">
-                    <Component type="ScriptSlider" id="Unisono Amount7" x="31" y="113" width="64"
+                    <Component type="ScriptSlider" id="FrequencySlider" x="31" y="113" width="64"
                                height="64" filmstripImage="{PROJECT_FOLDER}Knob.png" numStrips="64"
                                tooltip="Unisono Voice Amount: {VALUE}" processorId="LFO Modulator"
                                parameterId="Frequency" parentComponent="LFOPanel" middlePosition="1"
                                defaultValue="1.0" showValuePopup="Below" max="10" min="0.10000000000000000555"
-                               suffix=" Hz" scaleFactor="0.5"/>
+                               suffix=" Hz" scaleFactor="0.5" isPluginParameter="1" pluginParameterName="LFO Frequency"/>
                     <Component type="ScriptComboBox" id="Waveform Selector1" x="44" y="53" width="128"
                                height="32" max="4" itemColour="134217727" itemColour2="1118481"
                                bgColour="16777215" items="Sine&#10;Triangle&#10;Saw&#10;Square&#10;&#10;"
                                text="Waveform" processorId="LFO Modulator" parameterId="WaveFormType"
-                               parentComponent="LFOPanel"/>
-                    <Component type="ScriptSlider" id="DetuneKnob3" x="117" y="113" width="64"
+                               parentComponent="LFOPanel" isPluginParameter="1"/>
+                    <Component type="ScriptSlider" id="SmoothingSlider" x="117" y="113" width="64"
                                height="64" filmstripImage="{PROJECT_FOLDER}Knob.png" numStrips="64"
                                text="Detune" tooltip="Unisono Detune: {VALUE}" middlePosition="100"
                                processorId="LFO Modulator" parameterId="SmoothingTime" parentComponent="LFOPanel"
                                showValuePopup="Below" max="2000" stepSize="1.0" defaultValue="100"
-                               suffix=" ms" scaleFactor="0.5"/>
+                               suffix=" ms" scaleFactor="0.5" isPluginParameter="1" pluginParameterName="LFO Smoothing"/>
                     <Component type="ScriptLabel" id="ScriptLabel13" x="14" y="89" width="186"
                                height="26" editable="0" fontName="Oxygen" fontStyle="Bold" fontSize="16"
                                text="Frequency       Smoothing" parentComponent="LFOPanel"/>
@@ -383,7 +396,7 @@
                 <Component type="ScriptPanel" id="FXPage" x="0" y="0" width="1022" height="465"
                            parentComponent="Background" itemColour="0" itemColour2="0" textColour="16777215"
                            visible="0">
-                  <Component type="ScriptPanel" id="PhaserPanel" x="12" y="52" width="178"
+                  <Component type="ScriptPanel" id="PhaserPanel" x="12" y="51" width="178"
                              height="238" parentComponent="FXPage" itemColour2="1814834220"
                              borderSize="1" itemColour="812280426" textColour="268435455">
                     <Component type="ScriptSlider" id="PhaserLowSlider" x="14" y="75" width="64"
@@ -456,7 +469,7 @@
                                height="32" parentComponent="PhaserPanel1" filmstripImage="{PROJECT_FOLDER}ButtonInverted.png"
                                numStrips="6" processorId="Saturator" parameterId="Bypass" scaleFactor="0.5"/>
                   </Component>
-                  <Component type="ScriptPanel" id="PhaserPanel2" x="206" y="52" width="394"
+                  <Component type="ScriptPanel" id="PhaserPanel2" x="206" y="51" width="394"
                              height="401" parentComponent="FXPage" itemColour2="1814834220"
                              borderSize="1" itemColour="812280426" textColour="268435455">
                     <Component type="ScriptLabel" id="ScriptLabel36" x="14" y="11" width="367"
@@ -544,7 +557,7 @@
                                height="32" parentComponent="PhaserPanel4" filmstripImage="{PROJECT_FOLDER}ButtonInverted.png"
                                numStrips="6" scaleFactor="0.5"/>
                   </Component>
-                  <Component type="ScriptPanel" id="PhaserPanel6" x="611" y="55" width="400"
+                  <Component type="ScriptPanel" id="PhaserPanel6" x="611" y="51" width="400"
                              height="233" parentComponent="FXPage" itemColour2="1814834220"
                              borderSize="1" itemColour="812280426" textColour="268435455">
                     <Component type="ScriptSlider" id="DelayRightSlider" x="41" y="75" width="64"
@@ -619,40 +632,40 @@
                 <Component type="ScriptPanel" id="SettingsPage" x="0" y="0" width="1008"
                            height="465" parentComponent="Background" itemColour="0" itemColour2="0"
                            textColour="16777215" visible="0">
-                  <Component type="ScriptPanel" id="AudioSettingsPanel" x="85" y="64" width="278"
-                             height="387" parentComponent="SettingsPage" itemColour2="1814834220"
+                  <Component type="ScriptPanel" id="AudioSettingsPanel" x="9" y="51" width="238"
+                             height="403" parentComponent="SettingsPage" itemColour2="1814834220"
                              borderSize="1" itemColour="812280426" textColour="268435455">
-                    <Component type="ScriptFloatingTile" id="FloatingTile1" x="14" y="53" width="255"
+                    <Component type="ScriptFloatingTile" id="FloatingTile1" x="4" y="53" width="255"
                                height="320" parentComponent="AudioSettingsPanel" bgColour="0"
                                itemColour="4294951115" itemColour2="4294951115" ContentType="CustomSettings"
                                Data="{&#13;&#10;  &quot;Driver&quot;: true,&#13;&#10;  &quot;Device&quot;: true,&#13;&#10;  &quot;Output&quot;: true,&#13;&#10;  &quot;BufferSize&quot;: true,&#13;&#10;  &quot;SampleRate&quot;: true,&#13;&#10;  &quot;GlobalBPM&quot;: false,&#13;&#10;  &quot;StreamingMode&quot;: false,&#13;&#10;  &quot;GraphicRendering&quot;: false,&#13;&#10;  &quot;ScaleFactor&quot;: true,&#13;&#10;  &quot;SustainCC&quot;: false,&#13;&#10;  &quot;VoiceAmountMultiplier&quot;: true,&#13;&#10;  &quot;ClearMidiCC&quot;: false,&#13;&#10;  &quot;SampleLocation&quot;: false,&#13;&#10;  &quot;DebugMode&quot;: false,&#13;&#10;  &quot;ScaleFactorList&quot;: [&#13;&#10;    0.5,&#13;&#10;    0.75,&#13;&#10;    1,&#13;&#10;    1.25,&#13;&#10;    1.5,&#13;&#10;    2&#13;&#10;  ]&#13;&#10;}"/>
-                    <Component type="ScriptLabel" id="ScriptLabel25" x="14" y="11" width="249"
+                    <Component type="ScriptLabel" id="ScriptLabel25" x="14" y="11" width="209"
                                height="30" editable="0" fontName="Oxygen" fontStyle="Bold" fontSize="24"
                                text="SETTINGS" parentComponent="AudioSettingsPanel" bgColour="301989887"/>
                   </Component>
-                  <Component type="ScriptPanel" id="MIDIPanel" x="380" y="64" width="278"
-                             height="387" parentComponent="SettingsPage" itemColour2="1814834220"
+                  <Component type="ScriptPanel" id="MIDIPanel" x="257" y="51" width="248"
+                             height="403" parentComponent="SettingsPage" itemColour2="1814834220"
                              borderSize="1" itemColour="812280426" textColour="268435455">
-                    <Component type="ScriptFloatingTile" id="FloatingTile2" x="14" y="53" width="255"
+                    <Component type="ScriptFloatingTile" id="FloatingTile2" x="14" y="53" width="225"
                                height="170" parentComponent="MIDIPanel" bgColour="4278190080"
                                itemColour="4294951115" itemColour2="4294951115" ContentType="MidiSources"
                                Data="{&#13;&#10;}"/>
-                    <Component type="ScriptLabel" id="ScriptLabel26" x="14" y="11" width="249"
+                    <Component type="ScriptLabel" id="ScriptLabel26" x="14" y="11" width="219"
                                height="30" editable="0" fontName="Oxygen" fontStyle="Bold" fontSize="24"
                                text="MIDI" parentComponent="MIDIPanel" bgColour="301989887"/>
-                    <Component type="ScriptFloatingTile" id="FloatingTile3" x="15" y="210" width="255"
+                    <Component type="ScriptFloatingTile" id="FloatingTile3" x="15" y="210" width="225"
                                height="170" parentComponent="MIDIPanel" bgColour="4278190080"
                                itemColour="4294951115" itemColour2="4294951115" ContentType="MidiChannelList"
                                Data="{&#13;&#10;}"/>
                   </Component>
-                  <Component type="ScriptPanel" id="ControlPanel" x="673" y="64" width="278"
-                             height="387" parentComponent="SettingsPage" itemColour2="1814834220"
+                  <Component type="ScriptPanel" id="ControlPanel" x="513" y="51" width="498"
+                             height="403" parentComponent="SettingsPage" itemColour2="1814834220"
                              borderSize="1" itemColour="812280426" textColour="268435455">
-                    <Component type="ScriptFloatingTile" id="FloatingTile4" x="14" y="53" width="250"
+                    <Component type="ScriptFloatingTile" id="FloatingTile4" x="74" y="53" width="370"
                                height="320" parentComponent="ControlPanel" bgColour="0" itemColour="4278190080"
-                               itemColour2="4294951115" ContentType="MidiLearnPanel" Data="{&#13;&#10;}"
+                               itemColour2="4294967295" ContentType="MidiLearnPanel" Data="{&#13;&#10;}"
                                textColour="4294951115"/>
-                    <Component type="ScriptLabel" id="ScriptLabel27" x="14" y="11" width="249"
+                    <Component type="ScriptLabel" id="ScriptLabel27" x="14" y="11" width="469"
                                height="30" editable="0" fontName="Oxygen" fontStyle="Bold" fontSize="24"
                                text="CONTROL" parentComponent="ControlPanel" bgColour="301989887"/>
                   </Component>
@@ -717,7 +730,7 @@
         </Processor>
         <Processor Type="ModulatorChain" ID="Global Modulators" Bypassed="0" Intensity="1">
           <ChildProcessors>
-            <Processor Type="LFO" ID="LFO Modulator" Bypassed="0" Intensity="1" Frequency="1"
+            <Processor Type="LFO" ID="LFO Modulator" Bypassed="0" Intensity="1" Frequency="0"
                        FadeIn="0" WaveformType="1" Legato="1" TempoSync="0" SmoothingTime="0"
                        CustomWaveform="24...............vO...f+....9C...vO" StepData="4.......">
               <ChildProcessors>
@@ -750,7 +763,7 @@
         </Processor>
         <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1">
           <ChildProcessors>
-            <Processor Type="Velocity" ID="VelocityGain" Bypassed="0" Intensity="1"
+            <Processor Type="Velocity" ID="VelocityGain" Bypassed="0" Intensity="0"
                        UseTable="1" Inverted="0" DecibelMode="0" VelocityTableData="24...............vO...f+....9CoYloO">
               <ChildProcessors/>
             </Processor>
@@ -759,14 +772,13 @@
                        Connection="Global Modulator Container:LFO Modulator">
               <ChildProcessors/>
             </Processor>
-            <Processor Type="KeyNumber" ID="GainKey" Bypassed="0" Intensity="0.82999998331069946289"
-                       Mode="1" MidiTableData="24..........9C...vO...f+.........vO"
-                       KeyTableData="512....f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C">
+            <Processor Type="KeyNumber" ID="GainKey" Bypassed="0" Intensity="0" Mode="1"
+                       MidiTableData="24..........9C...vO...f+.........vO" KeyTableData="512....f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C">
               <ChildProcessors/>
             </Processor>
             <Processor Type="AHDSR" ID="Gain Envelope" Bypassed="0" Monophonic="0" Retrigger="1"
                        Intensity="1" AttackCurve="0" DecayCurve="0" Attack="0" AttackLevel="0"
-                       Hold="201" Decay="2283" Sustain="0" Release="180">
+                       Hold="0" Decay="0" Sustain="0" Release="1">
               <ChildProcessors>
                 <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1">
                   <ChildProcessors/>
@@ -793,7 +805,7 @@
         <Processor Type="EffectChain" ID="FX" Bypassed="0">
           <ChildProcessors>
             <Processor Type="PolyphonicFilter" ID="Polyphonic Filter" Bypassed="0" Gain="0"
-                       Frequency="20000" Q="1" Mode="6" Quality="-842150464" BipolarIntensity="0">
+                       Frequency="0" Q="0" Mode="6" Quality="-1264868736" BipolarIntensity="0">
               <ChildProcessors>
                 <Processor Type="ModulatorChain" ID="Frequency Modulation" Bypassed="0"
                            Intensity="1">
@@ -808,9 +820,9 @@
                       <ChildProcessors/>
                     </Processor>
                     <Processor Type="AHDSR" ID="FilterEnvelope" Bypassed="0" Monophonic="0"
-                               Retrigger="1" Intensity="0" AttackCurve="0" DecayCurve="0" Attack="0"
-                               AttackLevel="0" Hold="0" Decay="605" Sustain="-28.100002288818359375"
-                               Release="9802">
+                               Retrigger="1" Intensity="0.28999999165534973145" AttackCurve="0"
+                               DecayCurve="0" Attack="0" AttackLevel="0" Hold="0" Decay="0"
+                               Sustain="0" Release="1">
                       <ChildProcessors>
                         <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1">
                           <ChildProcessors/>

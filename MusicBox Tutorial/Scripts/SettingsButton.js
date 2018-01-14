@@ -7,7 +7,7 @@ namespace SettingsButton
 {
 	
 	
-	const var data_ = Engine.getSettingsWindowObject();
+	//const var data_ = Engine.getSettingsWindowObject();
 	
 	
 	
