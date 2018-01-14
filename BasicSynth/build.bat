@@ -25,8 +25,6 @@ echo ===========================================================================
 goto :end
 )
 
-set hise_path=HISE.exe
-
 REM set this to 0 to skip the installer
 set buildInstaller=0
 set buildAAX=0
