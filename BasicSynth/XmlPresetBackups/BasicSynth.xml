@@ -87,7 +87,7 @@
             <Control type="ScriptSlider" id="ConvolutionWetSlider" value="-4.9000000953674316406"/>
             <Control type="ScriptLabel" id="ScriptLabel39" value="Wet"/>
             <Control type="ScriptAudioWaveform" id="ConvolutionWaveform" value="0"
-                     rangeStart="0" rangeEnd="0" fileName=""/>
+                     rangeStart="0" rangeEnd="8192" fileName="/Volumes/Shared/Projekte/NeoSoulKeys/NeoSoulKeys_iOS/AudioFiles/Dark Tube.aif"/>
             <Control type="ScriptButton" id="ConvolutionButton" value="1"/>
             <Control type="ScriptSlider" id="lowEqSlider" value="-5.5999999046325683594"/>
             <Control type="ScriptLabel" id="ScriptLabel35" value="Low"/>
@@ -904,7 +904,8 @@
             </Processor>
             <Processor Type="Convolution" ID="Convolution Reverb" Bypassed="1" DryGain="-100"
                        WetGain="-4.9000005722045898438" Latency="0" ImpulseLength="1"
-                       ProcessInput="1" FileName="" min="0" max="0" loopStart="0" loopEnd="0">
+                       ProcessInput="1" FileName="/Volumes/Shared/Projekte/NeoSoulKeys/NeoSoulKeys_iOS/AudioFiles/Dark Tube.aif"
+                       min="0" max="8192" loopStart="0" loopEnd="0">
               <ChildProcessors/>
               <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
             </Processor>
