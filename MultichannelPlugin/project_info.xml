@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ProjectSettings>
+  <Name value="MultichannelPlugin" type="TEXT" description="Project Name"/>
+  <Version value="0.1.0" type="TEXT" description="Project version"/>
+  <Description value="" type="TEXT" description="Project description"/>
+  <BundleIdentifier value="com.myCompany.product" type="TEXT" description="Bundle Identifier(eg.com.myCompany.bundle)"/>
+  <PluginCode value="Abcd" type="TEXT" description="a 4 character ID code(eg. 'Abcd')"/>
+  <EmbedAudioFiles value="Yes" type="LIST" description="Embed Audio files in plugin"
+                   options="Yes&#10;No"/>
+  <AdditionalDspLibraries value="" type="TEXT" description="comma separated list of all static dsp factory classes"/>
+  <WindowsStaticLibFolder value="" type="TEXT" description="Windows static library folder"/>
+  <OSXStaticLibs value="" type="TEXT" description="Additional static libs (OSX only)"/>
+  <ExtraDefinitionsWindows value="ENABLE_ALL_PEAK_METERS=1" type="TEXT" description="Extra preprocessor definitions for Windows"/>
+  <ExtraDefinitionsOSX value="ENABLE_ALL_PEAK_METERS=1" type="TEXT" description="Extra preprocessor definitions for OSX"/>
+  <ExtraDefinitionsIOS value="ENABLE_ALL_PEAK_METERS=1" type="TEXT" description="Extra preprocessor definitions for IOS"/>
+  <AppGroupID value="" type="TEXT" description="App Group ID (use this for shared resources on iOS"/>
+</ProjectSettings>
