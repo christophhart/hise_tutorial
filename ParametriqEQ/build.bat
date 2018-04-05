@@ -26,7 +26,7 @@ goto :end
 
 
 REM set this to 0 to skip the installer
-set buildInstaller=1
+set buildInstaller=0
 set buildAAX=0
 
 set plugin_name=Parametriq EQ
