@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<samplemap ID="Guitar" SaveMode="1" RRGroupAmount="1" MicPositions=";">
+  <sample ID="0" FileName="{PROJECT_FOLDER}Guitar_D#3.wav" Root="51" HiKey="51"
+          LoKey="51" LoVel="0" HiVel="127" RRGroup="1" Volume="0" Pan="0"
+          Normalized="0" Pitch="0" SampleStart="17243" SampleEnd="113772"
+          SampleStartMod="0" LoopStart="0" LoopEnd="113773" LoopXFade="0"
+          LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+          SampleState="0" NormalizedPeak="-1" Duplicate="0"/>
+  <sample ID="1" FileName="{PROJECT_FOLDER}Guitar_D#4.wav" Root="63" HiKey="63"
+          LoKey="63" LoVel="0" HiVel="127" RRGroup="1" Volume="0" Pan="0"
+          Normalized="0" Pitch="0" SampleStart="16934" SampleEnd="113772"
+          SampleStartMod="0" LoopStart="0" LoopEnd="113773" LoopXFade="0"
+          LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+          SampleState="0" NormalizedPeak="-1" Duplicate="0"/>
+  <sample ID="2" FileName="{PROJECT_FOLDER}Guitar_D3.wav" Root="50" HiKey="50"
+          LoKey="50" LoVel="0" HiVel="127" RRGroup="1" Volume="0" Pan="0"
+          Normalized="0" Pitch="0" SampleStart="17979" SampleEnd="113772"
+          SampleStartMod="0" LoopStart="0" LoopEnd="113773" LoopXFade="0"
+          LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+          SampleState="0" NormalizedPeak="-1" Duplicate="0"/>
+  <sample ID="3" FileName="{PROJECT_FOLDER}Guitar_D4.wav" Root="62" HiKey="62"
+          LoKey="62" LoVel="0" HiVel="127" RRGroup="1" Volume="0" Pan="0"
+          Normalized="0" Pitch="0" SampleStart="17575" SampleEnd="113772"
+          SampleStartMod="0" LoopStart="0" LoopEnd="113773" LoopXFade="0"
+          LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+          SampleState="0" NormalizedPeak="-1" Duplicate="0"/>
+  <sample ID="4" FileName="{PROJECT_FOLDER}Guitar_E3.wav" Root="52" HiKey="52"
+          LoKey="52" LoVel="0" HiVel="127" RRGroup="1" Volume="0" Pan="0"
+          Normalized="0" Pitch="0" SampleStart="17795" SampleEnd="113771"
+          SampleStartMod="0" LoopStart="0" LoopEnd="113773" LoopXFade="0"
+          LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+          SampleState="0" NormalizedPeak="-1" Duplicate="0"/>
+  <sample ID="5" FileName="{PROJECT_FOLDER}Guitar_E4.wav" Root="64" HiKey="64"
+          LoKey="64" LoVel="0" HiVel="127" RRGroup="1" Volume="0" Pan="0"
+          Normalized="0" Pitch="0" SampleStart="16761" SampleEnd="113772"
+          SampleStartMod="0" LoopStart="0" LoopEnd="113773" LoopXFade="0"
+          LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+          SampleState="0" NormalizedPeak="-1" Duplicate="0"/>
+  <sample ID="6" FileName="{PROJECT_FOLDER}Guitar_F#3.wav" Root="54" HiKey="54"
+          LoKey="54" LoVel="0" HiVel="127" RRGroup="1" Volume="0" Pan="0"
+          Normalized="0" Pitch="0" SampleStart="16185" SampleEnd="113772"
+          SampleStartMod="0" LoopStart="0" LoopEnd="113773" LoopXFade="0"
+          LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+          SampleState="0" NormalizedPeak="-1" Duplicate="0"/>
+  <sample ID="7" FileName="{PROJECT_FOLDER}Guitar_F3.wav" Root="53" HiKey="53"
+          LoKey="53" LoVel="0" HiVel="127" RRGroup="1" Volume="0" Pan="0"
+          Normalized="0" Pitch="0" SampleStart="16326" SampleEnd="113772"
+          SampleStartMod="0" LoopStart="0" LoopEnd="113773" LoopXFade="0"
+          LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+          SampleState="0" NormalizedPeak="-1" Duplicate="0"/>
+  <sample ID="8" FileName="{PROJECT_FOLDER}Guitar_G#3.wav" Root="56" HiKey="56"
+          LoKey="56" LoVel="0" HiVel="127" RRGroup="1" Volume="0" Pan="0"
+          Normalized="0" Pitch="0" SampleStart="17540" SampleEnd="113772"
+          SampleStartMod="0" LoopStart="0" LoopEnd="113773" LoopXFade="0"
+          LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+          SampleState="0" NormalizedPeak="-1" Duplicate="0"/>
+  <sample ID="9" FileName="{PROJECT_FOLDER}Guitar_G3.wav" Root="55" HiKey="55"
+          LoKey="55" LoVel="0" HiVel="127" RRGroup="1" Volume="0" Pan="0"
+          Normalized="0" Pitch="0" SampleStart="16881" SampleEnd="113772"
+          SampleStartMod="0" LoopStart="0" LoopEnd="113773" LoopXFade="0"
+          LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+          SampleState="0" NormalizedPeak="-1" Duplicate="0"/>
+  <sample ID="10" FileName="{PROJECT_FOLDER}Guitar_A#3.wav" Root="58" HiKey="58"
+          LoKey="58" LoVel="0" HiVel="127" RRGroup="1" Volume="0" Pan="0"
+          Normalized="0" Pitch="0" SampleStart="17042" SampleEnd="113772"
+          SampleStartMod="0" LoopStart="0" LoopEnd="113773" LoopXFade="0"
+          LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+          SampleState="0" NormalizedPeak="-1" Duplicate="0"/>
+  <sample ID="11" FileName="{PROJECT_FOLDER}Guitar_A3.wav" Root="57" HiKey="57"
+          LoKey="57" LoVel="0" HiVel="127" RRGroup="1" Volume="0" Pan="0"
+          Normalized="0" Pitch="0" SampleStart="16108" SampleEnd="113772"
+          SampleStartMod="0" LoopStart="0" LoopEnd="113773" LoopXFade="0"
+          LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+          SampleState="0" NormalizedPeak="-1" Duplicate="0"/>
+  <sample ID="12" FileName="{PROJECT_FOLDER}Guitar_B3.wav" Root="59" HiKey="59"
+          LoKey="59" LoVel="0" HiVel="127" RRGroup="1" Volume="0" Pan="0"
+          Normalized="0" Pitch="0" SampleStart="16745" SampleEnd="113772"
+          SampleStartMod="0" LoopStart="0" LoopEnd="113773" LoopXFade="0"
+          LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+          SampleState="0" NormalizedPeak="-1" Duplicate="0"/>
+  <sample ID="13" FileName="{PROJECT_FOLDER}Guitar_C#3.wav" Root="49" HiKey="49"
+          LoKey="49" LoVel="0" HiVel="127" RRGroup="1" Volume="0" Pan="0"
+          Normalized="0" Pitch="0" SampleStart="16535" SampleEnd="113772"
+          SampleStartMod="0" LoopStart="0" LoopEnd="113773" LoopXFade="0"
+          LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+          SampleState="0" NormalizedPeak="-1" Duplicate="0"/>
+  <sample ID="14" FileName="{PROJECT_FOLDER}Guitar_C#4.wav" Root="61" HiKey="61"
+          LoKey="61" LoVel="0" HiVel="127" RRGroup="1" Volume="0" Pan="0"
+          Normalized="0" Pitch="0" SampleStart="16681" SampleEnd="113772"
+          SampleStartMod="0" LoopStart="0" LoopEnd="113773" LoopXFade="0"
+          LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+          SampleState="0" NormalizedPeak="-1" Duplicate="0"/>
+  <sample ID="15" FileName="{PROJECT_FOLDER}Guitar_C3.wav" Root="48" HiKey="48"
+          LoKey="48" LoVel="0" HiVel="127" RRGroup="1" Volume="0" Pan="0"
+          Normalized="0" Pitch="0" SampleStart="18355" SampleEnd="114070"
+          SampleStartMod="0" LoopStart="0" LoopEnd="114071" LoopXFade="0"
+          LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+          SampleState="0" NormalizedPeak="-1" Duplicate="0"/>
+  <sample ID="16" FileName="{PROJECT_FOLDER}Guitar_C4.wav" Root="60" HiKey="60"
+          LoKey="60" LoVel="0" HiVel="127" RRGroup="1" Volume="0" Pan="0"
+          Normalized="0" Pitch="0" SampleStart="17178" SampleEnd="113772"
+          SampleStartMod="0" LoopStart="0" LoopEnd="113773" LoopXFade="0"
+          LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
+          SampleState="0" NormalizedPeak="-1" Duplicate="0"/>
+</samplemap>

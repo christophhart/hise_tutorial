@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UserSettings>
+  <Company value="HISE" type="TEXT" description="Company Name"/>
+  <CompanyCode value="Hain" type="TEXT" description="Company Code (4 characters, first must be uppercase)"/>
+  <CompanyCopyright value="(c)2018, HISE" type="TEXT" description="Company Copyright"/>
+  <CompanyURL value="http://hise.audio" type="TEXT" description="Company Website"/>
+  <TeamDevelopmentID value="" type="TEXT" description="Apple Distribution ID"/>
+</UserSettings>
