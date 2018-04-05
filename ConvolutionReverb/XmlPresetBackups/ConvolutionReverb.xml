@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Processor Type="SynthChain" ID="ConvolutionReverb" Bypassed="0" Gain="1"
+           Balance="0" VoiceLimit="256" KillFadeTime="20" IconColour="0"
+           packageName="" views="32.rk1bzA...zbyM2byM2byM2byM2byM2byM2byM2byM2L"
+           currentView="-1" BuildVersion="650">
+  <ChildProcessors>
+    <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
+      <ChildProcessors>
+        <Processor Type="ScriptProcessor" ID="Interface" Bypassed="0">
+          <ChildProcessors/>
+          <Content>
+            <Control type="ScriptAudioWaveform" id="AudioWaveform1" value="0" rangeStart="0"
+                     rangeEnd="0" fileName=""/>
+            <Control type="ScriptSlider" id="wetKnob" value="-9"/>
+            <Control type="ScriptSlider" id="dryKnob" value="-24.600000381469726563"/>
+            <Control type="ScriptSlider" id="predelayKnob" value="87.12000274658203125"/>
+            <Control type="ScriptSlider" id="dampingKnob" value="-4.5999999046325683594"/>
+            <Control type="ScriptSlider" id="hicutKnob" value="817"/>
+            <Control type="ScriptButton" id="Button1" value="1"/>
+          </Content>
+          <UIData>
+            <ContentProperties DeviceType="Desktop">
+              <Component type="ScriptPanel" id="bgPanel" x="1" y="0" width="520" height="500"
+                         borderSize="0" borderRadius="0" itemColour="4281677109" itemColour2="4280295456"/>
+              <Component type="ScriptAudioWaveform" id="AudioWaveform1" x="30" y="126"
+                         width="460" height="180" opaque="0" showLines="1" processorId="Convolution Reverb"
+                         itemColour2="3422617537" itemColour="1006632959" bgColour="89478485"
+                         itemColour3="750895553"/>
+              <Component type="ScriptSlider" id="wetKnob" x="48" y="365" width="71" height="67"
+                         filmstripImage="{PROJECT_FOLDER}Knob.png" numStrips="64" scaleFactor="0.5"
+                         showValuePopup="Below" processorId="Convolution Reverb" mode="Decibel"
+                         min="-100" max="0" stepSize="0.10000000000000000555" suffix=" dB"
+                         middlePosition="-18" parameterId="WetGain"/>
+              <Component type="ScriptLabel" id="wetLabel" x="48" y="340" width="71" height="30"
+                         editable="0" saveInPreset="0" text="Wet Level" fontName="Oxygen"
+                         fontStyle="Bold"/>
+              <Component type="ScriptSlider" id="dryKnob" x="138" y="365" width="71" height="67"
+                         filmstripImage="{PROJECT_FOLDER}Knob.png" numStrips="64" scaleFactor="0.5"
+                         showValuePopup="Below" processorId="Convolution Reverb" parameterId="DryGain"
+                         mode="Decibel" min="-100" max="0" stepSize="0.10000000000000000555"
+                         suffix=" dB" middlePosition="-18"/>
+              <Component type="ScriptSlider" id="predelayKnob" x="229" y="365" width="71"
+                         height="67" filmstripImage="{PROJECT_FOLDER}Knob.png" numStrips="64"
+                         scaleFactor="0.5" showValuePopup="Below" processorId="Convolution Reverb"
+                         parameterId="Predelay" max="200" middlePosition="50"/>
+              <Component type="ScriptSlider" id="dampingKnob" x="411" y="365" width="71"
+                         height="67" filmstripImage="{PROJECT_FOLDER}Knob.png" numStrips="64"
+                         scaleFactor="0.5" showValuePopup="Below" processorId="Convolution Reverb"
+                         parameterId="Damping" mode="Decibel" min="-100" max="0" stepSize="0.10000000000000000555"
+                         suffix=" dB" middlePosition="-18"/>
+              <Component type="ScriptSlider" id="hicutKnob" x="320" y="365" width="71"
+                         height="67" filmstripImage="{PROJECT_FOLDER}Knob.png" numStrips="64"
+                         scaleFactor="0.5" showValuePopup="Below" processorId="Convolution Reverb"
+                         mode="Frequency" min="20" max="20000" stepSize="1" suffix=" Hz"
+                         middlePosition="1500.0000000000002274" parameterId="HiCut"/>
+              <Component type="ScriptLabel" id="dryLabel" x="138" y="340" width="71" height="30"
+                         editable="0" saveInPreset="0" text="Dry Level" fontName="Oxygen"
+                         fontStyle="Bold"/>
+              <Component type="ScriptLabel" id="predelayLabel" x="229" y="340" width="71"
+                         height="30" editable="0" saveInPreset="0" text="Predelay" fontName="Oxygen"
+                         fontStyle="Bold"/>
+              <Component type="ScriptLabel" id="hicutLabel" x="320" y="340" width="71"
+                         height="30" editable="0" saveInPreset="0" text="HiCut" fontName="Oxygen"
+                         fontStyle="Bold"/>
+              <Component type="ScriptLabel" id="dampingLabel" x="411" y="340" width="71"
+                         height="30" editable="0" saveInPreset="0" text="Damping" fontName="Oxygen"
+                         fontStyle="Bold"/>
+              <Component type="ScriptButton" id="Button1" x="177" y="440" width="152"
+                         height="32" processorId="Convolution Reverb" parameterId="UseBackgroundThread"
+                         filmstripImage="{PROJECT_FOLDER}Button.png" numStrips="6" scaleFactor="0.5"/>
+              <Component type="ScriptLabel" id="predelayLabel1" x="207" y="436" width="150"
+                         height="40" editable="0" saveInPreset="0" text="Use Background Rendering"
+                         fontName="Oxygen" fontStyle="Bold"/>
+              <Component type="ScriptLabel" id="CPULabel" x="21" y="21" width="128" height="28"
+                         editable="0" saveInPreset="0" fontName="Oxygen" fontSize="15"
+                         fontStyle="Bold" text="1% CPU" alignment="left"/>
+            </ContentProperties>
+          </UIData>
+        </Processor>
+      </ChildProcessors>
+    </Processor>
+    <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1">
+      <ChildProcessors/>
+    </Processor>
+    <Processor Type="ModulatorChain" ID="PitchModulation" Bypassed="1" Intensity="0">
+      <ChildProcessors/>
+    </Processor>
+    <Processor Type="EffectChain" ID="FX" Bypassed="0">
+      <ChildProcessors>
+        <Processor Type="Convolution" ID="Convolution Reverb" Bypassed="0" DryGain="-24.600000381469726563"
+                   WetGain="-9" Latency="0" ImpulseLength="1" ProcessInput="1" UseBackgroundThread="1"
+                   Predelay="87.12000274658203125" HiCut="817" Damping="-4.5999999046325683594"
+                   FileName="" min="0" max="0" loopStart="0" loopEnd="0">
+          <ChildProcessors/>
+          <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+        </Processor>
+      </ChildProcessors>
+    </Processor>
+  </ChildProcessors>
+  <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+  <macro_controls>
+    <macro name="Macro 1" value="0" midi_cc="-1"/>
+    <macro name="Macro 2" value="0" midi_cc="-1"/>
+    <macro name="Macro 3" value="0" midi_cc="-1"/>
+    <macro name="Macro 4" value="0" midi_cc="-1"/>
+    <macro name="Macro 5" value="0" midi_cc="-1"/>
+    <macro name="Macro 6" value="0" midi_cc="-1"/>
+    <macro name="Macro 7" value="0" midi_cc="-1"/>
+    <macro name="Macro 8" value="0" midi_cc="-1"/>
+  </macro_controls>
+  <MidiAutomation/>
+</Processor>
