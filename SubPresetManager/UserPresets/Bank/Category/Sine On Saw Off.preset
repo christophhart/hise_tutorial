@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Preset Version="1.0.0">
+  <Content Processor="Interface">
+    <Control type="ScriptComboBox" id="SinePresets" value="1"/>
+    <Control type="ScriptComboBox" id="SawPresets" value="2"/>
+    <Control type="ScriptSlider" id="SineVolume" value="1"/>
+    <Control type="ScriptSlider" id="SawVolume" value="0"/>
+    <Control type="ScriptSlider" id="SineBalance" value="0"/>
+    <Control type="ScriptSlider" id="SawBalance" value="40"/>
+    <Control type="ScriptLabel" id="Label1" value="Saw Wave Presets"/>
+    <Control type="ScriptLabel" id="Label2" value="Sine Wave Presets"/>
+    <Control type="ScriptLabel" id="Label3" value="Global Presets"/>
+  </Content>
+  <MidiAutomation/>
+</Preset>
