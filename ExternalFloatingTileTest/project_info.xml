@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ProjectSettings>
+  <Name value="ExternalFloatingTileTest"/>
+  <Version value="1.0.0"/>
+  <Description value=""/>
+  <BundleIdentifier value="com.myCompany.product"/>
+  <PluginCode value="Abcd"/>
+  <EmbedAudioFiles value="Yes"/>
+  <AdditionalDspLibraries value=""/>
+  <OSXStaticLibs value=""/>
+  <WindowsStaticLibFolder value=""/>
+  <ExtraDefinitionsWindows value="HI_ENABLE_EXTERNAL_CUSTOM_TILES=1"/>
+  <ExtraDefinitionsOSX value="HI_ENABLE_EXTERNAL_CUSTOM_TILES=1"/>
+  <ExtraDefinitionsIOS value="HI_ENABLE_EXTERNAL_CUSTOM_TILES=1"/>
+  <AppGroupID value=""/>
+  <RedirectSampleFolder value=""/>
+</ProjectSettings>
