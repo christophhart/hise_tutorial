@@ -11,3 +11,6 @@ ParametriqEQ/Binaries/Builds
 ParametriqEQ/Binaries
 ParametriqEQ/build
 ConvolutionReverb/Binaries/
+SubPresetManager/UserPresets/db.json
+RawTest/Binaries
+RawTest/PooledResources
