@@ -53,14 +53,12 @@ FrontendProcessor::RawDataHolder* FrontendProcessor::createPresetRaw()
         sine->setAttribute(ModulatorSynth::Gain, gainFactors[i], dontSendNotification);
     }
     
-    
-    
     // Create an instance of our custom MIDI processor class.
     auto r = new PitchRandomizer(getMainSynthChain());
-    builder.add(r, getMainSynthChain(), raw::ChainIndexes::Midi);
+    builder.add(r, getMainSynthChain(), raw::IDs::Chains::Midi);
     
     // Add a stock reverb to the master container
-    auto reverb = builder.create<SimpleReverbEffect>(getMainSynthChain(), raw::ChainIndexes::FX);
+    auto reverb = builder.create<SimpleReverbEffect>(getMainSynthChain(), raw::IDs::Chains::FX);
 	
     // If we want to set multiple attributes (or want to set the same attributes for multiple
     // modules, we can use a raw::AttributeCollection
