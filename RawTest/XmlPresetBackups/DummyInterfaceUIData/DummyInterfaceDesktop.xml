@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentProperties DeviceType="Desktop">
+  <Component type="ScriptLabel" id="Label1" x="126" y="164" width="366" height="117"
+             text="This is just a dummy interface needed to export the plugin."
+             saveInPreset="0" editable="0"/>
+</ContentProperties>

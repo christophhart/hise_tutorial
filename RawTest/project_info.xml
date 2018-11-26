@@ -10,9 +10,13 @@
   <AdditionalDspLibraries value=""/>
   <OSXStaticLibs value=""/>
   <WindowsStaticLibFolder value=""/>
-  <ExtraDefinitionsWindows value="USE_RAW_FRONTEND=1"/>
-  <ExtraDefinitionsOSX value="USE_RAW_FRONTEND=1"/>
+  <ExtraDefinitionsWindows value=""/>
+  <ExtraDefinitionsOSX value=""/>
   <ExtraDefinitionsIOS value=""/>
   <AppGroupID value=""/>
   <RedirectSampleFolder value=""/>
+  <SupportFullDynamicsHLAC value="No"/>
+  <AAXCategoryFX value="AAX_ePlugInCategory_Modulation"/>
+  <SupportMonoFX value="No"/>
+  <UseRawFrontend value="1"/>
 </ProjectSettings>

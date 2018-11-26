@@ -24,13 +24,15 @@ constexpr int NUM_HARMONICS = 4;
 
 // We want to store the slider pack data as persistent data in the processor.
 // So we need to subclass the RawDataHolder class
-class ExampleRawDataHolder : public hise::FrontendProcessor::RawDataHolder
+class ExampleRawDataHolder : public hise::FrontendProcessor::RawDataBase
 {
 public:
 
 	ExampleRawDataHolder(hise::MainController* mc):
-		RawDataHolder(mc)
+		RawDataBase(mc)
 	{
+		createModules();
+
 		// Create the data holder for the harmonics slider pack.
 
 		// the undo manager used for control changes
@@ -46,6 +48,20 @@ public:
 		// Set the slider amount
 		dataPack->setNumSliders(NUM_HARMONICS);
 	};
+
+	void createModules();
+
+	Component* createEditor() override;
+
+	ValueTree exportAsValueTree() const override
+	{
+		return {};
+	}
+
+	void restoreFromValueTree(const ValueTree &previouslyExportedState) override
+	{
+		
+	}
 
 	juce::ScopedPointer<hise::SliderPackData> dataPack;
 };

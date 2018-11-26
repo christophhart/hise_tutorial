@@ -11,18 +11,14 @@ using namespace hise;
 /** This is the interface of our custom C++ plugin. */
 class RawEditor : public Component,
 				  public ControlledObject,
-                  public Slider::Listener,
-                  public hise::SafeChangeListener,
 				  public hise::SliderPack::Listener
 {
 public:
     
-	RawEditor(FrontendProcessor::RawDataHolder* data);
+	RawEditor(FrontendProcessor::RawDataBase* data);
     ~RawEditor();
     
 	void sliderPackChanged(SliderPack */*s*/, int index) override;
-    void changeListenerCallback(SafeChangeBroadcaster* b) override;
-	void sliderValueChanged(Slider*) override;
 
 	void paint(Graphics& g) override;
 	void resized() override;
@@ -35,5 +31,8 @@ private:
     WeakReference<hise::Processor> masterContainer;
     
 	ScopedPointer<juce::MidiKeyboardComponent> keyboard;
+
 	ScopedPointer<Slider> s;
+
+	raw::UIConnection::Ptr sliderConnection;
 };

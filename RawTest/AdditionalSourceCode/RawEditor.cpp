@@ -1,18 +1,16 @@
 #include "RawEditor.h"
 
-RawEditor::RawEditor(FrontendProcessor::RawDataHolder* data) :
+RawEditor::RawEditor(FrontendProcessor::RawDataBase* data) :
 	ControlledObject(data->getMainController()),
 	masterContainer(getMainController()->getMainSynthChain())
 {
 	auto dataHolder = dynamic_cast<ExampleRawDataHolder*>(data);
 
-	// listen to changes to update the slider
-	masterContainer->addChangeListener(this);
-
     // add the slider (standard JUCE stuff)
 	addAndMakeVisible(s = new Slider());
 	s->setRange(0.0, 1.0);
-	s->addListener(this);
+
+	sliderConnection = new raw::UIConnection::Slider<hise::ModulatorSynth::Gain>(s, getMainController(), "Master Chain");
 
 	addAndMakeVisible(keyboard = new MidiKeyboardComponent(getMainController()->getKeyboardState(), MidiKeyboardComponent::horizontalKeyboard));
 
@@ -27,12 +25,11 @@ RawEditor::RawEditor(FrontendProcessor::RawDataHolder* data) :
 
 RawEditor::~RawEditor()
 {
-	masterContainer->removeChangeListener(this);
-	s->removeListener(this);
 	sliderPack->removeListener(this);
+	sliderPack = nullptr;
 
 	s = nullptr;
-	sliderPack = nullptr;
+	sliderConnection.release();
 }
 
 void RawEditor::sliderPackChanged(SliderPack */*s*/, int index)
@@ -42,10 +39,6 @@ void RawEditor::sliderPackChanged(SliderPack */*s*/, int index)
                                sendNotification);
 }
 
-void RawEditor::changeListenerCallback(SafeChangeBroadcaster* b)
-{
-	s->setValue(masterContainer->getAttribute(ModulatorSynth::Gain), dontSendNotification);
-}
 
 void RawEditor::paint(Graphics& g)
 {
@@ -59,15 +52,3 @@ void RawEditor::resized()
 	sliderPack->setBounds(getLocalBounds().removeFromTop(100));
 }
 
-void RawEditor::sliderValueChanged(Slider*)
-{
-	masterContainer->setAttribute(ModulatorSynth::Gain, s->getValue(), sendNotification);
-}
-
-Component* FrontendProcessorEditor::createRawEditor(hise::FrontendProcessor::RawDataHolder* data)
-{
-	// This method will be called to create the custom interface for your plugin.
-	// It must set the default size correctly. The scale factor and the overlay
-	// for critical messages will added automatically.
-	return new RawEditor(data);
-}
