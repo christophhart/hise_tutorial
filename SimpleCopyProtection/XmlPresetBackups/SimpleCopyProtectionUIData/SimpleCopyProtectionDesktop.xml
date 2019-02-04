@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentProperties DeviceType="Desktop">
+  <Component type="ScriptPanel" id="AuthorisationDialogue" x="30" y="20" width="540"
+             height="280" borderRadius="0" visible="0">
+    <Component type="ScriptLabel" id="TitleLabel" x="30" y="20" parentComponent="AuthorisationDialogue"
+               width="490" height="30" text="Authorize the plugin" saveInPreset="0"
+               fontName="Oxygen" fontSize="27" bgColour="553648127"/>
+    <Component type="ScriptLabel" id="Description" x="68" y="103" width="406"
+               height="49" parentComponent="AuthorisationDialogue" text="Invalid serial number. The number you supplied does not match"
+               saveInPreset="0" multiline="1"/>
+    <Component type="ScriptLabel" id="SerialInput" x="111" y="172" width="318"
+               height="41" parentComponent="AuthorisationDialogue" text="" saveInPreset="0"
+               fontName="Source Code Pro" fontSize="26" bgColour="1174405119"
+               textColour="4279440147"/>
+    <Component type="ScriptButton" id="SubmitButton" x="111" y="223" parentComponent="AuthorisationDialogue"
+               bgColour="16777215" itemColour="4281479730" text="Submit" itemColour2="4214634038"
+               width="318" isMomentary="1" saveInPreset="0"/>
+  </Component>
+  <Component type="ScriptLabel" id="SerialStateLabel" x="30" y="320" width="540"
+             height="30" text="" bgColour="4289593135" saveInPreset="0"/>
+</ContentProperties>
