@@ -18,3 +18,5 @@ You most certainly don't want the user to enter the serial number each time, so 
 
 The example project contains a authorisation dialogue and the necessary logic to get you started. Please take a look at the [Scripts/Authorisation.js](Scripts/Authorisation.js) file to understand how it works.
 
+Discussion here:
+https://forum.hise.audio/topic/1204/simple-copy-protection-done-right
