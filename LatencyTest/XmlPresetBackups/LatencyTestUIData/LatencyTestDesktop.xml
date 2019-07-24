@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentProperties DeviceType="Desktop">
+  <Component type="ScriptLabel" id="Label1" x="70" y="200" width="460" height="110"
+             fontSize="59" editable="0" text="Latency: 8820"/>
+</ContentProperties>
