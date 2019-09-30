@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<samplemap ID="" RRGroupAmount="1" MicPositions=";">
+  <sample Root="60" LoKey="24" HiKey="100" LoVel="0" HiVel="24" RRGroup="1"
+          FileName="{PROJECT_FOLDER}00.wav" Duplicate="0"/>
+  <sample Root="60" LoKey="24" HiKey="100" LoVel="25" HiVel="49" RRGroup="1"
+          FileName="{PROJECT_FOLDER}01.wav" Duplicate="0"/>
+  <sample Root="60" LoKey="24" HiKey="100" LoVel="50" HiVel="75" RRGroup="1"
+          FileName="{PROJECT_FOLDER}02.wav" Duplicate="0"/>
+  <sample Root="60" LoKey="24" HiKey="100" LoVel="76" HiVel="100" RRGroup="1"
+          FileName="{PROJECT_FOLDER}03.wav" Duplicate="0"/>
+  <sample Root="60" LoKey="24" HiKey="100" LoVel="101" HiVel="127" RRGroup="1"
+          FileName="{PROJECT_FOLDER}04.wav" Duplicate="0"/>
+</samplemap>
