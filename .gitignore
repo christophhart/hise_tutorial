@@ -16,3 +16,6 @@ RawTest/Binaries
 RawTest/PooledResources
 LatencyTest/Binaries/
 LatencyTest/PooledResources/
+DocumentationTutorial/Binaries
+DocumentationTutorial/html
+DocumentationTutorial/PooledResources
