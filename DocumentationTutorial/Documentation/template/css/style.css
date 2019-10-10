@@ -1,0 +1,287 @@
+body
+{
+	font-family: Roboto;
+	font-size: 1.2em;
+	line-height: 1.6;
+	background-color: #eee;
+}
+
+.container {
+    position: static;
+    position: relative;
+    z-index: 1;
+	top: 100px;
+    min-height: calc(100vh - 40px);
+}
+
+nav.toc {
+    position: fixed;
+    background-color: #222427;
+    padding: 10px;
+    padding-top:2rem;
+    padding-bottom: 2rem;
+    color: #f5f5f5;
+    width: 280px;
+    z-index: 10;
+    top: 100px;
+    bottom: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+	
+	-webkit-box-shadow: 1px 0px 12px 4px rgba(0,0,0,0.12);
+	-moz-box-shadow: 1px 0px 12px 4px rgba(0,0,0,0.12);
+	box-shadow: 1px 0px 12px 4px rgba(0,0,0,0.12);
+	
+	
+}
+
+.selected_details
+{
+    background-color: #6666668f;
+}
+
+nav.toc a {
+    color: #f5f5f5;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.9em;
+}
+
+#nav-button {
+    display:none;
+
+}
+
+summary {
+    padding-left: 10px;
+    margin-bottom: 2px;
+}
+
+details {
+    padding-left: 10px;
+    font-size: 19px;
+}
+
+details details {
+    padding-left: 20px;
+    font-size: 16px;
+}
+
+details details details {
+    list-style: none;
+}
+details > details > details > details >summary::-webkit-details-marker {
+    display: none;
+  }
+
+
+.content {
+    padding-top: 5.5rem;
+    padding-left: 350px;
+    padding-right: 20px;
+    max-width: 800px;
+}
+
+
+/* Anchor jump to*/
+.content > h1 {
+    padding-top: 68px;
+    margin-top: -58px;
+}
+.content > h2 {
+    padding-top: 98px;
+    margin-top: -88px;
+}
+
+.content > h3 {
+	padding-top: 88px;
+    margin-top: -78px;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 900;
+    border-bottom: 1px solid #eee;
+    color: #3b3e42;
+}
+
+h1  {
+    font-size: 2rem;
+}
+
+h2 > code {
+    font-size:1.8rem;
+}
+
+h3 > code {
+    font-size:1.4rem;
+}
+
+.content a {
+    color: #25aa73;
+    font-size: 1.02em;
+    text-decoration: none;
+}
+.content a:hover {
+    text-decoration: underline;
+}
+
+.content h1 > img {
+    vertical-align:bottom;
+    padding-bottom: 0.6rem;
+    max-height: 33px;
+}
+
+.content img {
+		padding-top:1rem;
+		padding-bottom:1rem;
+        max-width: 100%;
+}
+
+
+p {
+    margin: 1.2em 0 -1.2em;
+    padding-bottom: 1.2em;
+    font-size: 1.002em;
+    color:#272c31;
+}
+
+p code
+{
+    font-size: 0.95rem;
+    background-color: #f5f5f5;
+    padding-left: 5px;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-right: 5px;
+    color: #af1512;
+    border-radius: 5px;
+    font-family: 'Source Code Pro', 'Andale Mono', 'Ubuntu Mono', monospace;
+}
+
+ul {
+    color:#272c31;
+}
+
+
+table {
+    display: table;
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    margin-bottom:1.5rem;
+    color:#272c31;
+}
+
+table code {
+    font-size: 0.95rem;
+    background-color: #f5f5f5;
+    padding-left: 5px;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-right: 5px;
+    color: #272c31;
+    border-radius: 5px;
+    font-family: 'Source Code Pro', 'Andale Mono', 'Ubuntu Mono', monospace;
+
+}
+
+thead {
+    color: #444;
+    background-color: #eee;
+    font-weight: 700;
+    box-sizing: border-box;
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+th {
+    background-color: #eee;
+    font-weight: 900;
+}
+
+td img {
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+}
+p.comment {
+    margin-top: 2rem;
+	margin-bottom: 1.6rem;
+	color: #555;
+    background-color: #eee;
+    border-left: 4px solid #ccc;
+    padding: 20px;
+}
+
+
+/* FOOTER */
+
+div.content-footer
+{
+	margin-top: 40px;
+	border-top: 1px solid #ccc;
+	padding-top: 30px;
+	font-size: 0.9em;
+	color: #777;
+}
+
+div.content-footer a
+{
+	font-size: 1.0em;
+}
+
+span.content-footer-right
+{
+	float: right;
+}
+
+.content-footer-metadata {
+    margin-bottom: 0rem;  
+    color:#939393;
+}
+
+footer {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    transition: var(--transition-1);
+    background-color: rgba(245, 245, 245, 0.938);
+    height:40px;
+    font-size: 0.8rem;
+}
+
+
+footer > div {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-left: auto;
+    margin-right: 1rem;
+    color: rgb(147, 147, 147);
+
+}
+footer > div > a {
+    text-decoration: none;
+    color: #828282;
+}
+
+footer > div > a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,25 @@
+
+		<html>
+		<head>
+
+		<base href="file:///D:/Development/Projekte/Tutorial/DocumentationTutorial/html/"/>
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<link href="template/css/style.css" rel="stylesheet">
+		<script src="template/scripts/toc.json"></script>
+		<script language="javascript" src="template/scripts/generate.js"></script>
+		
+		</head>
+		
+		<body>
+		<div class="container">
+		<nav class="toc">
+			<script>
+				for (rootIndex in rootDb.Children) {
+					document.write(createTocElement(rootDb.Children[rootIndex]));
+				}
+			</script>
+
+		</nav>
+
+		<div class="content">
+		

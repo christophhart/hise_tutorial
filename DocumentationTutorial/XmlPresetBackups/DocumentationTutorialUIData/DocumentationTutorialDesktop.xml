@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentProperties DeviceType="Desktop">
+  <Component type="ScriptFloatingTile" id="HelpPanel" x="0" y="0" width="800"
+             height="610" ContentType="MarkdownPanel" bgColour="0" itemColour="4287692721"
+             itemColour2="4285563024" Data="{&#13;&#10;  &quot;ShowBack&quot;: false,&#13;&#10;  &quot;ShowSearch&quot;: false,&#13;&#10;  &quot;ShowToc&quot;: true,&#13;&#10;  &quot;BoldFontName&quot;: &quot;Roboto Fat&quot;,&#13;&#10;  &quot;FixTocWidth&quot;: 230,&#13;&#10;  &quot;StartURL&quot;: &quot;/setup&quot;,&#13;&#10;  &quot;ServerUpdateURL&quot;: &quot;https://docs.hise.audio/cache/tutorial&quot;&#13;&#10;}"
+             Font="Roboto" FontSize="16"/>
+  <Component type="ScriptFloatingTile" id="Keyboard" x="0" y="696" height="72"
+             width="1024" ContentType="Keyboard" bgColour="6579300" itemColour="436207615"
+             itemColour2="4294967295" textColour="4294951115" Data="{&#13;&#10;  &quot;KeyWidth&quot;: 14.0,&#13;&#10;  &quot;DisplayOctaveNumber&quot;: false,&#13;&#10;  &quot;LowKey&quot;: 9,&#13;&#10;  &quot;HiKey&quot;: 127,&#13;&#10;  &quot;CustomGraphics&quot;: false,&#13;&#10;  &quot;DefaultAppearance&quot;: true,&#13;&#10;  &quot;BlackKeyRatio&quot;: 0.699999988079071,&#13;&#10;  &quot;ToggleMode&quot;: false,&#13;&#10;  &quot;MidiChannel&quot;: 1,&#13;&#10;  &quot;UseVectorGraphics&quot;: true,&#13;&#10;  &quot;UseFlatStyle&quot;: false,&#13;&#10;  &quot;MPEKeyboard&quot;: false,&#13;&#10;  &quot;MPEStartChannel&quot;: 2,&#13;&#10;  &quot;MPEEndChannel&quot;: 16&#13;&#10;}"/>
+  <Component type="ScriptButton" id="SomeButton" x="200" y="640" saveInPreset="0"
+             isMomentary="1"/>
+  <Component type="ScriptButton" id="SomeButton1" x="600" y="640" saveInPreset="0"
+             isMomentary="1"/>
+  <Component type="ScriptButton" id="HelpButton" x="0" y="630" saveInPreset="0"/>
+  <Component type="ScriptPanel" id="SomeButton_help" x="200" y="640" width="128"
+             height="28" allowCallbacks="Clicks &amp; Hover"/>
+  <Component type="ScriptPanel" id="SomeButton1_help" x="600" y="640" width="128"
+             height="28" allowCallbacks="Clicks &amp; Hover"/>
+</ContentProperties>
