@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentProperties DeviceType="Desktop">
+  <Component type="ScriptSlider" id="FrequencyDisplay" x="198" y="253" middlePosition="1500"
+             stepSize="1" min="20" max="20000" suffix=" Hz" mode="Frequency"
+             width="178"/>
+</ContentProperties>
