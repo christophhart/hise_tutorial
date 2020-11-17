@@ -10,8 +10,7 @@
 
 */
 class ExternalTestComponent : public hise::FloatingTileContent,
-							  public juce::Component,
-							  public juce::Slider::Listener
+							  public juce::Component
 {
 public:
 
@@ -20,7 +19,9 @@ public:
 	SET_PANEL_NAME("ExternalTestComponent");
 
 	ExternalTestComponent(juce::FloatingTile* parent) :
-		FloatingTileContent(parent)
+		FloatingTileContent(parent),
+		gainSlider("Gain"),
+		gainConnection(&gainSlider, getMainController(), "Sine Wave Generator")
 	{
 		// The first thing we do is grabbing a reference to the MainController, which is the
 		// object used for the entire HISE instance. It can be used to access pretty much everything
@@ -41,18 +42,12 @@ public:
 		// Deactivate some controls
 		settingsWindow->setProperty(hise::CustomSettingsWindow::Properties::GlobalBPM, false);
 		settingsWindow->setProperty(hise::CustomSettingsWindow::Properties::ClearMidiCC, false);
-		settingsWindow->setProperty(hise::CustomSettingsWindow::Properties::GraphicRendering, false);
+		settingsWindow->setProperty(hise::CustomSettingsWindow::Properties::UseOpenGL, false);
 
-		// Get a reference to the sine wave generator
-		sine = hise::ProcessorHelpers::getFirstProcessorWithName(mc->getMainSynthChain(), "Sine Wave Generator");
-
-		jassert(sine != nullptr);
-		
-		addAndMakeVisible(gainSlider = new Slider("Gain"));
-		gainSlider->addListener(this);
-		gainSlider->setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
-		gainSlider->setTextBoxStyle(Slider::TextBoxBelow, false, 80, 40);
-		gainSlider->setRange(0.0, 1.0);
+		addAndMakeVisible(gainSlider);
+		gainSlider.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
+		gainSlider.setTextBoxStyle(Slider::TextBoxBelow, false, 80, 40);
+		gainSlider.setRange(0.0, 1.0);
 	}
 
 	~ExternalTestComponent()
@@ -71,7 +66,7 @@ public:
 		stockKeyboard->setBounds(area.removeFromBottom(200));
 		settingsWindow->setBounds(area.removeFromLeft(400));
 
-		gainSlider->setBounds(area.withSizeKeepingCentre(80, 120));
+		gainSlider.setBounds(area.withSizeKeepingCentre(80, 120));
 	}
 
 	void paint(Graphics& g) override
@@ -80,15 +75,15 @@ public:
 		g.fillAll(Colours::darkblue);
 	}
 
-	void sliderValueChanged(juce::Slider* slider) override
-	{
-		sine->setAttribute(hise::ModulatorSynth::Parameters::Gain, slider->getValue(), dontSendNotification);
-	}
-
 	juce::ScopedPointer<hise::CustomSettingsWindow> settingsWindow;
 	juce::ScopedPointer<juce::MidiKeyboardComponent> stockKeyboard;
-	juce::WeakReference<hise::Processor> sine;
-	juce::ScopedPointer<juce::Slider> gainSlider;
+	
+	juce::Slider gainSlider;
+
+	// A helper class from RAW that will handle the synchronization between
+	// the slider and the processor's parameter...
+	hise::raw::UIConnection::Slider<SineSynth::Gain> gainConnection;
+
 };
 
 
