@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentProperties DeviceType="Desktop">
+  <Component type="ScriptFloatingTile" id="FloatingTile1" x="100" y="130"
+             ContentType="MidiOverlayPanel" bgColour="1398035540" itemColour="4287137928"
+             itemColour2="4282664004" Data="{&#13;&#10;  &quot;ProcessorId&quot;: &quot;MIDI Player1&quot;,&#13;&#10;  &quot;Index&quot;: 1&#13;&#10;}"
+             width="400" height="200"/>
+  <Component type="ScriptComboBox" id="MidiFileSelector" x="100" y="350" width="400"
+             text="Select MIDI file" items="Nothing&#10;{PROJECT_FOLDER}Octaves.mid&#10;{EXP::First Expansion}C-Minor.mid&#10;{EXP::Second Expansion}G Major.mid"
+             max="4"/>
+  <Component type="ScriptButton" id="PlayButton" x="100" y="400" width="400"
+             isMomentary="1" saveInPreset="0" text="Play"/>
+  <Component type="ScriptLabel" id="Label1" x="100" y="80" width="400" height="32"
+             fontSize="20" fontName="Oxygen" editable="0" bgColour="838860799"
+             text="MIDI Test"/>
+</ContentProperties>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentProperties DeviceType="Desktop">
+  <Component type="ScriptImage" id="Image1" x="0" y="0" width="1024" height="768"
+             fileName="{PROJECT_FOLDER}background.png">
+    <Component type="ScriptPanel" id="Panel2" x="480" y="470" parentComponent="Image1"
+               width="100" height="100"/>
+  </Component>
+  <Component type="ScriptPanel" id="Panel1" x="287" y="224" width="474" height="144"
+             itemColour="2264924160" itemColour2="2516582400">
+    <Component type="ScriptComboBox" id="ExpansionSelector" x="80" y="57" width="328"
+               parentComponent="Panel1" items="No Expansion&#10;First Expansion&#10;Second Expansion"
+               max="3"/>
+  </Component>
+</ContentProperties>

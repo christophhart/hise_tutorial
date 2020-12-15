@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentProperties DeviceType="Desktop">
+  <Component type="ScriptAudioWaveform" id="AudioWaveform1" x="12" y="83"
+             width="670" height="160" processorId="Audio Loop Player1"/>
+  <Component type="ScriptAudioWaveform" id="AudioWaveform2" x="12" y="382"
+             width="670" height="160" processorId="Audio Loop Player2"/>
+  <Component type="ScriptComboBox" id="FirstSlotSelector" x="10" y="259" max="4"
+             width="278" items="no file&#10;root_folder.wav&#10;first_expansion.wav&#10;second_expansion.wav"/>
+  <Component type="ScriptComboBox" id="SecondSlotSelector" x="10" y="554"
+             max="4" width="278" items="no file&#10;root_folder.wav&#10;first_expansion.wav&#10;second_expansion.wav"/>
+  <Component type="ScriptButton" id="PlayButton1" x="550" y="262" text="Play"
+             isMomentary="1" saveInPreset="0"/>
+  <Component type="ScriptButton" id="PlayButton2" x="550" y="552" text="Play"
+             isMomentary="1" saveInPreset="0"/>
+  <Component type="ScriptLabel" id="Label1" x="12" y="23" width="671" height="43"
+             text="AudioFile Test" bgColour="469762047" fontSize="34" fontName="Oxygen"/>
+</ContentProperties>

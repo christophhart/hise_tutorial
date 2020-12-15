@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentProperties DeviceType="Desktop">
+  <Component type="ScriptFloatingTile" id="FloatingTile1" x="0" y="0" ContentType="MarkdownPanel"
+             bgColour="1897864991" itemColour="4287692721" itemColour2="4285563024"
+             Data="{&#13;&#10;  &quot;ShowBack&quot;: true,&#13;&#10;  &quot;ShowSearch&quot;: false,&#13;&#10;  &quot;ShowToc&quot;: true,&#13;&#10;  &quot;BoldFontName&quot;: &quot;&quot;,&#13;&#10;  &quot;FixTocWidth&quot;: -1,&#13;&#10;  &quot;StartURL&quot;: &quot;/&quot;,&#13;&#10;  &quot;ServerUpdateURL&quot;: &quot;&quot;&#13;&#10;}"
+             width="1024" height="768" Font="Oxygen" FontSize="21"/>
+</ContentProperties>

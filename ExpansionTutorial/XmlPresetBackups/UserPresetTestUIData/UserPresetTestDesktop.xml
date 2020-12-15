@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentProperties DeviceType="Desktop">
+  <Component type="ScriptImage" id="background" x="0" y="0" width="1024" height="768"
+             fileName="{PROJECT_FOLDER}background.png">
+    <Component type="ScriptFloatingTile" id="FloatingTile1" x="40" y="170" parentComponent="background"
+               ContentType="PresetBrowser" bgColour="0" itemColour="4287692721"
+               itemColour2="4294951115" Data="{&#13;&#10;  &quot;ShowSaveButton&quot;: true,&#13;&#10;  &quot;ShowExpansionsAsColumn&quot;: true,&#13;&#10;  &quot;ShowFolderButton&quot;: true,&#13;&#10;  &quot;ShowNotes&quot;: true,&#13;&#10;  &quot;ShowEditButtons&quot;: true,&#13;&#10;  &quot;ShowFavoriteIcon&quot;: true,&#13;&#10;  &quot;NumColumns&quot;: 1,&#13;&#10;  &quot;ColumnWidthRatio&quot;: [&#13;&#10;    0.3333333333333333,&#13;&#10;    0.3333333333333333,&#13;&#10;    0.3333333333333333&#13;&#10;  ]&#13;&#10;}"
+               width="950" height="390"/>
+    <Component type="ScriptSlider" id="Reverb" x="375" y="657" parentComponent="background"
+               mode="NormalizedPercentage" suffix="%" middlePosition="0.5" processorId="Simple Reverb1"
+               parameterId="WetLevel"/>
+    <Component type="ScriptSlider" id="Saturation" x="630" y="660" parentComponent="background"
+               mode="NormalizedPercentage" suffix="%" middlePosition="0.5" processorId="Sine Wave Generator1"
+               parameterId="SaturationAmount"/>
+  </Component>
+</ContentProperties>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<samplemap ID="Mickey Mouse" RRGroupAmount="1" MicPositions=";">
+  <sample Root="48" LoKey="60" HiKey="60" LoVel="0" HiVel="127" RRGroup="1"
+          FileName="{EXP::First Expansion}first_sample.wav" Duplicate="0"/>
+</samplemap>

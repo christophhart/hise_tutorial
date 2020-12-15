@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<samplemap ID="Normal" RRGroupAmount="1" MicPositions=";">
+  <sample Root="60" LoKey="60" HiKey="60" LoVel="0" HiVel="127" RRGroup="1"
+          FileName="{PROJECT_FOLDER}root_sample.wav" Duplicate="1" Pan="100"/>
+</samplemap>
