@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Network ID="PseudoStereo">
+  <Node FactoryPath="container.chain" ID="PseudoStereo">
+    <Nodes>
+      <Node ID="multi" FactoryPath="container.multi">
+        <Nodes/>
+        <Parameters/>
+      </Node>
+    </Nodes>
+    <Parameters/>
+  </Node>
+</Network>

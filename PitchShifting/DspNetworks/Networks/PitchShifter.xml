@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Network ID="PitchShifter" AllowCompilation="1">
+  <Node FactoryPath="container.chain" ID="PitchShifter" ShowParameters="1">
+    <Nodes>
+      <Node ID="frame2_block" FactoryPath="container.frame2_block">
+        <Nodes>
+          <Node ID="xfade_mod" FactoryPath="container.modchain" NumChannels="1">
+            <Nodes>
+              <Node ID="oscillator" FactoryPath="core.oscillator" NumChannels="1"
+                    NodeColour="4284063922">
+                <ComplexData>
+                  <DisplayBuffers>
+                    <DisplayBuffer Index="-1"/>
+                  </DisplayBuffers>
+                </ComplexData>
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="4.0" StepSize="1.0" ID="Mode" Value="3.0"/>
+                  <Parameter MinValue="0.0" MaxValue="20.0" StepSize="0.01" ID="Frequency"
+                             Value="20.0"/>
+                  <Parameter MinValue="1.0" MaxValue="16.0" StepSize="1.0" ID="Freq Ratio"
+                             Value="1.0"/>
+                  <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Gate" Automated="1"
+                             ModulationTarget="1"/>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Phase" Value="0.0"/>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Gain" Value="1.0"/>
+                </Parameters>
+              </Node>
+              <Node ID="sig2mod" FactoryPath="math.sig2mod" NumChannels="1">
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Value="0.0"/>
+                </Parameters>
+              </Node>
+              <Node ID="resetter" FactoryPath="control.resetter" NumChannels="1"
+                    NodeColour="4284063922">
+                <ModulationTargets>
+                  <ModulationTarget NodeId="oscillator" ParameterId="Gate" Enabled="1" MinValue="0.0"
+                                    MaxValue="1.0" StepSize="1.0"/>
+                  <ModulationTarget NodeId="oscillator1" ParameterId="Gate" Enabled="1" MinValue="0.0"
+                                    MaxValue="1.0" StepSize="1.0"/>
+                  <ModulationTarget NodeId="oscillator2" ParameterId="Gate" Enabled="1" MinValue="0.0"
+                                    MaxValue="1.0" StepSize="1.0"/>
+                </ModulationTargets>
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Value="0.0"/>
+                </Parameters>
+              </Node>
+              <Node ID="envelope_follower" FactoryPath="dynamics.envelope_follower"
+                    NumChannels="1" NodeColour="4289878403">
+                <ModulationTargets>
+                  <ModulationTarget NodeId="xfader" ParameterId="Value" Enabled="1" MinValue="0.0"
+                                    MaxValue="1.0"/>
+                </ModulationTargets>
+                <ComplexData>
+                  <DisplayBuffers>
+                    <DisplayBuffer Index="-1"/>
+                  </DisplayBuffers>
+                </ComplexData>
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="50.0" StepSize="0.1000000014901161"
+                             ID="Attack" Automated="1"/>
+                  <Parameter MinValue="0.0" MaxValue="50.0" StepSize="0.1000000014901161"
+                             ID="Release" Automated="1"/>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="ProcessSignal" Value="0.0"/>
+                </Parameters>
+              </Node>
+              <Node ID="xfader" FactoryPath="control.xfader" NumChannels="1" NodeColour="4289878403">
+                <Properties>
+                  <Property ID="NumParameters" Value="2"/>
+                  <Property ID="Mode" Value="Linear"/>
+                </Properties>
+                <SwitchTargets>
+                  <SwitchTarget>
+                    <Connections>
+                      <Connection NodeId="mul" ParameterId="Value" MinValue="0.0" MaxValue="1.0"/>
+                    </Connections>
+                  </SwitchTarget>
+                  <SwitchTarget>
+                    <Connections>
+                      <Connection NodeId="mul1" ParameterId="Value" MinValue="0.0" MaxValue="1.0"/>
+                    </Connections>
+                  </SwitchTarget>
+                </SwitchTargets>
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1" ModulationTarget="1"/>
+                </Parameters>
+              </Node>
+              <Node ID="smoothed_parameter" FactoryPath="control.smoothed_parameter"
+                    NumChannels="1" NodeColour="4287148633">
+                <Properties>
+                  <Property ID="Mode" Value="Linear Ramp"/>
+                </Properties>
+                <ModulationTargets>
+                  <ModulationTarget NodeId="bipolar1" ParameterId="Scale" Enabled="1" MinValue="-1.0"
+                                    MaxValue="1.0"/>
+                  <ModulationTarget NodeId="bipolar" ParameterId="Scale" Enabled="1" MinValue="-1.0"
+                                    MaxValue="1.0"/>
+                </ModulationTargets>
+                <Parameters>
+                  <Parameter MinValue="1.0" MaxValue="0.0" ID="Value" Automated="1"/>
+                  <Parameter MinValue="0.1000000014901161" MaxValue="1000.0" StepSize="0.1000000014901161"
+                             ID="SmoothingTime" Value="100.0000014901161"/>
+                </Parameters>
+              </Node>
+            </Nodes>
+            <Parameters/>
+            <Properties>
+              <Property ID="IsVertical" Value="0"/>
+            </Properties>
+          </Node>
+          <Node ID="delay_splitter" FactoryPath="container.split">
+            <Nodes>
+              <Node ID="delay_chain1" FactoryPath="container.chain" NodeColour="9876057">
+                <Nodes>
+                  <Node ID="delay_mod1" FactoryPath="container.modchain" NumChannels="1">
+                    <Nodes>
+                      <Node ID="oscillator1" FactoryPath="core.oscillator" NumChannels="1"
+                            NodeColour="4284063922">
+                        <ComplexData>
+                          <DisplayBuffers>
+                            <DisplayBuffer Index="-1"/>
+                          </DisplayBuffers>
+                        </ComplexData>
+                        <Parameters>
+                          <Parameter MinValue="0.0" MaxValue="4.0" StepSize="1.0" ID="Mode" Value="1.0"/>
+                          <Parameter MinValue="0.0" MaxValue="20.0" StepSize="0.01" ID="Frequency"
+                                     Value="20.0"/>
+                          <Parameter MinValue="1.0" MaxValue="16.0" StepSize="1.0" ID="Freq Ratio"
+                                     Value="1.0"/>
+                          <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Gate" Automated="1"
+                                     ModulationTarget="1"/>
+                          <Parameter MinValue="0.0" MaxValue="1.0" ID="Phase" Value="0.0"/>
+                          <Parameter MinValue="0.0" MaxValue="1.0" ID="Gain" Value="1.0"/>
+                        </Parameters>
+                      </Node>
+                      <Node ID="sig2mod1" FactoryPath="math.sig2mod" NumChannels="1">
+                        <Parameters>
+                          <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Value="0.0"/>
+                        </Parameters>
+                      </Node>
+                      <Node ID="peak" FactoryPath="core.peak" NumChannels="1" NodeColour="4287148633">
+                        <ModulationTargets>
+                          <ModulationTarget NodeId="bipolar1" ParameterId="Value" Enabled="1" MinValue="0.0"
+                                            MaxValue="1.0"/>
+                        </ModulationTargets>
+                        <ComplexData>
+                          <DisplayBuffers>
+                            <DisplayBuffer Index="-1"/>
+                          </DisplayBuffers>
+                        </ComplexData>
+                        <Parameters/>
+                      </Node>
+                      <Node ID="bipolar1" FactoryPath="control.bipolar" NumChannels="1" NodeColour="4287148633">
+                        <ModulationTargets>
+                          <ModulationTarget NodeId="jdelay" ParameterId="DelayTime" Enabled="1" MinValue="0.0"
+                                            MaxValue="50.0"/>
+                        </ModulationTargets>
+                        <Parameters>
+                          <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1" ModulationTarget="1"/>
+                          <Parameter MinValue="-1.0" MaxValue="1.0" ID="Scale" Automated="1" ModulationTarget="1"/>
+                          <Parameter MinValue="0.5" MaxValue="2.0" SkewFactor="0.6309297680854797"
+                                     ID="Gamma" Value="1.0"/>
+                        </Parameters>
+                      </Node>
+                    </Nodes>
+                    <Parameters/>
+                    <Properties>
+                      <Property ID="IsVertical" Value="0"/>
+                    </Properties>
+                  </Node>
+                  <Node ID="jdelay" FactoryPath="jdsp.jdelay" NodeColour="4287148633">
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1000.0" SkewFactor="0.3010300099849701"
+                                 ID="Limit" Value="100.0"/>
+                      <Parameter MinValue="0.0" MaxValue="50.0" ID="DelayTime" Automated="1" ModulationTarget="1"/>
+                    </Parameters>
+                  </Node>
+                  <Node ID="mul" FactoryPath="math.mul" NodeColour="4289878403">
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                </Nodes>
+                <Parameters/>
+              </Node>
+              <Node ID="delay_chain2" FactoryPath="container.chain" NodeColour="11688340">
+                <Nodes>
+                  <Node ID="delay_mod2" FactoryPath="container.modchain" NumChannels="1"
+                        ShowParameters="0">
+                    <Nodes>
+                      <Node ID="oscillator2" FactoryPath="core.oscillator" NumChannels="1"
+                            NodeColour="4284063922">
+                        <ComplexData>
+                          <DisplayBuffers>
+                            <DisplayBuffer Index="-1"/>
+                          </DisplayBuffers>
+                        </ComplexData>
+                        <Parameters>
+                          <Parameter MinValue="0.0" MaxValue="4.0" StepSize="1.0" ID="Mode" Value="1.0"/>
+                          <Parameter MinValue="0.0" MaxValue="20.0" StepSize="0.01" ID="Frequency"
+                                     Value="20.0"/>
+                          <Parameter MinValue="1.0" MaxValue="16.0" StepSize="1.0" ID="Freq Ratio"
+                                     Value="1.0"/>
+                          <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Gate" Automated="1"
+                                     ModulationTarget="1"/>
+                          <Parameter MinValue="0.0" MaxValue="1.0" ID="Phase" Value="0.498713134765625"/>
+                          <Parameter MinValue="0.0" MaxValue="1.0" ID="Gain" Value="1.0"/>
+                        </Parameters>
+                      </Node>
+                      <Node ID="sig2mod2" FactoryPath="math.sig2mod" NumChannels="1">
+                        <Parameters>
+                          <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Value="0.0"/>
+                        </Parameters>
+                      </Node>
+                      <Node ID="peak1" FactoryPath="core.peak" NumChannels="1" NodeColour="4287148633">
+                        <ModulationTargets>
+                          <ModulationTarget NodeId="bipolar" ParameterId="Value" Enabled="1" MinValue="0.0"
+                                            MaxValue="1.0"/>
+                        </ModulationTargets>
+                        <ComplexData>
+                          <DisplayBuffers>
+                            <DisplayBuffer Index="-1"/>
+                          </DisplayBuffers>
+                        </ComplexData>
+                        <Parameters/>
+                      </Node>
+                      <Node ID="bipolar" FactoryPath="control.bipolar" NumChannels="1" NodeColour="4287148633">
+                        <ModulationTargets>
+                          <ModulationTarget NodeId="jdelay1" ParameterId="DelayTime" Enabled="1" MinValue="0.0"
+                                            MaxValue="50.0"/>
+                        </ModulationTargets>
+                        <Parameters>
+                          <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1" ModulationTarget="1"/>
+                          <Parameter MinValue="-1.0" MaxValue="1.0" ID="Scale" Automated="1" ModulationTarget="1"/>
+                          <Parameter MinValue="0.5" MaxValue="2.0" SkewFactor="0.6309297680854797"
+                                     ID="Gamma" Value="1.0"/>
+                        </Parameters>
+                      </Node>
+                    </Nodes>
+                    <Parameters/>
+                    <Properties>
+                      <Property ID="IsVertical" Value="0"/>
+                    </Properties>
+                  </Node>
+                  <Node ID="jdelay1" FactoryPath="jdsp.jdelay" NodeColour="4287148633">
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1000.0" SkewFactor="0.3010300099849701"
+                                 ID="Limit" Value="100.0"/>
+                      <Parameter MinValue="0.0" MaxValue="50.0" ID="DelayTime" Automated="1" ModulationTarget="1"/>
+                    </Parameters>
+                  </Node>
+                  <Node ID="mul1" FactoryPath="math.mul" NodeColour="4289878403">
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                </Nodes>
+                <Parameters/>
+              </Node>
+            </Nodes>
+            <Parameters/>
+          </Node>
+        </Nodes>
+        <Parameters/>
+      </Node>
+    </Nodes>
+    <Parameters>
+      <Parameter ID="ShiftAmount" MinValue="0.0" MaxValue="1.0" Value="0.4736466979980469">
+        <Connections>
+          <Connection NodeId="smoothed_parameter" ParameterId="Value" MinValue="1.0"
+                      MaxValue="0.0"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="FadeTime" MinValue="0.0" MaxValue="50.0" Value="24.00000035762787"
+                 StepSize="0.1000000014901161">
+        <Connections>
+          <Connection NodeId="envelope_follower" ParameterId="Attack" MinValue="0.0"
+                      MaxValue="50.0" StepSize="0.1000000014901161"/>
+          <Connection NodeId="envelope_follower" ParameterId="Release" MinValue="0.0"
+                      MaxValue="50.0" StepSize="0.1000000014901161"/>
+        </Connections>
+      </Parameter>
+    </Parameters>
+  </Node>
+</Network>
