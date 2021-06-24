@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Network ID="PitchShifterSNEX" AllowCompilation="1">
+  <Node FactoryPath="container.chain" ID="PitchShifterSNEX" ShowParameters="1">
+    <Nodes>
+      <Node ID="snex_node" FactoryPath="core.snex_node">
+        <Properties>
+          <Property ID="ClassId" Value="PitchShifter"/>
+        </Properties>
+        <ComplexData>
+          <Tables/>
+          <SliderPacks/>
+          <AudioFiles/>
+          <Filters/>
+          <DisplayBuffers/>
+        </ComplexData>
+        <Parameters>
+          <Parameter MinValue="0.5" MaxValue="2.0" SkewFactor="0.6309297535714574"
+                     ID="ShiftAmount" Value="0.5"/>
+        </Parameters>
+      </Node>
+    </Nodes>
+    <Parameters>
+      <Parameter ID="ShiftAmount" MinValue="0.0" MaxValue="1.0" Value="0.0">
+        <Connections>
+          <Connection NodeId="snex_node" ParameterId="ShiftAmount" MinValue="0.5" MaxValue="2.0"
+                      SkewFactor="0.6309297535714574"/>
+        </Connections>
+      </Parameter>
+    </Parameters>
+  </Node>
+</Network>

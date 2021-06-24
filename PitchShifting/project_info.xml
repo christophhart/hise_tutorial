@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ProjectSettings>
+  <Name value="PitchShifting"/>
+  <Version value="1.0.0"/>
+  <Description value=""/>
+  <BundleIdentifier value="com.myCompany.product"/>
+  <PluginCode value="Abcd"/>
+  <EmbedAudioFiles value="Yes"/>
+  <EmbedImageFiles value="Yes"/>
+  <SupportFullDynamicsHLAC value="No"/>
+  <AdditionalDspLibraries value=""/>
+  <OSXStaticLibs value=""/>
+  <WindowsStaticLibFolder value=""/>
+  <ExtraDefinitionsWindows value=""/>
+  <ExtraDefinitionsOSX value=""/>
+  <ExtraDefinitionsIOS value=""/>
+  <ExtraDefinitionsLinux value=""/>
+  <AppGroupID value=""/>
+  <RedirectSampleFolder value=""/>
+  <AAXCategoryFX value="AAX_ePlugInCategory_Modulation"/>
+  <SupportMonoFX value="No"/>
+  <EnableMidiInputFX value="No"/>
+  <VST3Support value="No"/>
+  <UseRawFrontend value="No"/>
+  <ExpansionType value="Disabled"/>
+  <EncryptionKey value=""/>
+  <LinkExpansionsToProject value="No"/>
+</ProjectSettings>

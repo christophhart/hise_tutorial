@@ -1,6 +1,6 @@
 # PitchShifting Examples
 
-This project contains a simple pitch shifting algorithm that is implemented in scriptnode as well as a few "higher level" examples:
+This project contains a simple pitch shifting algorithm that is implemented as scriptnode patch and SNEX code as well as a few "higher level" examples:
 
 - a real time pitch shifter
 - a pseudo stereo effect

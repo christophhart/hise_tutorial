@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Parameters>
+  <Parameter MinValue="0.5" MaxValue="2.0" StepSize="0.0" SkewFactor="0.6309297535714574"
+             ID="ShiftAmount" Value="0.0"/>
+</Parameters>
