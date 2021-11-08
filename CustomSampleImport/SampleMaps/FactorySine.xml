@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<samplemap ID="FactorySine" SaveMode="0" RRGroupAmount="1.0" MicPositions=";">
+  <sample FileName="{PROJECT_FOLDER}Sine.wav" LoVel="0" HiVel="127" LoKey="0"
+          HiKey="127" Root="69" RRGroup="1" Duplicate="1" LoopEnabled="1"
+          LoopStart="51703" LoopEnd="72232" SampleEnd="88200" SampleStart="0"
+          LoopXFade="5337"/>
+</samplemap>

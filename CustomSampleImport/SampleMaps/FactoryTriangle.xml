@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<samplemap ID="FactoryTriangle" SaveMode="0" RRGroupAmount="1.0" MicPositions=";">
+  <sample FileName="{PROJECT_FOLDER}Triangle_-6dB.wav" LoVel="0" HiVel="127"
+          LoKey="0" HiKey="127" Root="64" RRGroup="1" Duplicate="0" LoopXFade="0"
+          LoopStart="20377" SampleStart="20377" SampleEnd="44100"/>
+</samplemap>

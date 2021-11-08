@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Preset Version="1.0.0">
+  <Content Processor="Interface">
+    <Control type="ScriptPanel" id="SampleDropper" value="JSON{&quot;isCustom&quot;: false, &quot;value&quot;: &quot;FactoryTriangle&quot;}"/>
+    <Control type="ScriptButton" id="Reverse" value="0.0"/>
+  </Content>
+  <MidiAutomation/>
+  <MPEData Enabled="0"/>
+</Preset>
