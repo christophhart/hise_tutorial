@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentProperties DeviceType="Desktop">
+  <Component type="ScriptLabel" id="Label1" x="60.0" y="20.0" text="COMP: 1/2 SIDECHAIN: 3/4 REVERB: 5/6 DELAY: 7/8"
+             width="477.0" height="50.0" fontName="Default" fontSize="20.0"
+             editable="0" bgColour="1191182336"/>
+  <Component type="ScriptPanel" id="Panel1" x="60.0" y="100.0" width="340.0"
+             height="79.0" tooltip="The display of the gain reduction"/>
+  <Component type="ScriptButton" id="Button1" x="410.0" y="101.0" text="Sidechain"
+             processorId="Compressor" parameterId="Sidechain" height="28.0"
+             tooltip="If enabled, it uses Channel 3/4 for the gain reduction"/>
+  <Component type="ScriptSlider" id="Knob1" x="410.0" y="134.0" middlePosition="-18.0"
+             stepSize="0.1000000014901161" suffix=" dB" text="Threshold" processorId="Compressor"
+             parameterId="Threshold" mode="Decibel" min="-100.0" max="0.0"
+             tooltip="The threshold for the compressor"/>
+  <Component type="ScriptButton" id="StereoButton" x="60.0" y="200.0" text="Stereo Out"
+             tooltip="If enabled, it routes all channels to the first stereo output"/>
+  <Component type="ScriptFloatingTile" id="FloatingTile1" x="200.0" y="200.0"
+             ContentType="TooltipPanel" bgColour="4281874488" itemColour="872415231"
+             itemColour2="0" textColour="3439329279" height="27.0" width="338.0"/>
+</ContentProperties>

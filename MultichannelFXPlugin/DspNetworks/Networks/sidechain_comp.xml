@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Network ID="sidechain_comp" AllowCompilation="1" CompileChannelAmount="4"
+         HasTail="0" SuspendOnSilence="1" Version="0.0.0">
+  <Node FactoryPath="container.chain" ID="sidechain_comp" Bypassed="0"
+        ShowParameters="1">
+    <Nodes>
+      <Node ID="comp" FactoryPath="dynamics.comp" Bypassed="0">
+        <ComplexData>
+          <DisplayBuffers>
+            <DisplayBuffer Index="0"/>
+          </DisplayBuffers>
+        </ComplexData>
+        <Parameters>
+          <Parameter MinValue="-100.0" MaxValue="0.0" StepSize="0.1000000014901161"
+                     SkewFactor="5.422270774841309" ID="Threshhold" Automated="1"/>
+          <Parameter MinValue="0.0" MaxValue="250.0" StepSize="0.1000000014901161"
+                     SkewFactor="0.4306765496730804" ID="Attack" Value="0.0"/>
+          <Parameter MinValue="0.0" MaxValue="250.0" StepSize="0.1000000014901161"
+                     SkewFactor="0.4306765496730804" ID="Release" Value="14.80000022053718"/>
+          <Parameter MinValue="1.0" MaxValue="32.0" StepSize="0.1000000014901161"
+                     SkewFactor="0.2968033850193024" ID="Ratio" Value="32.0"/>
+          <Parameter MinValue="1.0" MaxValue="2.0" StepSize="1.0" ID="Sidechain" Automated="1"/>
+        </Parameters>
+      </Node>
+    </Nodes>
+    <Parameters>
+      <Parameter ID="Threshold" MinValue="-100.0" MaxValue="0.0" StepSize="0.1000000014901161"
+                 SkewFactor="5.422270774841309" Value="-11.59999868273735">
+        <Connections>
+          <Connection NodeId="comp" ParameterId="Threshhold"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="Sidechain" MinValue="0.0" MaxValue="1.0" StepSize="1" Value="1.0">
+        <Connections>
+          <Connection NodeId="comp" ParameterId="Sidechain"/>
+        </Connections>
+      </Parameter>
+    </Parameters>
+  </Node>
+</Network>
