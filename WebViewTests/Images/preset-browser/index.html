@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <title>My first three.js app</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+	<p id="valueDisplay">If you can read this, then you haven't enabled the persistent mode for the web view (which you will need so that the data is being initialised correctly). Set the <code>enablePersistence</code> property to <code>true</code></p>
+	<p>Click on any item in order to load a preset. You can also use the stock HISE preset browser below to simulate a preset load from anywhere else and see how the selection is being updated.</p>
+<form class="preset-browser">
+      <select style="width:100%; " name="presets" id="presets" size="4" onchange="loadUserPreset(this.value)"/>
+</form>
+
+<script src="./prevent_browser_stuff.js"></script>
+<script src="./browser.js"></script>
+
+
+</body>
+</html>

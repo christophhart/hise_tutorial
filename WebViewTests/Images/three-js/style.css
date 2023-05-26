@@ -1,0 +1,26 @@
+body {
+    font-family: Helvetica sans-serif;
+    padding: 0;
+    margin: 0;
+    background-color: #272727;
+    color: #eee;
+    font-size: 4em;
+    overflow: hidden;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+         -o-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+
+
+.preset-browser
+{
+	width: 500px;
+}
+
+.preset-browser select
+{
+	width: 100%;
+}

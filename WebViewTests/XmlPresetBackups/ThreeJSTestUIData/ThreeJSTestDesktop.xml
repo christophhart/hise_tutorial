@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentProperties DeviceType="Desktop">
+  <Component type="ScriptWebView" id="WebView1" x="0.0" y="52.0" width="600.0"
+             rootDirectory="D:\Development\Projekte\hise_tutorial\WebViewTests\Images\three-js"
+             indexFile="/index.html" height="400.0" saveInPreset="1" enableCache="1"/>
+  <Component type="ScriptSlider" id="Knob1" x="140.0" y="500.0" stepSize="0.009999999776482582"
+             text="X Rotation"/>
+  <Component type="ScriptComboBox" id="ZoomFactor" x="470.0" y="10.0" max="4"
+             items="0.5&#10;1.0&#10;1.25&#10;1.5&#10;&#10;" saveInPreset="0"/>
+  <Component type="ScriptSlider" id="LFO Speed" x="360.0" y="500.0" text="LFO"
+             max="10.0" processorId="Script FX2" parameterId="LFO"/>
+</ContentProperties>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentProperties DeviceType="Desktop">
+  <Component type="ScriptWebView" id="WebView1" x="0.0" y="52.0" width="600.0"
+             rootDirectory="D:\Development\Projekte\hise_tutorial\WebViewTests\Images\preset-browser"
+             indexFile="/index.html" height="208.0" saveInPreset="1" enableCache="1"/>
+  <Component type="ScriptSlider" id="Knob1" x="0.0" y="552.0" stepSize="0.009999999776482582"/>
+  <Component type="ScriptComboBox" id="ZoomFactor" x="470.0" y="10.0" max="4"
+             items="0.5&#10;1.0&#10;1.25&#10;1.5&#10;&#10;" saveInPreset="0"/>
+  <Component type="ScriptFloatingTile" id="FloatingTile1" x="0.0" y="260.0"
+             ContentType="PresetBrowser" bgColour="0" itemColour="4287692721"
+             itemColour2="0" Data="{&#10;  &quot;ShowSaveButton&quot;: true,&#10;  &quot;ShowExpansionsAsColumn&quot;: false,&#10;  &quot;ShowFolderButton&quot;: true,&#10;  &quot;ShowNotes&quot;: false,&#10;  &quot;ShowEditButtons&quot;: false,&#10;  &quot;EditButtonOffset&quot;: 10,&#10;  &quot;ShowAddButton&quot;: true,&#10;  &quot;ShowRenameButton&quot;: true,&#10;  &quot;ShowDeleteButton&quot;: true,&#10;  &quot;ShowFavoriteIcon&quot;: true,&#10;  &quot;ButtonsInsideBorder&quot;: false,&#10;  &quot;NumColumns&quot;: 3,&#10;  &quot;ColumnWidthRatio&quot;: [&#10;    0.3333333333333333,&#10;    0.3333333333333333,&#10;    0.3333333333333333&#10;  ],&#10;  &quot;ListAreaOffset&quot;: [&#10;    0,&#10;    0,&#10;    0,&#10;    0&#10;  ],&#10;  &quot;ColumnRowPadding&quot;: [&#10;    0,&#10;    0,&#10;    0,&#10;    0&#10;  ],&#10;  &quot;SearchBarBounds&quot;: [],&#10;  &quot;MoreButtonBounds&quot;: [],&#10;  &quot;SaveButtonBounds&quot;: [],&#10;  &quot;FavoriteButtonBounds&quot;: []&#10;}"
+             width="600.0" height="270.0"/>
+</ContentProperties>
