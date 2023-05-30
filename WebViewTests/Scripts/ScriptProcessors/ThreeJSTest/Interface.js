@@ -18,11 +18,9 @@ const var webroot = FileSystem.getFolder(FileSystem.AudioFiles).getParentDirecto
 // Call this to make sure that there is no intermediate temp stuff being carried around
 wv.reset();
 
-// set the index file (this is already the default, but I'll call it here so that you know it exists)
-wv.set("indexFile", "/index.html");
+// set the index file
+wv.setIndexFile(webroot.getChildFile("index.html"));
 
-// set the root directory using the 
-wv.set("rootDirectory", webroot.toString(0));
 
 // This is set to true so that when you export it, the files will be embedded...
 wv.set("enableCache", true);

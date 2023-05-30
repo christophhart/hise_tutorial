@@ -47,10 +47,7 @@ const var webroot = FileSystem.getFolder(FileSystem.AudioFiles).getParentDirecto
 wv.reset();
 
 // set the index file (this is already the default, but I'll call it here so that you know it exists)
-wv.set("indexFile", "/index.html");
-
-// set the root directory using the 
-wv.set("rootDirectory", webroot.toString(0));
+wv.setIndexFile(webroot.getChildFile("index.html"));
 
 // 
 wv.set("enableCache", true);

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentProperties DeviceType="Desktop">
+  <Component type="ScriptWebView" id="WebView1" x="50.0" y="50.0" rootDirectory="/Users/christophhart/Documents/hise_tutorial/WebViewTests/Images/path-example"
+             indexFile="/index.html" width="500.0" height="200.0"/>
+  <Component type="ScriptFloatingTile" id="FloatingTile1" x="71.0" y="250.0"
+             ContentType="Keyboard" bgColour="4284769380" itemColour="452984831"
+             itemColour2="4294967295" textColour="0" Data="{&#10;  &quot;KeyWidth&quot;: 14.0,&#10;  &quot;DisplayOctaveNumber&quot;: false,&#10;  &quot;LowKey&quot;: 9,&#10;  &quot;HiKey&quot;: 127,&#10;  &quot;CustomGraphics&quot;: false,&#10;  &quot;DefaultAppearance&quot;: true,&#10;  &quot;BlackKeyRatio&quot;: 0.699999988079071,&#10;  &quot;ToggleMode&quot;: false,&#10;  &quot;MidiChannel&quot;: 1,&#10;  &quot;UseVectorGraphics&quot;: true,&#10;  &quot;UseFlatStyle&quot;: false,&#10;  &quot;MPEKeyboard&quot;: false,&#10;  &quot;MPEStartChannel&quot;: 2,&#10;  &quot;MPEEndChannel&quot;: 16&#10;}"
+             height="72.0" width="462.0"/>
+</ContentProperties>

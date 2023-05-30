@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <title>My first three.js app</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <canvas id="myCanvas" width="500", height="200"></canvas>
+    
+    <script>
+    
+    // This string contains a single ramp so you can check the decoding algorithm
+    var s = "(((5(C(Q(`(m({)4)B)P)^)l)z*3*@*N*]*k*y+1+?+M+[+i+w,0,>,L,Y,h,v-/-=-J-X-g-u.-.;.I.W.f.s/,/:/H/U/d/r0+090F0T0c0q1)171E1S1b1o2(262D2R2`2n2|353B3P3_3m3{434A4O4^4k4y525@5N5[5j5x616>6L6Z6i6w7/7=7K7Y7h7u8.8<8J8W8f8t9-9;9H9V9e9s:+:9:G:U:d:q;*;8;F;S;b;p<)<7<D<R<a<o=(=5=C=Q=`=m={>4>B>P>^>l>z?3?@?N?]?k?y@1@?@M@[@i@wA0A>ALAYAhAvB/B=BJBXBgBuC-C;CICWCfCsD,D:DHDUDdDrE+E9EFETEcEqF)F7FEFSFbFoG(G6GDGRG`GnG|H5HBHPH_HmH{I3IAIOI^IkIyJ2J@JNJ[JjJxK1K>KLKZKiKwL/L=LKLYLhLuM.M<MJMWMfMtN-N;NHNVNeNsO+O9OGOUOdOqP*P8PFPSPbPpQ)Q7QDQRQaQoR(R5RCRQR`RmR{S4SBSPS^SlSzT3T@TNT]TkTyU1U?UMU[UiUwV0V>VLVYVhVvW/W=WJWXWgWuX-X;XIXWXfXsY,Y:YHYUYdYrZ+Z9ZFZTZcZq[)[7[E[S[b[o](]6]D]R]`]n]|^5^B^P^_^m^{_3_A_O_^_k_y`2`@`N`[`j`xa1a>aLaZaiawb/b=bKbYbhbuc.c<cJcWcfctd-d;dHdVdedse+e9eGeUedeqf*f8fFfSfbfpg)g7gDgRgagoh(h5hChQh`hmh{i4iBiPi^ilizj3j@jNj]jkjyk1k?kMk[kikwl0l>lLlYlhlvm/m=mJmXmgmun-n;nInWnfnso,o:oHoUodorp+p9pFpTpcpqq)q7qEqSqbqor(r6rDrRr`rnr|s5sBsPs_sms{t3tAtOt^tktyu2u@uNu[ujuxv1v>vLvZvivww/w=wKwYwhwux.x<xJxWxfxty-y;yHyVyeysz+z9zGzUzdzq{*{8{F{S{b{p|)|7|D|R|a|o";
+
+
+    /** Returns a float between 0.0 and 1.0 from the given char code.
+     * 
+     *  It scales it back from the "safe range" and removes the double slash character
+     *  to match the algorithm from Buffer.toCharString() from HISE.
+     */
+    function getFloatFromCharCode(x)
+    {
+        if(x >= 92) // skip the double slash character '\'
+            x--;
+
+        return (x - 40) / 85.0;
+    }
+
+    /** This function will convert a string that was created from a HISE Buffer object
+     *  to a float array. The vertical resolution is poor (~7000 steps), but it will allow
+     *  super fast communication of a low resolution waveform between HISE and the webview.
+    **/
+    function getFloatArrayFromAudioBufferCharString(charString)
+    {
+        var floatArray = new Array(charString.length / 2);
+
+        for(i = 0; i < charString.length; i += 2)
+        {
+            var msb = getFloatFromCharCode(charString.charCodeAt(i));
+            var lsb = getFloatFromCharCode(charString.charCodeAt(i+1));
+            
+            floatArray[i/2] = msb + lsb * 1.0 / 85.0;
+        }
+
+        return floatArray;
+    }
+
+    // some simple canvas stuff
+    var canvas = document.getElementById("myCanvas");
+
+    const rect = canvas.getBoundingClientRect();
+    var w = rect.width;
+    var h = rect.height;
+
+    var ctx = canvas.getContext('2d', { alpha: false });
+
+    const dpr = window.devicePixelRatio;
+
+    ctx.scale(dpr, dpr);
+
+    canvas.width = rect.width * dpr;
+    canvas.height = rect.height * dpr;
+
+    // Returns the pixel value for the given float value.
+    function getY(normalizedFloat)
+    {
+        return parseInt((1.0 - normalizedFloat) * (h-6) + 3);
+    }
+
+    // returns the pixel value for the index in the point array
+    function getX(index, length)
+    {
+        return parseInt(index / length * w);
+    }
+
+    var currentBufferString = "";
+
+    // this function will be called from HISE. It just stores the
+    // string and requests a new animation frame. I'm not a web developer
+    // so I can't say that this is the standard practice, but it looks
+    // sane to me...
+    window.repaint = function(bufferString)
+    {
+        currentBufferString = bufferString;
+        window.requestAnimationFrame(drawFromBufferString);   
+    }
+
+    var drawFromBufferString = function()
+    {   
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillColour = "white";
+        ctx.fillRect(0, 0, w, 1);
+        ctx.fillRect(0, h / 2, w, 1);
+        ctx.fillRect(0, h -1, w, 1);
+
+        ctx.beginPath();
+        
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = "#999";
+        
+        var floatList = getFloatArrayFromAudioBufferCharString(currentBufferString);
+
+        var points = new Array(floatList.length);
+
+        for(i = 0; i < points.length; i++)
+        {
+            points[i] = 
+            {
+                x: getX(i, points.length),
+                y: getY(floatList[i])
+            };
+        }
+
+        ctx.moveTo(0, points[0].y);
+
+        for (var i = 1; i < points.length; i++)
+        {
+            ctx.lineTo(points[i].x, points[i].y);
+        }
+            
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = "#888";
+
+        ctx.stroke();
+
+        ctx.strokeStyle = "white";
+        ctx.lineWidth = 1;
+        ctx.stroke();
+        ctx.lineTo(w, h);
+        ctx.lineTo(0, h);
+        ctx.closePath();
+
+        ctx.shadowBlur = 0;
+        
+        ctx.strokeStyle = "#444";
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.rect(1, 1, w-2, h-2);
+        ctx.stroke();
+    }
+
+
+    // this will draw the ramp if you open this file in a 
+    // browser...
+    repaint(s);
+
+    </script>
+</body>
+</html>
