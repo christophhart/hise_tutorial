@@ -1,6 +1,11 @@
 
 var currentPresets;
 
+window.onFileLoad = function(fileContent)
+{
+  document.getElementById("valueDisplay").innerHTML = fileContent;
+}
+
 window.updatePresetList = function(presetList)
 {
     currentPresets = presetList;
