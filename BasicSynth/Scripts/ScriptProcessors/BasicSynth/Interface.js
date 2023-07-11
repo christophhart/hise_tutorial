@@ -7,6 +7,8 @@
 // iPad full screen resolution (uses retina automatically)
 Content.makeFrontInterface(1024, 768);
 
+
+
 //! =============================================================== Page Handling
 
 // Get these lines by selecting all controls and choose "Create Script Definition for selection"
@@ -38,6 +40,8 @@ inline function handlePages(pageToShow)
 // so it doesn't switch back when compiling.
 handlePages(SynthPage);
 
+// Adds the close button for the expansion
+include("CloseButton.js");
 include("CustomCallbacks.js");
 
 
@@ -46,19 +50,19 @@ function onNoteOn()
 {
 	
 }
-function onNoteOff()
+ function onNoteOff()
 {
 	
 }
-function onController()
+ function onController()
 {
 	
 }
-function onTimer()
+ function onTimer()
 {
 	
 }
-function onControl(number, value)
+ function onControl(number, value)
 {
     /*  This callback just calls the page handling function with the respective page.
     *   The other custom callbacks are implemented in the onInit script.

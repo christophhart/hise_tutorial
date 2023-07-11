@@ -2,10 +2,7 @@ include("SettingsButton.js");
 include("UserPresetWidgets.js");
 include("VuMeter.js");
 
-
 Content.makeFrontInterface(505, 252 + 72 + 40);
-
-
 
 const var presetDecButton = UserPresetWidgets.createPresetButton("presetDecButton", 290, 7, false);
 const var presetIncButton = UserPresetWidgets.createPresetButton("presetIncButton", 482, 7, true);
@@ -13,67 +10,24 @@ const var presetIncButton = UserPresetWidgets.createPresetButton("presetIncButto
 const var presetDisplayPanel = UserPresetWidgets.createPresetDisplay("presetDisplayPanel", 314, 4);
 UserPresetWidgets.setPresetBrowserLookAndFeel(presetDisplayPanel, "Oxygen", 15, "0xFFAAAAAA");
 
-//! ==================================================================== UI Parts
-
-
-const var bgImage = Content.addImage("bgImage", 0, 40);
-// [JSON bgImage]
-Content.setPropertiesFromJSON("bgImage", {
-  "width": 505,
-  "height": 252,
-  "fileName": "{PROJECT_FOLDER}Background.png"
-});
-// [/JSON bgImage]
-
 //! ======================================================================= Knobs
 
                          
-inline function createMusicBoxKnob(name, x, y)
-{
-	local widget = Content.addKnob(name, x, y);
-    
-    Content.setPropertiesFromJSON(name, {
-      "width": 32,
-      "height": 38,
-      "filmstripImage": "{PROJECT_FOLDER}knob_128frames.png",
-      "numStrips": "128"
-    });
-    
-    return widget;
-};
-
-const var modWheelAttKnob = createMusicBoxKnob("modWheelAttKnob", 87, 139);
-const var clickAttackKnob = createMusicBoxKnob("clickAttackKnob", 212, 139);
-const var reverbAmountKnob = createMusicBoxKnob("reverbAmountKnob", 345, 139);
+const var modWheelAttKnob = Content.getComponent("modWheelAttKnob");
+const var clickAttackKnob = Content.getComponent("clickAttackKnob");
+const var reverbAmountKnob = Content.getComponent("reverbAmountKnob");
+const var releaseTriggerButton = Content.getComponent("releaseTriggerButton");
+const var noteOffButton = Content.getComponent("noteOffButton");
 
 reverbAmountKnob.setRange(-100, 0, 0.1);
 reverbAmountKnob.setMidPoint(-12.0);
 
-const var reverbSizeKnob = createMusicBoxKnob("reverbSizeKnob", 419, 139);
-const var reverbColourKnob = createMusicBoxKnob("reverbColourKnob", 419, 214);
-const var predelayKnob = createMusicBoxKnob("predelayKnob", 344, 214);
+const var reverbSizeKnob = Content.getComponent("reverbSizeKnob");
+const var reverbColourKnob = Content.getComponent("reverbColourKnob");
+const var predelayKnob = Content.getComponent("predelayKnob");
 
 predelayKnob.setRange(0.0, 50.0, 1.0);
 
-
-//! ===================================================================== Buttons
-
-const var releaseTriggerButton = Content.addButton("releaseTriggerButton", 75, 238);
-// [JSON releaseTriggerButton]
-Content.setPropertiesFromJSON("releaseTriggerButton", {
-  "width": 56,
-  "height": 22,
-  "filmstripImage": "{PROJECT_FOLDER}onoffSwitch.png"
-});
-// [/JSON releaseTriggerButton]
-const var noteOffButton = Content.addButton("noteOffButton", 207, 239);
-// [JSON noteOffButton]
-Content.setPropertiesFromJSON("noteOffButton", {
-  "width": 48,
-  "height": 20,
-  "filmstripImage": "{PROJECT_FOLDER}switch.png"
-});
-// [/JSON noteOffButton]
 
 //! ============================================================================== Tooltips
 
@@ -103,12 +57,7 @@ const var MusicboxSamples = Synth.getChildSynth("Musicbox Samples");
 const var settingsButton = SettingsButton.createSettingsButton("settingsButton", 5, 5);
 
 const var PerformanceLabel = Content.addFloatingTile("PerformanceLabel", 31, 2);
-// [JSON PerformanceLabel]
-Content.setPropertiesFromJSON("PerformanceLabel", {
-  "width": 186,
-  "height": 32
-});
-// [/JSON PerformanceLabel]
+
 const var perfData = {
   "Type": "PerformanceLabel",
   "Font": "Oxygen Bold",
@@ -132,24 +81,12 @@ outputMeter.set("opaque", false);;
 
 
 const var Tooltips = Content.addFloatingTile("Tooltips", 27, 41);
-// [JSON Tooltips]
-Content.setPropertiesFromJSON("Tooltips", {
-  "width": 453,
-  "height": 26
-});
-// [/JSON Tooltips]
 
 Tooltips.setContentData({"Type": "TooltipPanel", 
                          "FontSize": 13.0, 
                          "ColourData": {"bgColour": "0x000000"}});
 
 const var Keyboard = Content.addFloatingTile("Keyboard", 0, 292);
-// [JSON Keyboard]
-Content.setPropertiesFromJSON("Keyboard", {
-  "width": 505,
-  "height": 72
-});
-// [/JSON Keyboard]
 
 Keyboard.setContentData({"Type": "Keyboard", "LowKey": 33});
 
@@ -162,19 +99,19 @@ function onNoteOn()
 {
 	
 }
-function onNoteOff()
+ function onNoteOff()
 {
 	
 }
-function onController()
+ function onController()
 {
 	
 }
-function onTimer()
+ function onTimer()
 {
 	
 }
-function onControl(number, value)
+ function onControl(number, value)
 {
 	
 	switch(number)

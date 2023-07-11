@@ -1,12 +1,46 @@
 Content.makeFrontInterface(700, 600);
 
 const var ParametriqEQ = Synth.getEffect("Parametriq EQ");
+const var dp = Synth.getDisplayBufferSource("Analyser");
+const var b = dp.getDisplayBuffer(0);
+
+// You can specify the properties of the FFT analyser here
+b.setRingBufferProperties({
+  "BufferLength": 16384,
+  "WindowType": "Blackman Harris",
+  "DecibelRange": [
+    -100.0,
+    -12.0
+  ],
+  "UsePeakDecay": false,
+  "UseDecibelScale": true,
+  "YGamma": 1.0,
+  "Decay": 0.699999988079071,
+  "UseLogarithmicFreqAxis": true
+});
+
+// This will change the appearance of the value popup when you drag sliders
+Content.setValuePopupData({
+    "fontName":"Lato",
+    "fontSize": 17,
+    "borderSize": 1,
+    "borderRadius": 3,
+    "margin": 10,
+    "bgColour": 0xFF636363,
+    "itemColour": 0xFF000000,
+    "itemColour2": 0xFF000000,
+     "textColour": 0xFFAAAAAA 
+});
 
 //! ===================================================================== Enabled
 
 
 inline function onBand1EnabledControl(component, value)
 {
+	// Since the parameter index of the parametric EQ is not fixed,
+	// we need to apply some math to get the correct index.
+	// The idea is to use the formula BAND_INDEX * BANDOFFSET + MODE
+	// to get an integer that controls the value we want
 	local index = ParametriqEQ.Enabled + 0 * ParametriqEQ.BandOffset;
 	ParametriqEQ.setAttribute(index, value);
 };
@@ -190,19 +224,20 @@ function onNoteOn()
 {
 	
 }
-function onNoteOff()
+ function onNoteOff()
 {
 	
 }
-function onController()
+ function onController()
 {
 	
 }
-function onTimer()
+ function onTimer()
 {
 	
 }
-function onControl(number, value)
+ function onControl(number, value)
 {
 	
 }
+ 

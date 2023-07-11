@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentProperties DeviceType="Desktop">
+  <Component type="ScriptPanel" id="presetDecButton" x="290" y="7" width="20"
+             height="20" tooltip="Load previous user preset" allowCallbacks="Clicks &amp; Hover"/>
+  <Component type="ScriptPanel" id="presetIncButton" x="482" y="7" width="20"
+             height="20" tooltip="Load next user preset" allowCallbacks="Clicks &amp; Hover"/>
+  <Component type="ScriptPanel" id="presetDisplayPanel" x="314" y="4" width="163"
+             height="25" tooltip="Click to show the Preset browser" allowCallbacks="Clicks &amp; Hover"/>
+  <Component type="ScriptImage" id="bgImage" x="0" y="40" fileName="{PROJECT_FOLDER}Background.png"
+             width="505" height="252"/>
+  <Component type="ScriptSlider" id="modWheelAttKnob" x="87" y="139" stepSize="0.009999999776482582"
+             filmstripImage="{PROJECT_FOLDER}knob_128frames.png" width="32"
+             height="38" numStrips="128" tooltip="Dampens the velocity according to the modwheel position"/>
+  <Component type="ScriptSlider" id="clickAttackKnob" x="212" y="139" stepSize="0.009999999776482582"
+             filmstripImage="{PROJECT_FOLDER}knob_128frames.png" width="32"
+             height="38" numStrips="128" tooltip="Controls the volume of the click noise"/>
+  <Component type="ScriptSlider" id="reverbAmountKnob" x="345" y="139" middlePosition="-12.0"
+             stepSize="0.1" min="-100.0" max="0.0" filmstripImage="{PROJECT_FOLDER}knob_128frames.png"
+             width="32" height="38" numStrips="128" tooltip="Controls the reverb amount"/>
+  <Component type="ScriptSlider" id="reverbSizeKnob" x="419" y="139" stepSize="0.009999999776482582"
+             filmstripImage="{PROJECT_FOLDER}knob_128frames.png" width="32"
+             height="38" numStrips="128" tooltip="Controls the room size of the reverb"/>
+  <Component type="ScriptSlider" id="reverbColourKnob" x="419" y="214" stepSize="0.009999999776482582"
+             filmstripImage="{PROJECT_FOLDER}knob_128frames.png" width="32"
+             height="38" numStrips="128" tooltip="Controls the timbre of the reverb"/>
+  <Component type="ScriptSlider" id="predelayKnob" x="344" y="214" stepSize="1.0"
+             max="50.0" filmstripImage="{PROJECT_FOLDER}knob_128frames.png"
+             width="32" height="38" numStrips="128" tooltip="Controls the predelay of the reverb"/>
+  <Component type="ScriptButton" id="releaseTriggerButton" x="75" y="238"
+             width="56" height="22" filmstripImage="{PROJECT_FOLDER}onoffSwitch.png"
+             tooltip="Enables a muted ring off sound"/>
+  <Component type="ScriptButton" id="noteOffButton" x="207" y="239" width="48"
+             height="20" filmstripImage="{PROJECT_FOLDER}switch.png" tooltip="Lets the note ring off naturally (ignores note offs)"/>
+  <Component type="ScriptPanel" id="settingsButton" x="5" y="5" width="24"
+             height="28" tooltip="Show the audio settings dialogue" allowCallbacks="Clicks &amp; Hover"
+             visible="0"/>
+  <Component type="ScriptFloatingTile" id="PerformanceLabel" x="31" y="2"
+             width="186" height="32" ContentType="PerformanceLabel"/>
+  <Component type="ScriptPanel" id="outputMeter" x="328" y="72" width="28"
+             height="28" bgColour="3815994" itemColour="2298478591" itemColour2="2284333096"
+             textColour="4283782485"/>
+  <Component type="ScriptFloatingTile" id="Tooltips" x="27" y="41" width="453"
+             height="26" ContentType="TooltipPanel" itemColour2="1118481"
+             itemColour="3355443"/>
+  <Component type="ScriptFloatingTile" id="Keyboard" x="0" y="292" width="505"
+             height="72" ContentType="Keyboard"/>
+</ContentProperties>

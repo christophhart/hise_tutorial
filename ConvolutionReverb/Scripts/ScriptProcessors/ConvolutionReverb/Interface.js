@@ -13,10 +13,9 @@ inline function attachLabelToKnob(labelName, knobName, text)
     l.set("x", k.get("x"));
     l.set("y", parseInt(k.get("y")) - 25);
     l.set("width", k.get("width"));
-    
-    
 };
 
+Engine.loadAudioFilesIntoPool();
 
 const var bgPanel = Content.getComponent("bgPanel");
 bgPanel.loadImage("{PROJECT_FOLDER}background.png", "bg");
@@ -47,19 +46,20 @@ function onNoteOn()
 {
 	
 }
-function onNoteOff()
+ function onNoteOff()
 {
 	
 }
-function onController()
+ function onController()
 {
 	
 }
-function onTimer()
+ function onTimer()
 {
 	
 }
-function onControl(number, value)
+ function onControl(number, value)
 {
 	
 }
+ 

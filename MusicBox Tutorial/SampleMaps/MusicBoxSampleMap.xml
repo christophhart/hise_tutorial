@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<samplemap ID="MusicBoxSampleMap" SaveMode="1" RRGroupAmount="1" MicPositions=";">
+<samplemap ID="MusicBoxSampleMap" SaveMode="2" RRGroupAmount="1.0" MicPositions=";">
   <sample ID="0" FileName="{PROJECT_FOLDER}Musicbox_A0_0_127.wav" Root="57"
           HiKey="58" LoKey="57" LoVel="0" HiVel="127" RRGroup="1" Volume="0"
           Pan="0" Normalized="0" Pitch="0" SampleStart="0" SampleEnd="221465"
@@ -77,7 +77,7 @@
           SampleStartMod="0" LoopStart="0" LoopEnd="196608" LoopXFade="0"
           LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
           SampleState="0" NormalizedPeak="-1" MonolithOffset="1888256"
-          MonolithLength="196608" SampleRate="44100" Duplicate="0"/>
+          MonolithLength="196608" SampleRate="44100" Duplicate="1"/>
   <sample ID="11" FileName="{PROJECT_FOLDER}Musicbox_F#1_0_127.wav" Root="66"
           HiKey="68" LoKey="66" LoVel="0" HiVel="127" RRGroup="1" Volume="0"
           Pan="0" Normalized="0" Pitch="0" SampleStart="0" SampleEnd="161884"

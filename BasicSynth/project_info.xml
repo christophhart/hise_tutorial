@@ -15,4 +15,15 @@
   <ExtraDefinitionsOSX value="" type="TEXT" description="Extra preprocessor definitions for OSX"/>
   <ExtraDefinitionsIOS value="" type="TEXT" description="Extra preprocessor definitions for IOS"/>
   <AppGroupID value="group.hise.basicSynth" type="TEXT" description="App Group ID (use this for shared resources on iOS"/>
+  <EmbedImageFiles value="Yes"/>
+  <SupportFullDynamicsHLAC value="No"/>
+  <ExtraDefinitionsLinux value=""/>
+  <RedirectSampleFolder value=""/>
+  <AAXCategoryFX value="AAX_ePlugInCategory_Modulation"/>
+  <SupportMonoFX value="No"/>
+  <EnableMidiInputFX value="No"/>
+  <VST3Support value="No"/>
+  <UseRawFrontend value="No"/>
+  <ExpansionType value="Disabled"/>
+  <EncryptionKey value="1234"/>
 </ProjectSettings>
