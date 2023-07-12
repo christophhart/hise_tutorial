@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<samplemap ID="Guitar" SaveMode="1" RRGroupAmount="1" MicPositions=";">
+<samplemap ID="Guitar" SaveMode="1" RRGroupAmount="1.0" MicPositions=";"
+           CrossfadeGamma="1.0">
   <sample ID="0" FileName="{PROJECT_FOLDER}Guitar_D#3.wav" Root="51" HiKey="51"
           LoKey="51" LoVel="0" HiVel="127" RRGroup="1" Volume="0" Pan="0"
           Normalized="0" Pitch="0" SampleStart="17243" SampleEnd="113772"
@@ -63,8 +64,8 @@
           SampleState="0" NormalizedPeak="-1" Duplicate="0"/>
   <sample ID="10" FileName="{PROJECT_FOLDER}Guitar_A#3.wav" Root="58" HiKey="58"
           LoKey="58" LoVel="0" HiVel="127" RRGroup="1" Volume="0" Pan="0"
-          Normalized="0" Pitch="0" SampleStart="17042" SampleEnd="113772"
-          SampleStartMod="0" LoopStart="0" LoopEnd="113773" LoopXFade="0"
+          Normalized="0" Pitch="0" SampleStart="16818" SampleEnd="113772"
+          SampleStartMod="0" LoopStart="17042" LoopEnd="113773" LoopXFade="0"
           LoopEnabled="0" LowerVelocityXFade="0" UpperVelocityXFade="0"
           SampleState="0" NormalizedPeak="-1" Duplicate="0"/>
   <sample ID="11" FileName="{PROJECT_FOLDER}Guitar_A3.wav" Root="57" HiKey="57"

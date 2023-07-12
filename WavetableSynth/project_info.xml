@@ -15,4 +15,27 @@
   <ExtraDefinitionsOSX value="" type="TEXT" description="Extra preprocessor definitions for OSX"/>
   <ExtraDefinitionsIOS value="" type="TEXT" description="Extra preprocessor definitions for IOS"/>
   <AppGroupID value="" type="TEXT" description="App Group ID (use this for shared resources on iOS"/>
+  <EmbedImageFiles value="Yes"/>
+  <SupportFullDynamicsHLAC value="No"/>
+  <ExtraDefinitionsLinux value=""/>
+  <RedirectSampleFolder value=""/>
+  <AAXCategoryFX value="AAX_ePlugInCategory_Modulation"/>
+  <SupportMonoFX value="No"/>
+  <VST3Support value="No"/>
+  <UseRawFrontend value="No"/>
+  <VST3Category value=""/>
+  <EnableMidiInputFX value="No"/>
+  <EnableMidiOut value="No"/>
+  <EnableSoundGeneratorsFX value="No"/>
+  <ExpansionType value="Disabled"/>
+  <EncryptionKey value="1234"/>
+  <LinkExpansionsToProject value="No"/>
+  <ReadOnlyFactoryPresets value="No"/>
+  <ForceStereoOutput value="No"/>
+  <AdminPermissions value="No"/>
+  <EmbedUserPresets value="Yes"/>
+  <EnableGlobalPreprocessor value="No"/>
+  <UseGlobalAppDataFolderWindows value="No"/>
+  <UseGlobalAppDataFolderMacOS value="No"/>
+  <DefaultUserPreset value=""/>
 </ProjectSettings>

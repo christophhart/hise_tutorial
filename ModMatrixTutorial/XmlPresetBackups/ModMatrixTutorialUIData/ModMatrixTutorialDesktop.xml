@@ -36,14 +36,14 @@
                height="71.0" width="713.0" parentComponent="Panel2"/>
     <Component type="ScriptPanel" id="TableBG" x="33.0" y="270.0" parentComponent="Panel2"
                width="729.0" height="350.0" bgColour="0" itemColour2="0" borderSize="0.0"
-               borderRadius="0.0" itemColour="0" textColour="0" visible="0">
+               borderRadius="0.0" itemColour="0" textColour="0">
       <Component type="ScriptedViewport" id="Viewport1" x="8.0" y="2.0" width="715.0"
                  height="280.0" bgColour="16777215" itemColour="3355443" parentComponent="TableBG"
                  itemColour2="1276186897" tooltip="Edit the modulation connections"/>
     </Component>
     <Component type="ScriptPanel" id="MatrixBG" x="40.0" y="270.0" parentComponent="Panel2"
                width="700.0" height="350.0" bgColour="0" itemColour2="0" borderSize="0.0"
-               borderRadius="0.0" itemColour="0" textColour="0">
+               borderRadius="0.0" itemColour="0" textColour="0" visible="0">
       <Component type="ScriptedViewport" id="Viewport2" x="2.0" y="0.0" width="715.0"
                  height="234.0" itemColour="3355443" bgColour="16777215" parentComponent="MatrixBG"
                  itemColour2="1276186897" tooltip="Edit the intensity of each connection"/>

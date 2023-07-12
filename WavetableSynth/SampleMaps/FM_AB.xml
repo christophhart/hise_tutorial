@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<samplemap ID="" RRGroupAmount="1" MicPositions=";">
-  <sample Root="60" LoKey="0" HiKey="127" LoVel="0" HiVel="62" RRGroup="1"
-          FileName="{PROJECT_FOLDER}high_fm/00.wav" Duplicate="0"/>
-  <sample Root="60" LoKey="0" HiKey="127" LoVel="63" HiVel="127" RRGroup="1"
-          FileName="{PROJECT_FOLDER}high_fm/01.wav" Duplicate="0"/>
-</samplemap>

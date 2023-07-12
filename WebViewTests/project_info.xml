@@ -26,7 +26,7 @@
   <VST3Support value="No"/>
   <UseRawFrontend value="No"/>
   <ExpansionType value="Disabled"/>
-  <EncryptionKey value=""/>
+  <EncryptionKey value="1234"/>
   <LinkExpansionsToProject value="No"/>
   <ReadOnlyFactoryPresets value="No"/>
   <ForceStereoOutput value="No"/>

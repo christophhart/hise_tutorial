@@ -12,7 +12,7 @@
             <Control type="ScriptSlider" id="Knob1" value="0.1000014916062355"/>
             <Control type="ScriptSlider" id="Knob2" value="0.0"/>
             <Control type="ScriptSlider" id="Knob3" value="0.0"/>
-            <Control type="ScriptSlider" id="Knob4" value="0.0"/>
+            <Control type="ScriptSlider" id="Knob4" value="0.5199999809265137"/>
             <Control type="ScriptSlider" id="Knob5" value="969.1000366210938"/>
             <Control type="ScriptedViewport" id="Viewport1" value="JSON[&quot;28.nT6K8CxDYB..M8FY0wVXzk1at0TXzIWZ3A....&quot;]"/>
             <Control type="ScriptedViewport" id="Viewport2" value="0.0"/>
@@ -305,8 +305,8 @@
               </ChildProcessors>
             </Processor>
             <Processor Type="SimpleReverb" ID="OSC 1 Reverb" Bypassed="0" RoomSize="0.800000011920929"
-                       Damping="0.6000000238418579" WetLevel="0.0" DryLevel="1.0" Width="0.7400000095367432"
-                       FreezeMode="0.1000000014901161">
+                       Damping="0.6000000238418579" WetLevel="0.5099999904632568" DryLevel="0.4900000095367432"
+                       Width="0.7400000095367432" FreezeMode="0.1000000014901161">
               <ChildProcessors/>
               <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
             </Processor>
