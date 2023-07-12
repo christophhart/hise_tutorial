@@ -11,7 +11,7 @@ renderer.shadowMapEnabled = true;
 renderer.shadowMapType = THREE.PCFSoftShadowMap;
 
 
-renderer.setSize( window.innerWidth, window.innerHeight);
+renderer.setSize( 600, 400 );
 document.body.appendChild( renderer.domElement );
 
 const geometry = new THREE.BoxGeometry( 1, 1, 1 );

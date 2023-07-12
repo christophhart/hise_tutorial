@@ -2,9 +2,9 @@
 
 <ContentProperties DeviceType="Desktop">
   <Component type="ScriptWebView" id="WebView1" x="0.0" y="32.0" width="1024.0"
-             height="768.0"/>
+             height="768.0" enableCache="1"/>
   <Component type="ScriptComboBox" id="ComboBox1" x="896.0" y="0.0" max="5"
-             items="0.75&#10;1.0&#10;1.25&#10;1.5&#10;2.0"/>
+             items="0.75&#10;1.0&#10;1.25&#10;1.5&#10;2.0" saveInPreset="0"/>
   <Component type="ScriptButton" id="Button1" x="0.0" y="3.0" saveInPreset="0"
              isMomentary="1"/>
 </ContentProperties>
