@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentProperties DeviceType="Desktop">
+  <Component type="ScriptAudioWaveform" id="AudioWaveform1" x="100.0" y="120.0"
+             processorId="Script FX1" showFileName="0" width="400" height="180"/>
+  <Component type="ScriptButton" id="Record" x="100.0" y="320.0"/>
+  <Component type="ScriptSlider" id="Knob1" x="236.0" y="310.0" stepSize="1.0"
+             min="1.0" max="8.0" text="NumBeats" processorId="Script FX1"
+             parameterId="NumBeats"/>
+  <Component type="ScriptButton" id="Hold" x="372.0" y="320.0" processorId="Script FX1"
+             parameterId="Play"/>
+  <Component type="ScriptFloatingTile" id="FloatingTile1" x="105.0" y="380.0"
+             ContentType="Keyboard" bgColour="4284769380" itemColour="452984831"
+             itemColour2="4294967295" textColour="0" Data="{&#10;  &quot;KeyWidth&quot;: 14.0,&#10;  &quot;DisplayOctaveNumber&quot;: false,&#10;  &quot;LowKey&quot;: 24,&#10;  &quot;HiKey&quot;: 127,&#10;  &quot;CustomGraphics&quot;: false,&#10;  &quot;DefaultAppearance&quot;: true,&#10;  &quot;BlackKeyRatio&quot;: 0.699999988079071,&#10;  &quot;ToggleMode&quot;: false,&#10;  &quot;MidiChannel&quot;: 1,&#10;  &quot;UseVectorGraphics&quot;: true,&#10;  &quot;UseFlatStyle&quot;: false,&#10;  &quot;MPEKeyboard&quot;: false,&#10;  &quot;MPEStartChannel&quot;: 2,&#10;  &quot;MPEEndChannel&quot;: 16&#10;}"
+             height="70.0" width="391.0"/>
+  <Component type="ScriptLabel" id="Label1" x="100.0" y="60.0" fontName="Default"
+             text="Recorder Demo" width="400.0" height="50" fontSize="30.0"
+             bgColour="603979776" editable="0"/>
+</ContentProperties>
