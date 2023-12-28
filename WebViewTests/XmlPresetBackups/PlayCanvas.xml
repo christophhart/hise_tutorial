@@ -8,9 +8,7 @@
       <ChildProcessors>
         <Processor Type="ScriptProcessor" ID="Interface" Bypassed="0">
           <ChildProcessors/>
-          <Content>
-            <Control type="ScriptComboBox" id="ComboBox1" value="4.0"/>
-          </Content>
+          <Content/>
           <UIData Source="PlayCanvasUIData"/>
         </Processor>
       </ChildProcessors>
