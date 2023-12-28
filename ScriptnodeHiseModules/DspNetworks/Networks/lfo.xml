@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Network ID="lfo" Version="0.0.0" CompileChannelAmount="1" AllowCompilation="1">
+  <Node FactoryPath="container.chain" ID="lfo" Bypassed="0" ShowParameters="1">
+    <Nodes>
+      <Node ID="clear" FactoryPath="math.clear" Bypassed="0" NodeColour="3271557119"
+            Comment="# LFO Modulator&#10;&#10;The default HISE LFO modulator as scriptnode network!&#10;&#10;It uses either the ramp or clockramp node to create a saw signal that is then processed by the shaper chains. The phase is implemented using a add node and a fmod node to wrap it around 0...1"
+            Folded="1">
+        <Parameters>
+          <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Value="0.0"/>
+        </Parameters>
+      </Node>
+      <Node ID="generator" FactoryPath="container.chain" Bypassed="0" NodeColour="4284060594"
+            Comment="The ramp generation nodes (either clock-synced or free running ramp)">
+        <Properties>
+          <Property ID="IsVertical" Value="0"/>
+        </Properties>
+        <Nodes>
+          <Node ID="converter" FactoryPath="control.converter" Bypassed="0" NodeColour="4284061874"
+                Folded="1">
+            <Properties>
+              <Property ID="Mode" Value="Freq2Ms"/>
+            </Properties>
+            <ModulationTargets>
+              <Connection NodeId="tempo_sync" ParameterId="UnsyncedTime"/>
+            </ModulationTargets>
+            <Parameters>
+              <Parameter MinValue="0.0" MaxValue="40.0" SkewFactor="0.5" ID="Value" Automated="1"/>
+            </Parameters>
+          </Node>
+          <Node ID="tempo_sync" FactoryPath="control.tempo_sync" Bypassed="0"
+                NodeColour="4284061874" Folded="1">
+            <ModulationTargets>
+              <Connection NodeId="ramp" ParameterId="PeriodTime"/>
+            </ModulationTargets>
+            <Parameters>
+              <Parameter MinValue="0.0" MaxValue="18.0" StepSize="1.0" ID="Tempo" Automated="1"/>
+              <Parameter MinValue="1.0" MaxValue="16.0" StepSize="1.0" ID="Multiplier"
+                         Value="1.0"/>
+              <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Automated="1"/>
+              <Parameter MinValue="0.0" MaxValue="1000.0" StepSize="0.1000000014901161"
+                         ID="UnsyncedTime" Automated="1"/>
+            </Parameters>
+          </Node>
+          <Node ID="ramp_generator" FactoryPath="container.branch" Bypassed="0"
+                ShowParameters="1" NodeColour="4284060594" Folded="1">
+            <Nodes>
+              <Node ID="ramp" FactoryPath="core.ramp" Bypassed="0" NodeColour="4284061874"
+                    Folded="1">
+                <ComplexData>
+                  <DisplayBuffers>
+                    <DisplayBuffer Index="-1"/>
+                  </DisplayBuffers>
+                </ComplexData>
+                <Parameters>
+                  <Parameter MinValue="0.1000000014901161" MaxValue="10000.0" StepSize="0.1000000014901161"
+                             ID="PeriodTime" Automated="1"/>
+                  <Parameter MinValue="1.0" MaxValue="0.0" ID="LoopStart" Automated="1"/>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Gate" Automated="1" StepSize="1"/>
+                </Parameters>
+              </Node>
+              <Node ID="clock_ramp" FactoryPath="core.clock_ramp" Bypassed="0" NodeColour="4284061874"
+                    Folded="1">
+                <ComplexData>
+                  <DisplayBuffers>
+                    <DisplayBuffer Index="-1"/>
+                  </DisplayBuffers>
+                </ComplexData>
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="18.0" StepSize="1.0" ID="Tempo" Automated="1"/>
+                  <Parameter MinValue="1.0" MaxValue="16.0" StepSize="1.0" ID="Multiplier"
+                             Value="1.0"/>
+                  <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="AddToSignal"
+                             Value="1.0"/>
+                  <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="UpdateMode"
+                             Value="1.0"/>
+                  <Parameter MinValue="0.0" MaxValue="2.0" StepSize="1.0" ID="Inactive" Value="0.0"/>
+                </Parameters>
+              </Node>
+            </Nodes>
+            <Parameters>
+              <Parameter MinValue="0.0" MaxValue="1" StepSize="1.0" ID="Index" Automated="1"/>
+            </Parameters>
+          </Node>
+          <Node ID="chain2" FactoryPath="container.chain" Bypassed="0" NodeColour="4286273970"
+                Folded="1">
+            <Nodes>
+              <Node ID="add" FactoryPath="math.add" Bypassed="0" NodeColour="4286273970"
+                    Comment="add a DC offset as phase" Folded="1">
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+                </Parameters>
+              </Node>
+              <Node ID="fmod" FactoryPath="math.fmod" Bypassed="0" NodeColour="4286273970"
+                    Comment="This makes sure that the ramp stays between 0...1" Folded="1">
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Value="1.0"/>
+                </Parameters>
+              </Node>
+            </Nodes>
+            <Parameters/>
+          </Node>
+        </Nodes>
+        <Parameters/>
+      </Node>
+      <Node ID="wave_shapers" FactoryPath="container.branch" Bypassed="0"
+            ShowParameters="1" NodeColour="4284050354" Comment="The waveshaping functions based on the mode">
+        <Nodes>
+          <Node ID="sine" FactoryPath="container.chain" Bypassed="0" NodeColour="4289878404"
+                Folded="1">
+            <Nodes>
+              <Node ID="pi" FactoryPath="math.pi" Bypassed="0" Folded="1">
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="2.0" ID="Value" Value="2.0"/>
+                </Parameters>
+              </Node>
+              <Node ID="sin" FactoryPath="math.sin" Bypassed="0" Folded="1">
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Value="1.0"/>
+                </Parameters>
+              </Node>
+              <Node ID="sig2mod" FactoryPath="math.sig2mod" Bypassed="0" Comment="convert back to 0...1"
+                    Folded="1">
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Value="0.0"/>
+                </Parameters>
+              </Node>
+            </Nodes>
+            <Parameters/>
+          </Node>
+          <Node ID="triangle" FactoryPath="container.chain" Bypassed="0" NodeColour="4289887833"
+                Folded="1">
+            <Nodes>
+              <Node ID="add1" FactoryPath="math.add" Bypassed="0" Comment="adjust the phase to match the LFO start phase"
+                    Folded="1">
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Value="0.7486669921875"/>
+                </Parameters>
+              </Node>
+              <Node ID="fmod1" FactoryPath="math.fmod" Bypassed="0" Folded="1">
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Value="1.0"/>
+                </Parameters>
+              </Node>
+              <Node ID="sub" FactoryPath="math.sub" Bypassed="0" Folded="1">
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Value="0.496"/>
+                </Parameters>
+              </Node>
+              <Node ID="abs" FactoryPath="math.abs" Bypassed="0" Folded="1">
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Value="0.0"/>
+                </Parameters>
+              </Node>
+              <Node ID="mul1" FactoryPath="math.mul" Bypassed="0" Folded="1">
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="2.0" ID="Value" Value="2.0"/>
+                </Parameters>
+              </Node>
+            </Nodes>
+            <Parameters/>
+          </Node>
+          <Node ID="saw" FactoryPath="container.chain" Bypassed="0" NodeColour="4289245785"
+                Folded="1">
+            <Nodes>
+              <Node ID="mul" FactoryPath="math.mul" Bypassed="0" NodeColour="3019898879"
+                    Comment="Nothing to do here..." Folded="1">
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Value="1.0"/>
+                </Parameters>
+              </Node>
+            </Nodes>
+            <Parameters/>
+          </Node>
+          <Node ID="square" FactoryPath="container.chain" Bypassed="0" NodeColour="4284068454"
+                Folded="1">
+            <Nodes>
+              <Node ID="mod_inv" FactoryPath="math.mod_inv" Bypassed="0" Comment="Invert the input (the LFO square starts with 1)"
+                    Folded="1">
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Value="0.0"/>
+                </Parameters>
+              </Node>
+              <Node ID="rect" FactoryPath="math.rect" Bypassed="0" Folded="1">
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Value="0.0"/>
+                </Parameters>
+              </Node>
+            </Nodes>
+            <Parameters/>
+          </Node>
+          <Node ID="random" FactoryPath="container.chain" Bypassed="0" NodeColour="4284068527"
+                Folded="1">
+            <Nodes>
+              <Node ID="fix16_block" FactoryPath="container.fix16_block" Bypassed="0"
+                    Folded="1">
+                <Nodes>
+                  <Node ID="rect1" FactoryPath="math.rect" Bypassed="0" Comment="Rectify the signal to 0 or 1"
+                        NodeColour="4284068527" Folded="1">
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Value="0.0"/>
+                    </Parameters>
+                  </Node>
+                  <Node ID="peak" FactoryPath="core.peak" Bypassed="0" NodeColour="4284068527"
+                        Folded="1">
+                    <ModulationTargets>
+                      <Connection NodeId="change" ParameterId="Value"/>
+                    </ModulationTargets>
+                    <ComplexData>
+                      <DisplayBuffers>
+                        <DisplayBuffer Index="-1"/>
+                      </DisplayBuffers>
+                    </ComplexData>
+                    <Parameters/>
+                  </Node>
+                  <Node ID="change" FactoryPath="control.change" Bypassed="0" Comment="Filter out repeating values (so that the cable only fires when going from 0 to 1 or vice versa)"
+                        NodeColour="4284068527" Folded="1">
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+                    </Parameters>
+                    <ModulationTargets>
+                      <Connection NodeId="random1" ParameterId="Value"/>
+                    </ModulationTargets>
+                  </Node>
+                  <Node ID="random1" FactoryPath="control.random" Bypassed="0" NodeColour="4284068527"
+                        Comment="randomize the cable value" Folded="1">
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+                    </Parameters>
+                    <ModulationTargets>
+                      <Connection NodeId="add3" ParameterId="Value"/>
+                    </ModulationTargets>
+                  </Node>
+                  <Node ID="add3" FactoryPath="math.add" Bypassed="0" NodeColour="4284068527"
+                        Comment="add the random value" Folded="1">
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                </Nodes>
+                <Parameters/>
+              </Node>
+            </Nodes>
+            <Parameters/>
+          </Node>
+          <Node ID="custom" FactoryPath="container.chain" Bypassed="0" NodeColour="4284055986"
+                Folded="1">
+            <Nodes>
+              <Node ID="table" FactoryPath="math.table" Bypassed="0" NodeColour="4284055986"
+                    Folded="1">
+                <ComplexData>
+                  <Tables>
+                    <Table Index="0" EmbeddedData=""/>
+                  </Tables>
+                </ComplexData>
+                <Parameters/>
+              </Node>
+            </Nodes>
+            <Parameters/>
+          </Node>
+          <Node ID="steps" FactoryPath="container.chain" Bypassed="0" NodeColour="4285028786"
+                Folded="1">
+            <Nodes>
+              <Node ID="pack" FactoryPath="math.pack" Bypassed="0" NodeColour="4285028786"
+                    Folded="1">
+                <ComplexData>
+                  <SliderPacks>
+                    <SliderPack Index="0" EmbeddedData="64.jBWO+ziBW7SOJbwOJb8H+b8nv7y0iByO8nvE+7Qgq6iT35oORgqm9....7iT35wOyLyL+HEtd7C6QgiOMyLy8."/>
+                  </SliderPacks>
+                </ComplexData>
+                <Parameters/>
+              </Node>
+            </Nodes>
+            <Parameters/>
+          </Node>
+        </Nodes>
+        <Parameters>
+          <Parameter MinValue="0.0" MaxValue="6" StepSize="1.0" ID="Index" Automated="1"/>
+        </Parameters>
+      </Node>
+      <Node ID="post" FactoryPath="container.chain" Bypassed="0" NodeColour="4284060594"
+            Comment="The post processing chain will smooth the LFO signal and add a fade-in envelope">
+        <Nodes>
+          <Node ID="smoother" FactoryPath="core.smoother" Bypassed="0" NodeColour="4284060594">
+            <Parameters>
+              <Parameter MinValue="0.0" MaxValue="1000.0" StepSize="0.1000000014901161"
+                         SkewFactor="0.2313782125711441" ID="SmoothingTime" Automated="1"/>
+              <Parameter MinValue="0.0" MaxValue="1.0" ID="DefaultValue" Value="0.0"/>
+            </Parameters>
+          </Node>
+          <Node ID="simple_ar" FactoryPath="envelope.simple_ar" Bypassed="0"
+                NodeColour="4284060594">
+            <Properties>
+              <Property ID="NumParameters" Value="2"/>
+            </Properties>
+            <SwitchTargets>
+              <SwitchTarget>
+                <Connections/>
+              </SwitchTarget>
+              <SwitchTarget>
+                <Connections/>
+              </SwitchTarget>
+            </SwitchTargets>
+            <ComplexData>
+              <DisplayBuffers>
+                <DisplayBuffer Index="-1" EmbeddedData=""/>
+              </DisplayBuffers>
+            </ComplexData>
+            <Parameters>
+              <Parameter MinValue="0.0" MaxValue="1000.0" StepSize="0.1000000014901161"
+                         SkewFactor="0.3010300099849701" ID="Attack" Automated="1"/>
+              <Parameter MinValue="0.0" MaxValue="1000.0" StepSize="0.1000000014901161"
+                         SkewFactor="0.3010300099849701" ID="Release" Value="36.40000054240227"/>
+              <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Gate" Automated="1"/>
+              <Parameter MinValue="0.0" MaxValue="1.0" ID="AttackCurve" Value="0.5"/>
+            </Parameters>
+          </Node>
+          <Node ID="mod_inv2" FactoryPath="math.mod_inv" Bypassed="0" NodeColour="4284060594"
+                Folded="1">
+            <Parameters>
+              <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Value="0.0"/>
+            </Parameters>
+          </Node>
+        </Nodes>
+        <Parameters/>
+      </Node>
+      <Node ID="output" FactoryPath="container.chain" Bypassed="0" NodeColour="4289900633"
+            Comment="Detects the peak and sends it as output value">
+        <Nodes>
+          <Node ID="peak1" FactoryPath="core.peak" Bypassed="0" NodeColour="4289900633">
+            <ModulationTargets>
+              <Connection NodeId="public_mod" ParameterId="Value"/>
+            </ModulationTargets>
+            <ComplexData>
+              <DisplayBuffers>
+                <DisplayBuffer Index="-1"/>
+              </DisplayBuffers>
+            </ComplexData>
+            <Parameters/>
+          </Node>
+          <Node ID="public_mod" FactoryPath="routing.public_mod" Bypassed="0"
+                NodeColour="4289900633" Folded="1">
+            <Parameters>
+              <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+            </Parameters>
+          </Node>
+        </Nodes>
+        <Parameters/>
+      </Node>
+    </Nodes>
+    <Parameters>
+      <Parameter ID="Type" MinValue="0.0" MaxValue="6.0" StepSize="1.0" Value="0.0">
+        <Connections>
+          <Connection NodeId="wave_shapers" ParameterId="Index"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="Gate" MinValue="0.0" MaxValue="1.0" StepSize="1.0" Value="0.0">
+        <Connections>
+          <Connection NodeId="ramp" ParameterId="Gate"/>
+          <Connection NodeId="simple_ar" ParameterId="Gate"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="Sync" MinValue="0.0" MaxValue="1.0" StepSize="1.0" Value="0.0">
+        <Connections>
+          <Connection NodeId="tempo_sync" ParameterId="Enabled"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="Clock" MinValue="0.0" MaxValue="1.0" StepSize="1.0" Value="0.0">
+        <Connections>
+          <Connection NodeId="ramp_generator" ParameterId="Index"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="Frequency" MinValue="0.0" MaxValue="40.0" SkewFactor="0.5"
+                 Value="3.0">
+        <Connections>
+          <Connection NodeId="converter" ParameterId="Value"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="Tempo" MinValue="0.0" MaxValue="18.0" StepSize="1.0" Value="1.0">
+        <Connections>
+          <Connection NodeId="tempo_sync" ParameterId="Tempo"/>
+          <Connection NodeId="clock_ramp" ParameterId="Tempo"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="Phase" MinValue="0.0" MaxValue="1.0" Value="0.0">
+        <Connections>
+          <Connection NodeId="add" ParameterId="Value"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="Loop" MinValue="0.0" MaxValue="1.0" StepSize="1.0" Value="1.0">
+        <Connections>
+          <Connection NodeId="ramp" ParameterId="LoopStart"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="Smoothing" MinValue="0.0" MaxValue="1000.0" Value="5.000000074505805"
+                 StepSize="0.1000000014901161" SkewFactor="0.2313782125711441">
+        <Connections>
+          <Connection NodeId="smoother" ParameterId="SmoothingTime"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="Fadetime" MinValue="0.0" MaxValue="1000.0" Value="1000.0"
+                 StepSize="0.1000000014901161" SkewFactor="0.3010300099849701">
+        <Connections>
+          <Connection NodeId="simple_ar" ParameterId="Attack"/>
+        </Connections>
+      </Parameter>
+    </Parameters>
+  </Node>
+</Network>

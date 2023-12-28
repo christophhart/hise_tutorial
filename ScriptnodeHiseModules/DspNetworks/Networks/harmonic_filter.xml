@@ -1,0 +1,923 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Network ID="harmonic_filter" Version="0.0.0" AllowCompilation="1" HasTail="0"
+         AllowPolyphonic="1">
+  <Node FactoryPath="container.chain" ID="harmonic_filter" Bypassed="0"
+        ShowParameters="1">
+    <Nodes>
+      <Node ID="mul" FactoryPath="math.mul" Bypassed="0" Comment="# Harmonic Filter&#10;&#10;The default HISE filter bank as scriptnode network!&#10;&#10;This network implements a dynamic filterbank that can be controlled by two slider packs. It utilizes the clone container in order to build up a signal chain with a dynamic amount of filters&#10;&#10;The ability to transpose the incoming MIDI notes added some non-trivial conversion logic to the MIDI logic (see the &#96;frequency_calculator&#96; chain below).">
+        <Parameters>
+          <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Value="1.0"/>
+        </Parameters>
+      </Node>
+      <Node ID="midichain" FactoryPath="container.midichain" Bypassed="0"
+            Comment="The entire processing is put into a &#96;midi_chain&#96; container. This will cause the processing to be divided into chunks based on the incoming MIDI message and increases the time accuracy of the filters...">
+        <Nodes>
+          <Node ID="input parameters" FactoryPath="container.chain" Bypassed="0"
+                Comment="## Input Parameters&#10;&#10;This chain contains the two slider packs that are used to modulate the gain parameters of the filterbank as well as the logic to set the base frequency to the MIDI input (key tracking)...">
+            <Properties>
+              <Property ID="IsVertical" Value="0"/>
+            </Properties>
+            <Nodes>
+              <Node ID="frequency_calculator" FactoryPath="container.chain" Bypassed="0"
+                    NodeColour="4289878434">
+                <Nodes>
+                  <Node ID="midi" FactoryPath="control.midi" Bypassed="0" NodeColour="4289878431"
+                        Comment="In order to implement the tranpose feature, we have to use the note number mode here, add the transpose with the pma and then convert to the freq range value using a converter node">
+                    <Properties>
+                      <Property ID="ClassId" Value=""/>
+                      <Property ID="Mode" Value="NoteNumber"/>
+                    </Properties>
+                    <ModulationTargets>
+                      <Connection NodeId="pma" ParameterId="Value"/>
+                    </ModulationTargets>
+                    <ComplexData>
+                      <Tables/>
+                      <SliderPacks/>
+                      <AudioFiles/>
+                      <Filters/>
+                      <DisplayBuffers/>
+                    </ComplexData>
+                    <Parameters/>
+                  </Node>
+                  <Node ID="pma" FactoryPath="control.pma" Bypassed="0" NodeColour="4289878431"
+                        Comment="The pma node will add the semitone steps using the formula &#96;12 / 127 = 0.094&#96; for its range"
+                        Folded="1">
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+                      <Parameter MinValue="-1.0" MaxValue="1.0" ID="Multiply" Value="1.0"/>
+                      <Parameter MinValue="-0.1" MaxValue="0.1" ID="Add" Automated="1"/>
+                    </Parameters>
+                    <ModulationTargets>
+                      <Connection NodeId="converter" ParameterId="Value"/>
+                    </ModulationTargets>
+                  </Node>
+                  <Node ID="converter" FactoryPath="control.converter" Bypassed="0" Comment="Convert the 0...1 to a linear Freq value &#96;0-20kHz&#96;"
+                        NodeColour="4289878431" Folded="1">
+                    <Properties>
+                      <Property ID="Mode" Value="Midi2Freq"/>
+                    </Properties>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="127.0" StepSize="1.0" ID="Value" Automated="1"/>
+                    </Parameters>
+                    <ModulationTargets>
+                      <Connection NodeId="converter1" ParameterId="Value"/>
+                    </ModulationTargets>
+                  </Node>
+                  <Node ID="converter1" FactoryPath="control.converter" Bypassed="0"
+                        NodeColour="4289878431" Comment="Convert it back to 0...1 &#10;&#10;&gt; These conversions are necessary because the Harmonics scaler expects the &#96;&#96; &#96;0...1&#96; input to be mapped from &#96;0.20kHz&#96; and the MIDI note number output maps &#96;0-127&#96; to &#96;0...1&#96;"
+                        Folded="1">
+                    <Properties>
+                      <Property ID="Mode" Value="Freq2Norm"/>
+                    </Properties>
+                    <ModulationTargets>
+                      <Connection NodeId="harmonizer" ParameterId="Value"/>
+                    </ModulationTargets>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="20000.0" ID="Value" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                </Nodes>
+                <Parameters/>
+              </Node>
+              <Node ID="packs" FactoryPath="container.chain" Bypassed="0">
+                <Nodes>
+                  <Node ID="spectrum_a" FactoryPath="control.clone_pack" Bypassed="0"
+                        NodeColour="4287388082">
+                    <ModulationTargets>
+                      <Connection NodeId="blend1" ParameterId="Value1"/>
+                    </ModulationTargets>
+                    <ComplexData>
+                      <SliderPacks>
+                        <SliderPack Index="0" EmbeddedData="4......."/>
+                      </SliderPacks>
+                    </ComplexData>
+                    <Parameters>
+                      <Parameter MinValue="1.0" MaxValue="16.0" StepSize="1.0" ID="NumClones"
+                                 Automated="1"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Value="1.0"/>
+                    </Parameters>
+                  </Node>
+                  <Node ID="spectrum_b" FactoryPath="control.clone_pack" Bypassed="0"
+                        NodeColour="4284064946">
+                    <ModulationTargets>
+                      <Connection NodeId="blend1" ParameterId="Value2"/>
+                    </ModulationTargets>
+                    <ComplexData>
+                      <SliderPacks>
+                        <SliderPack Index="1" EmbeddedData="4....f+."/>
+                      </SliderPacks>
+                    </ComplexData>
+                    <Parameters>
+                      <Parameter MinValue="1.0" MaxValue="16.0" StepSize="1.0" ID="NumClones"
+                                 Automated="1"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Value="1.0"/>
+                    </Parameters>
+                  </Node>
+                </Nodes>
+                <Parameters/>
+              </Node>
+            </Nodes>
+            <Parameters/>
+          </Node>
+          <Node ID="no_midi" FactoryPath="container.no_midi" Bypassed="0" Comment="## Clone Parameters&#10;&#10;These nodes will connect into the clone container and change the parameters of the clones. We need to put them into a no_midi container because they are responding to MIDI messages by default and we need to override that functionality for the transpose feature.&#10;&#10;&gt; Every connection into a clone container must go through either a &#96;clone_pack&#96; or &#96;clone_cable&#96; node. This is why we're using the **Fixed** mode for the Q and the Alpha fade parameter">
+            <Properties>
+              <Property ID="IsVertical" Value="0"/>
+            </Properties>
+            <Nodes>
+              <Node ID="harmonizer" FactoryPath="control.clone_cable" Bypassed="0"
+                    Comment="This clone cable uses the **Harmonics** mode to scale the frequencies using a fixed multiplier"
+                    NodeColour="4289887833">
+                <Properties>
+                  <Property ID="Mode" Value="Harmonics"/>
+                </Properties>
+                <ModulationTargets>
+                  <Connection NodeId="svf_eq" ParameterId="Frequency"/>
+                </ModulationTargets>
+                <Parameters>
+                  <Parameter MinValue="1.0" MaxValue="16.0" StepSize="1.0" ID="NumClones"
+                             Automated="1"/>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Gamma" Value="0.0"/>
+                </Parameters>
+              </Node>
+              <Node ID="q_cable" FactoryPath="control.clone_cable" Bypassed="0" NodeColour="4286231129">
+                <Properties>
+                  <Property ID="Mode" Value="Fixed"/>
+                </Properties>
+                <ModulationTargets>
+                  <Connection NodeId="svf_eq" ParameterId="Q"/>
+                </ModulationTargets>
+                <Parameters>
+                  <Parameter MinValue="1.0" MaxValue="16.0" StepSize="1.0" ID="NumClones"
+                             Automated="1"/>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Gamma" Value="0.0"/>
+                </Parameters>
+              </Node>
+              <Node ID="spectrum_fader" FactoryPath="control.clone_cable" Bypassed="0"
+                    NodeColour="4284068505">
+                <Properties>
+                  <Property ID="Mode" Value="Fixed"/>
+                </Properties>
+                <ModulationTargets>
+                  <Connection NodeId="blend1" ParameterId="Alpha"/>
+                </ModulationTargets>
+                <Parameters>
+                  <Parameter MinValue="1.0" MaxValue="16.0" StepSize="1.0" ID="NumClones"
+                             Automated="1"/>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Gamma" Value="0.0"/>
+                </Parameters>
+              </Node>
+              <Node ID="clone_cable" FactoryPath="control.clone_cable" Bypassed="0"
+                    NodeColour="4284052914" Comment="The toggle mode will put out 1 for every node that is active and 0 for every node that is not active because of the &#96;NumVoices&#96; parameter.&#10;&#10;&gt; This allows us to disable the filter bands that are not active. This is not required for the actual signal processing (because the clone container does that for us already), but it will prevent inactive filters to send out their coefficients for the filter graph">
+                <Properties>
+                  <Property ID="Mode" Value="Toggle"/>
+                </Properties>
+                <Parameters>
+                  <Parameter MinValue="1.0" MaxValue="16.0" StepSize="1.0" ID="NumClones"
+                             Value="16.0"/>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Gamma" Value="0.0"/>
+                </Parameters>
+                <ModulationTargets>
+                  <Connection NodeId="svf_eq" ParameterId="Enabled"/>
+                </ModulationTargets>
+              </Node>
+            </Nodes>
+            <Parameters/>
+          </Node>
+          <Node ID="clone" FactoryPath="container.clone" Bypassed="0" ShowClones="0"
+                ShowParameters="1" Comment="## Filterbank&#10;&#10;This node clones its children and allows a dynamic amount of sub processors. We'll use the &#96;Serial&#96; mode in order to process the signal serially using the filters">
+            <Nodes>
+              <Node ID="clone_child" FactoryPath="container.chain" Bypassed="0" NodeColour="4287927444">
+                <Nodes>
+                  <Node ID="blend1" FactoryPath="control.blend" Bypassed="0" NodeColour="4285968985"
+                        Comment="fade between the spectrum A and B">
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Alpha" Automated="1"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value1" Automated="1"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value2" Automated="1"/>
+                    </Parameters>
+                    <ModulationTargets>
+                      <Connection NodeId="normaliser" ParameterId="Value"/>
+                    </ModulationTargets>
+                  </Node>
+                  <Node ID="normaliser" FactoryPath="control.normaliser" Bypassed="0"
+                        NodeColour="4285968985" Comment="The blend node outputs an unscaled value so in order to pickup the gain range from the EQ we have to put in this node between the connections">
+                    <ModulationTargets>
+                      <Connection NodeId="svf_eq" ParameterId="Gain"/>
+                    </ModulationTargets>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                  <Node ID="svf_eq" FactoryPath="filters.svf_eq" Bypassed="0" NodeColour="4285968985">
+                    <ComplexData>
+                      <Filters>
+                        <Filter Index="0" EmbeddedData=""/>
+                      </Filters>
+                    </ComplexData>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="20000.0" ID="Frequency" Automated="1"/>
+                      <Parameter MinValue="0.300000011920929" MaxValue="9.899999618530273" SkewFactor="0.2647178173065186"
+                                 ID="Q" Automated="1"/>
+                      <Parameter MinValue="-18.0" MaxValue="18.0" ID="Gain" Automated="1"/>
+                      <Parameter MinValue="0.0" MaxValue="0.05" SkewFactor="0.3010300099849701"
+                                 ID="Smoothing" Value="0.008365466659280589"/>
+                      <Parameter MinValue="0.0" MaxValue="4.0" StepSize="1.0" ID="Mode" Value="4.0"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                </Nodes>
+                <Parameters/>
+              </Node>
+              <Node ID="clone_child1" FactoryPath="container.chain" Bypassed="0"
+                    NodeColour="4287927444">
+                <Nodes>
+                  <Node ID="blend8" FactoryPath="control.blend" Bypassed="0" NodeColour="4285968985"
+                        Comment="fade between the spectrum A and B">
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Alpha"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value1"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value2"/>
+                    </Parameters>
+                    <ModulationTargets>
+                      <Connection NodeId="normaliser7" ParameterId="Value"/>
+                    </ModulationTargets>
+                  </Node>
+                  <Node ID="normaliser7" FactoryPath="control.normaliser" Bypassed="0"
+                        NodeColour="4285968985" Comment="The blend node outputs an unscaled value so in order to pickup the gain range from the EQ we have to put in this node between the connections">
+                    <ModulationTargets>
+                      <Connection NodeId="svf_eq7" ParameterId="Gain"/>
+                    </ModulationTargets>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                  <Node ID="svf_eq7" FactoryPath="filters.svf_eq" Bypassed="0" NodeColour="4285968985">
+                    <ComplexData>
+                      <Filters>
+                        <Filter Index="0" EmbeddedData=""/>
+                      </Filters>
+                    </ComplexData>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="20000.0" ID="Frequency"/>
+                      <Parameter MinValue="0.300000011920929" MaxValue="9.899999618530273" SkewFactor="0.2647178173065186"
+                                 ID="Q"/>
+                      <Parameter MinValue="-18.0" MaxValue="18.0" ID="Gain" Automated="1"/>
+                      <Parameter MinValue="0.0" MaxValue="0.05" SkewFactor="0.3010300099849701"
+                                 ID="Smoothing" Value="0.008365466659280589"/>
+                      <Parameter MinValue="0.0" MaxValue="4.0" StepSize="1.0" ID="Mode" Value="4.0"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                </Nodes>
+                <Parameters/>
+              </Node>
+              <Node ID="clone_child2" FactoryPath="container.chain" Bypassed="0"
+                    NodeColour="4287927444">
+                <Nodes>
+                  <Node ID="blend9" FactoryPath="control.blend" Bypassed="0" NodeColour="4285968985"
+                        Comment="fade between the spectrum A and B">
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Alpha"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value1"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value2"/>
+                    </Parameters>
+                    <ModulationTargets>
+                      <Connection NodeId="normaliser8" ParameterId="Value"/>
+                    </ModulationTargets>
+                  </Node>
+                  <Node ID="normaliser8" FactoryPath="control.normaliser" Bypassed="0"
+                        NodeColour="4285968985" Comment="The blend node outputs an unscaled value so in order to pickup the gain range from the EQ we have to put in this node between the connections">
+                    <ModulationTargets>
+                      <Connection NodeId="svf_eq8" ParameterId="Gain"/>
+                    </ModulationTargets>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                  <Node ID="svf_eq8" FactoryPath="filters.svf_eq" Bypassed="0" NodeColour="4285968985">
+                    <ComplexData>
+                      <Filters>
+                        <Filter Index="0" EmbeddedData=""/>
+                      </Filters>
+                    </ComplexData>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="20000.0" ID="Frequency"/>
+                      <Parameter MinValue="0.300000011920929" MaxValue="9.899999618530273" SkewFactor="0.2647178173065186"
+                                 ID="Q"/>
+                      <Parameter MinValue="-18.0" MaxValue="18.0" ID="Gain" Automated="1"/>
+                      <Parameter MinValue="0.0" MaxValue="0.05" SkewFactor="0.3010300099849701"
+                                 ID="Smoothing" Value="0.008365466659280589"/>
+                      <Parameter MinValue="0.0" MaxValue="4.0" StepSize="1.0" ID="Mode" Value="4.0"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                </Nodes>
+                <Parameters/>
+              </Node>
+              <Node ID="clone_child3" FactoryPath="container.chain" Bypassed="0"
+                    NodeColour="4287927444">
+                <Nodes>
+                  <Node ID="blend10" FactoryPath="control.blend" Bypassed="0" NodeColour="4285968985"
+                        Comment="fade between the spectrum A and B">
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Alpha"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value1"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value2"/>
+                    </Parameters>
+                    <ModulationTargets>
+                      <Connection NodeId="normaliser9" ParameterId="Value"/>
+                    </ModulationTargets>
+                  </Node>
+                  <Node ID="normaliser9" FactoryPath="control.normaliser" Bypassed="0"
+                        NodeColour="4285968985" Comment="The blend node outputs an unscaled value so in order to pickup the gain range from the EQ we have to put in this node between the connections">
+                    <ModulationTargets>
+                      <Connection NodeId="svf_eq9" ParameterId="Gain"/>
+                    </ModulationTargets>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                  <Node ID="svf_eq9" FactoryPath="filters.svf_eq" Bypassed="0" NodeColour="4285968985">
+                    <ComplexData>
+                      <Filters>
+                        <Filter Index="0" EmbeddedData=""/>
+                      </Filters>
+                    </ComplexData>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="20000.0" ID="Frequency"/>
+                      <Parameter MinValue="0.300000011920929" MaxValue="9.899999618530273" SkewFactor="0.2647178173065186"
+                                 ID="Q"/>
+                      <Parameter MinValue="-18.0" MaxValue="18.0" ID="Gain" Automated="1"/>
+                      <Parameter MinValue="0.0" MaxValue="0.05" SkewFactor="0.3010300099849701"
+                                 ID="Smoothing" Value="0.008365466659280589"/>
+                      <Parameter MinValue="0.0" MaxValue="4.0" StepSize="1.0" ID="Mode" Value="4.0"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                </Nodes>
+                <Parameters/>
+              </Node>
+              <Node ID="clone_child4" FactoryPath="container.chain" Bypassed="0"
+                    NodeColour="4287927444">
+                <Nodes>
+                  <Node ID="blend11" FactoryPath="control.blend" Bypassed="0" NodeColour="4285968985"
+                        Comment="fade between the spectrum A and B">
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Alpha"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value1"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value2"/>
+                    </Parameters>
+                    <ModulationTargets>
+                      <Connection NodeId="normaliser10" ParameterId="Value"/>
+                    </ModulationTargets>
+                  </Node>
+                  <Node ID="normaliser10" FactoryPath="control.normaliser" Bypassed="0"
+                        NodeColour="4285968985" Comment="The blend node outputs an unscaled value so in order to pickup the gain range from the EQ we have to put in this node between the connections">
+                    <ModulationTargets>
+                      <Connection NodeId="svf_eq10" ParameterId="Gain"/>
+                    </ModulationTargets>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                  <Node ID="svf_eq10" FactoryPath="filters.svf_eq" Bypassed="0" NodeColour="4285968985">
+                    <ComplexData>
+                      <Filters>
+                        <Filter Index="0" EmbeddedData=""/>
+                      </Filters>
+                    </ComplexData>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="20000.0" ID="Frequency"/>
+                      <Parameter MinValue="0.300000011920929" MaxValue="9.899999618530273" SkewFactor="0.2647178173065186"
+                                 ID="Q"/>
+                      <Parameter MinValue="-18.0" MaxValue="18.0" ID="Gain" Automated="1"/>
+                      <Parameter MinValue="0.0" MaxValue="0.05" SkewFactor="0.3010300099849701"
+                                 ID="Smoothing" Value="0.008365466659280589"/>
+                      <Parameter MinValue="0.0" MaxValue="4.0" StepSize="1.0" ID="Mode" Value="4.0"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                </Nodes>
+                <Parameters/>
+              </Node>
+              <Node ID="clone_child5" FactoryPath="container.chain" Bypassed="0"
+                    NodeColour="4287927444">
+                <Nodes>
+                  <Node ID="blend12" FactoryPath="control.blend" Bypassed="0" NodeColour="4285968985"
+                        Comment="fade between the spectrum A and B">
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Alpha"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value1"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value2"/>
+                    </Parameters>
+                    <ModulationTargets>
+                      <Connection NodeId="normaliser11" ParameterId="Value"/>
+                    </ModulationTargets>
+                  </Node>
+                  <Node ID="normaliser11" FactoryPath="control.normaliser" Bypassed="0"
+                        NodeColour="4285968985" Comment="The blend node outputs an unscaled value so in order to pickup the gain range from the EQ we have to put in this node between the connections">
+                    <ModulationTargets>
+                      <Connection NodeId="svf_eq11" ParameterId="Gain"/>
+                    </ModulationTargets>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                  <Node ID="svf_eq11" FactoryPath="filters.svf_eq" Bypassed="0" NodeColour="4285968985">
+                    <ComplexData>
+                      <Filters>
+                        <Filter Index="0" EmbeddedData=""/>
+                      </Filters>
+                    </ComplexData>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="20000.0" ID="Frequency"/>
+                      <Parameter MinValue="0.300000011920929" MaxValue="9.899999618530273" SkewFactor="0.2647178173065186"
+                                 ID="Q"/>
+                      <Parameter MinValue="-18.0" MaxValue="18.0" ID="Gain" Automated="1"/>
+                      <Parameter MinValue="0.0" MaxValue="0.05" SkewFactor="0.3010300099849701"
+                                 ID="Smoothing" Value="0.008365466659280589"/>
+                      <Parameter MinValue="0.0" MaxValue="4.0" StepSize="1.0" ID="Mode" Value="4.0"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                </Nodes>
+                <Parameters/>
+              </Node>
+              <Node ID="clone_child6" FactoryPath="container.chain" Bypassed="0"
+                    NodeColour="4287927444">
+                <Nodes>
+                  <Node ID="blend13" FactoryPath="control.blend" Bypassed="0" NodeColour="4285968985"
+                        Comment="fade between the spectrum A and B">
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Alpha"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value1"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value2"/>
+                    </Parameters>
+                    <ModulationTargets>
+                      <Connection NodeId="normaliser12" ParameterId="Value"/>
+                    </ModulationTargets>
+                  </Node>
+                  <Node ID="normaliser12" FactoryPath="control.normaliser" Bypassed="0"
+                        NodeColour="4285968985" Comment="The blend node outputs an unscaled value so in order to pickup the gain range from the EQ we have to put in this node between the connections">
+                    <ModulationTargets>
+                      <Connection NodeId="svf_eq12" ParameterId="Gain"/>
+                    </ModulationTargets>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                  <Node ID="svf_eq12" FactoryPath="filters.svf_eq" Bypassed="0" NodeColour="4285968985">
+                    <ComplexData>
+                      <Filters>
+                        <Filter Index="0" EmbeddedData=""/>
+                      </Filters>
+                    </ComplexData>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="20000.0" ID="Frequency"/>
+                      <Parameter MinValue="0.300000011920929" MaxValue="9.899999618530273" SkewFactor="0.2647178173065186"
+                                 ID="Q"/>
+                      <Parameter MinValue="-18.0" MaxValue="18.0" ID="Gain" Automated="1"/>
+                      <Parameter MinValue="0.0" MaxValue="0.05" SkewFactor="0.3010300099849701"
+                                 ID="Smoothing" Value="0.008365466659280589"/>
+                      <Parameter MinValue="0.0" MaxValue="4.0" StepSize="1.0" ID="Mode" Value="4.0"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                </Nodes>
+                <Parameters/>
+              </Node>
+              <Node ID="clone_child7" FactoryPath="container.chain" Bypassed="0"
+                    NodeColour="4287927444">
+                <Nodes>
+                  <Node ID="blend14" FactoryPath="control.blend" Bypassed="0" NodeColour="4285968985"
+                        Comment="fade between the spectrum A and B">
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Alpha"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value1"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value2"/>
+                    </Parameters>
+                    <ModulationTargets>
+                      <Connection NodeId="normaliser13" ParameterId="Value"/>
+                    </ModulationTargets>
+                  </Node>
+                  <Node ID="normaliser13" FactoryPath="control.normaliser" Bypassed="0"
+                        NodeColour="4285968985" Comment="The blend node outputs an unscaled value so in order to pickup the gain range from the EQ we have to put in this node between the connections">
+                    <ModulationTargets>
+                      <Connection NodeId="svf_eq13" ParameterId="Gain"/>
+                    </ModulationTargets>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                  <Node ID="svf_eq13" FactoryPath="filters.svf_eq" Bypassed="0" NodeColour="4285968985">
+                    <ComplexData>
+                      <Filters>
+                        <Filter Index="0" EmbeddedData=""/>
+                      </Filters>
+                    </ComplexData>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="20000.0" ID="Frequency"/>
+                      <Parameter MinValue="0.300000011920929" MaxValue="9.899999618530273" SkewFactor="0.2647178173065186"
+                                 ID="Q"/>
+                      <Parameter MinValue="-18.0" MaxValue="18.0" ID="Gain" Automated="1"/>
+                      <Parameter MinValue="0.0" MaxValue="0.05" SkewFactor="0.3010300099849701"
+                                 ID="Smoothing" Value="0.008365466659280589"/>
+                      <Parameter MinValue="0.0" MaxValue="4.0" StepSize="1.0" ID="Mode" Value="4.0"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                </Nodes>
+                <Parameters/>
+              </Node>
+              <Node ID="clone_child8" FactoryPath="container.chain" Bypassed="0"
+                    NodeColour="4287927444">
+                <Nodes>
+                  <Node ID="blend15" FactoryPath="control.blend" Bypassed="0" NodeColour="4285968985"
+                        Comment="fade between the spectrum A and B">
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Alpha"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value1"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value2"/>
+                    </Parameters>
+                    <ModulationTargets>
+                      <Connection NodeId="normaliser14" ParameterId="Value"/>
+                    </ModulationTargets>
+                  </Node>
+                  <Node ID="normaliser14" FactoryPath="control.normaliser" Bypassed="0"
+                        NodeColour="4285968985" Comment="The blend node outputs an unscaled value so in order to pickup the gain range from the EQ we have to put in this node between the connections">
+                    <ModulationTargets>
+                      <Connection NodeId="svf_eq14" ParameterId="Gain"/>
+                    </ModulationTargets>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                  <Node ID="svf_eq14" FactoryPath="filters.svf_eq" Bypassed="0" NodeColour="4285968985">
+                    <ComplexData>
+                      <Filters>
+                        <Filter Index="0" EmbeddedData=""/>
+                      </Filters>
+                    </ComplexData>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="20000.0" ID="Frequency"/>
+                      <Parameter MinValue="0.300000011920929" MaxValue="9.899999618530273" SkewFactor="0.2647178173065186"
+                                 ID="Q"/>
+                      <Parameter MinValue="-18.0" MaxValue="18.0" ID="Gain" Automated="1"/>
+                      <Parameter MinValue="0.0" MaxValue="0.05" SkewFactor="0.3010300099849701"
+                                 ID="Smoothing" Value="0.008365466659280589"/>
+                      <Parameter MinValue="0.0" MaxValue="4.0" StepSize="1.0" ID="Mode" Value="4.0"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                </Nodes>
+                <Parameters/>
+              </Node>
+              <Node ID="clone_child9" FactoryPath="container.chain" Bypassed="0"
+                    NodeColour="4287927444">
+                <Nodes>
+                  <Node ID="blend16" FactoryPath="control.blend" Bypassed="0" NodeColour="4285968985"
+                        Comment="fade between the spectrum A and B">
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Alpha"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value1"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value2"/>
+                    </Parameters>
+                    <ModulationTargets>
+                      <Connection NodeId="normaliser15" ParameterId="Value"/>
+                    </ModulationTargets>
+                  </Node>
+                  <Node ID="normaliser15" FactoryPath="control.normaliser" Bypassed="0"
+                        NodeColour="4285968985" Comment="The blend node outputs an unscaled value so in order to pickup the gain range from the EQ we have to put in this node between the connections">
+                    <ModulationTargets>
+                      <Connection NodeId="svf_eq15" ParameterId="Gain"/>
+                    </ModulationTargets>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                  <Node ID="svf_eq15" FactoryPath="filters.svf_eq" Bypassed="0" NodeColour="4285968985">
+                    <ComplexData>
+                      <Filters>
+                        <Filter Index="0" EmbeddedData=""/>
+                      </Filters>
+                    </ComplexData>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="20000.0" ID="Frequency"/>
+                      <Parameter MinValue="0.300000011920929" MaxValue="9.899999618530273" SkewFactor="0.2647178173065186"
+                                 ID="Q"/>
+                      <Parameter MinValue="-18.0" MaxValue="18.0" ID="Gain" Automated="1"/>
+                      <Parameter MinValue="0.0" MaxValue="0.05" SkewFactor="0.3010300099849701"
+                                 ID="Smoothing" Value="0.008365466659280589"/>
+                      <Parameter MinValue="0.0" MaxValue="4.0" StepSize="1.0" ID="Mode" Value="4.0"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                </Nodes>
+                <Parameters/>
+              </Node>
+              <Node ID="clone_child10" FactoryPath="container.chain" Bypassed="0"
+                    NodeColour="4287927444">
+                <Nodes>
+                  <Node ID="blend17" FactoryPath="control.blend" Bypassed="0" NodeColour="4285968985"
+                        Comment="fade between the spectrum A and B">
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Alpha"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value1"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value2"/>
+                    </Parameters>
+                    <ModulationTargets>
+                      <Connection NodeId="normaliser16" ParameterId="Value"/>
+                    </ModulationTargets>
+                  </Node>
+                  <Node ID="normaliser16" FactoryPath="control.normaliser" Bypassed="0"
+                        NodeColour="4285968985" Comment="The blend node outputs an unscaled value so in order to pickup the gain range from the EQ we have to put in this node between the connections">
+                    <ModulationTargets>
+                      <Connection NodeId="svf_eq16" ParameterId="Gain"/>
+                    </ModulationTargets>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                  <Node ID="svf_eq16" FactoryPath="filters.svf_eq" Bypassed="0" NodeColour="4285968985">
+                    <ComplexData>
+                      <Filters>
+                        <Filter Index="0" EmbeddedData=""/>
+                      </Filters>
+                    </ComplexData>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="20000.0" ID="Frequency"/>
+                      <Parameter MinValue="0.300000011920929" MaxValue="9.899999618530273" SkewFactor="0.2647178173065186"
+                                 ID="Q"/>
+                      <Parameter MinValue="-18.0" MaxValue="18.0" ID="Gain" Automated="1"/>
+                      <Parameter MinValue="0.0" MaxValue="0.05" SkewFactor="0.3010300099849701"
+                                 ID="Smoothing" Value="0.008365466659280589"/>
+                      <Parameter MinValue="0.0" MaxValue="4.0" StepSize="1.0" ID="Mode" Value="4.0"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                </Nodes>
+                <Parameters/>
+              </Node>
+              <Node ID="clone_child11" FactoryPath="container.chain" Bypassed="0"
+                    NodeColour="4287927444">
+                <Nodes>
+                  <Node ID="blend18" FactoryPath="control.blend" Bypassed="0" NodeColour="4285968985"
+                        Comment="fade between the spectrum A and B">
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Alpha"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value1"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value2"/>
+                    </Parameters>
+                    <ModulationTargets>
+                      <Connection NodeId="normaliser17" ParameterId="Value"/>
+                    </ModulationTargets>
+                  </Node>
+                  <Node ID="normaliser17" FactoryPath="control.normaliser" Bypassed="0"
+                        NodeColour="4285968985" Comment="The blend node outputs an unscaled value so in order to pickup the gain range from the EQ we have to put in this node between the connections">
+                    <ModulationTargets>
+                      <Connection NodeId="svf_eq17" ParameterId="Gain"/>
+                    </ModulationTargets>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                  <Node ID="svf_eq17" FactoryPath="filters.svf_eq" Bypassed="0" NodeColour="4285968985">
+                    <ComplexData>
+                      <Filters>
+                        <Filter Index="0" EmbeddedData=""/>
+                      </Filters>
+                    </ComplexData>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="20000.0" ID="Frequency"/>
+                      <Parameter MinValue="0.300000011920929" MaxValue="9.899999618530273" SkewFactor="0.2647178173065186"
+                                 ID="Q"/>
+                      <Parameter MinValue="-18.0" MaxValue="18.0" ID="Gain" Automated="1"/>
+                      <Parameter MinValue="0.0" MaxValue="0.05" SkewFactor="0.3010300099849701"
+                                 ID="Smoothing" Value="0.008365466659280589"/>
+                      <Parameter MinValue="0.0" MaxValue="4.0" StepSize="1.0" ID="Mode" Value="4.0"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                </Nodes>
+                <Parameters/>
+              </Node>
+              <Node ID="clone_child12" FactoryPath="container.chain" Bypassed="0"
+                    NodeColour="4287927444">
+                <Nodes>
+                  <Node ID="blend19" FactoryPath="control.blend" Bypassed="0" NodeColour="4285968985"
+                        Comment="fade between the spectrum A and B">
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Alpha"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value1"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value2"/>
+                    </Parameters>
+                    <ModulationTargets>
+                      <Connection NodeId="normaliser18" ParameterId="Value"/>
+                    </ModulationTargets>
+                  </Node>
+                  <Node ID="normaliser18" FactoryPath="control.normaliser" Bypassed="0"
+                        NodeColour="4285968985" Comment="The blend node outputs an unscaled value so in order to pickup the gain range from the EQ we have to put in this node between the connections">
+                    <ModulationTargets>
+                      <Connection NodeId="svf_eq18" ParameterId="Gain"/>
+                    </ModulationTargets>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                  <Node ID="svf_eq18" FactoryPath="filters.svf_eq" Bypassed="0" NodeColour="4285968985">
+                    <ComplexData>
+                      <Filters>
+                        <Filter Index="0" EmbeddedData=""/>
+                      </Filters>
+                    </ComplexData>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="20000.0" ID="Frequency"/>
+                      <Parameter MinValue="0.300000011920929" MaxValue="9.899999618530273" SkewFactor="0.2647178173065186"
+                                 ID="Q"/>
+                      <Parameter MinValue="-18.0" MaxValue="18.0" ID="Gain" Automated="1"/>
+                      <Parameter MinValue="0.0" MaxValue="0.05" SkewFactor="0.3010300099849701"
+                                 ID="Smoothing" Value="0.008365466659280589"/>
+                      <Parameter MinValue="0.0" MaxValue="4.0" StepSize="1.0" ID="Mode" Value="4.0"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                </Nodes>
+                <Parameters/>
+              </Node>
+              <Node ID="clone_child13" FactoryPath="container.chain" Bypassed="0"
+                    NodeColour="4287927444">
+                <Nodes>
+                  <Node ID="blend20" FactoryPath="control.blend" Bypassed="0" NodeColour="4285968985"
+                        Comment="fade between the spectrum A and B">
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Alpha"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value1"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value2"/>
+                    </Parameters>
+                    <ModulationTargets>
+                      <Connection NodeId="normaliser19" ParameterId="Value"/>
+                    </ModulationTargets>
+                  </Node>
+                  <Node ID="normaliser19" FactoryPath="control.normaliser" Bypassed="0"
+                        NodeColour="4285968985" Comment="The blend node outputs an unscaled value so in order to pickup the gain range from the EQ we have to put in this node between the connections">
+                    <ModulationTargets>
+                      <Connection NodeId="svf_eq19" ParameterId="Gain"/>
+                    </ModulationTargets>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                  <Node ID="svf_eq19" FactoryPath="filters.svf_eq" Bypassed="0" NodeColour="4285968985">
+                    <ComplexData>
+                      <Filters>
+                        <Filter Index="0" EmbeddedData=""/>
+                      </Filters>
+                    </ComplexData>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="20000.0" ID="Frequency"/>
+                      <Parameter MinValue="0.300000011920929" MaxValue="9.899999618530273" SkewFactor="0.2647178173065186"
+                                 ID="Q"/>
+                      <Parameter MinValue="-18.0" MaxValue="18.0" ID="Gain" Automated="1"/>
+                      <Parameter MinValue="0.0" MaxValue="0.05" SkewFactor="0.3010300099849701"
+                                 ID="Smoothing" Value="0.008365466659280589"/>
+                      <Parameter MinValue="0.0" MaxValue="4.0" StepSize="1.0" ID="Mode" Value="4.0"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                </Nodes>
+                <Parameters/>
+              </Node>
+              <Node ID="clone_child14" FactoryPath="container.chain" Bypassed="0"
+                    NodeColour="4287927444">
+                <Nodes>
+                  <Node ID="blend21" FactoryPath="control.blend" Bypassed="0" NodeColour="4285968985"
+                        Comment="fade between the spectrum A and B">
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Alpha"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value1"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value2"/>
+                    </Parameters>
+                    <ModulationTargets>
+                      <Connection NodeId="normaliser20" ParameterId="Value"/>
+                    </ModulationTargets>
+                  </Node>
+                  <Node ID="normaliser20" FactoryPath="control.normaliser" Bypassed="0"
+                        NodeColour="4285968985" Comment="The blend node outputs an unscaled value so in order to pickup the gain range from the EQ we have to put in this node between the connections">
+                    <ModulationTargets>
+                      <Connection NodeId="svf_eq20" ParameterId="Gain"/>
+                    </ModulationTargets>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                  <Node ID="svf_eq20" FactoryPath="filters.svf_eq" Bypassed="0" NodeColour="4285968985">
+                    <ComplexData>
+                      <Filters>
+                        <Filter Index="0" EmbeddedData=""/>
+                      </Filters>
+                    </ComplexData>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="20000.0" ID="Frequency"/>
+                      <Parameter MinValue="0.300000011920929" MaxValue="9.899999618530273" SkewFactor="0.2647178173065186"
+                                 ID="Q"/>
+                      <Parameter MinValue="-18.0" MaxValue="18.0" ID="Gain" Automated="1"/>
+                      <Parameter MinValue="0.0" MaxValue="0.05" SkewFactor="0.3010300099849701"
+                                 ID="Smoothing" Value="0.008365466659280589"/>
+                      <Parameter MinValue="0.0" MaxValue="4.0" StepSize="1.0" ID="Mode" Value="4.0"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                </Nodes>
+                <Parameters/>
+              </Node>
+              <Node ID="clone_child15" FactoryPath="container.chain" Bypassed="0"
+                    NodeColour="4287927444">
+                <Nodes>
+                  <Node ID="blend22" FactoryPath="control.blend" Bypassed="0" NodeColour="4285968985"
+                        Comment="fade between the spectrum A and B">
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Alpha"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value1"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value2"/>
+                    </Parameters>
+                    <ModulationTargets>
+                      <Connection NodeId="normaliser21" ParameterId="Value"/>
+                    </ModulationTargets>
+                  </Node>
+                  <Node ID="normaliser21" FactoryPath="control.normaliser" Bypassed="0"
+                        NodeColour="4285968985" Comment="The blend node outputs an unscaled value so in order to pickup the gain range from the EQ we have to put in this node between the connections">
+                    <ModulationTargets>
+                      <Connection NodeId="svf_eq21" ParameterId="Gain"/>
+                    </ModulationTargets>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                  <Node ID="svf_eq21" FactoryPath="filters.svf_eq" Bypassed="0" NodeColour="4285968985">
+                    <ComplexData>
+                      <Filters>
+                        <Filter Index="0" EmbeddedData=""/>
+                      </Filters>
+                    </ComplexData>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="20000.0" ID="Frequency"/>
+                      <Parameter MinValue="0.300000011920929" MaxValue="9.899999618530273" SkewFactor="0.2647178173065186"
+                                 ID="Q"/>
+                      <Parameter MinValue="-18.0" MaxValue="18.0" ID="Gain" Automated="1"/>
+                      <Parameter MinValue="0.0" MaxValue="0.05" SkewFactor="0.3010300099849701"
+                                 ID="Smoothing" Value="0.008365466659280589"/>
+                      <Parameter MinValue="0.0" MaxValue="4.0" StepSize="1.0" ID="Mode" Value="4.0"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                </Nodes>
+                <Parameters/>
+              </Node>
+            </Nodes>
+            <Parameters>
+              <Parameter MinValue="1.0" MaxValue="16" StepSize="1.0" ID="NumClones" Automated="1"/>
+              <Parameter MinValue="0.0" MaxValue="2.0" StepSize="1.0" ID="SplitSignal"
+                         Value="0.0"/>
+            </Parameters>
+          </Node>
+        </Nodes>
+        <Parameters/>
+      </Node>
+    </Nodes>
+    <Parameters>
+      <Parameter ID="NumBands" MinValue="1.0" MaxValue="16.0" StepSize="1.0" Value="16.0">
+        <Connections>
+          <Connection NodeId="clone" ParameterId="NumClones"/>
+          <Connection NodeId="spectrum_a" ParameterId="NumClones"/>
+          <Connection NodeId="spectrum_b" ParameterId="NumClones"/>
+          <Connection NodeId="harmonizer" ParameterId="NumClones"/>
+          <Connection NodeId="spectrum_fader" ParameterId="NumClones"/>
+          <Connection NodeId="q_cable" ParameterId="NumClones"/>
+          <Connection NodeId="clone_cable" ParameterId="Value"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="Transpose" MinValue="-12.0" MaxValue="12.0" StepSize="1.0"
+                 Value="7.0">
+        <Connections>
+          <Connection NodeId="pma" ParameterId="Add"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="Fade" MinValue="0.0" MaxValue="1.0" Value="0.0">
+        <Connections>
+          <Connection NodeId="spectrum_fader" ParameterId="Value"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="Q" MinValue="0.300000011920929" MaxValue="9.899999618530273"
+                 SkewFactor="0.2647178173065186" Value="9.899999618530273">
+        <Connections>
+          <Connection NodeId="q_cable" ParameterId="Value"/>
+        </Connections>
+      </Parameter>
+    </Parameters>
+  </Node>
+</Network>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Network ID="table_envelope_simple" AllowCompilation="1" CompileChannelAmount="1"
+         HasTail="0" Version="0.0.0" AllowPolyphonic="1">
+  <Node FactoryPath="container.chain" ID="table_envelope_simple" Bypassed="0"
+        ShowParameters="1">
+    <Nodes>
+      <Node ID="fill1" FactoryPath="math.fill1" Bypassed="0" Comment="# Table Envelope (simple)&#10;&#10;This implements the basic idea of the fully featured table envelope: A simple envelope creates a linear ramp that is fed into two different tables based on the gate state&#10;&#10;The full network will handle mismatches between the attack and release state (you'll notice a discontinuity if you switch between attack and release while the attack phase is still active)">
+        <Parameters>
+          <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Value="0.0"/>
+        </Parameters>
+      </Node>
+      <Node ID="no_midi" FactoryPath="container.no_midi" Bypassed="0" NodeColour="4284049586"
+            Comment="The envelope must be put into a &#96;no_midi&#96; node to avoid being triggered by MIDI messages (you have to assign the network's **Gate** parameter to this manually)">
+        <Nodes>
+          <Node ID="simple_ar" FactoryPath="envelope.simple_ar" Bypassed="0"
+                NodeColour="4284049586" Comment="Create a linear ramp envelope">
+            <Properties>
+              <Property ID="NumParameters" Value="2"/>
+            </Properties>
+            <SwitchTargets>
+              <SwitchTarget>
+                <Connections/>
+              </SwitchTarget>
+              <SwitchTarget>
+                <Connections/>
+              </SwitchTarget>
+            </SwitchTargets>
+            <ComplexData>
+              <DisplayBuffers>
+                <DisplayBuffer Index="-1" EmbeddedData=""/>
+              </DisplayBuffers>
+            </ComplexData>
+            <Parameters>
+              <Parameter MinValue="0.0" MaxValue="1000.0" StepSize="0.1000000014901161"
+                         SkewFactor="0.3010300099849701" ID="Attack" Value="177.1000026389956"/>
+              <Parameter MinValue="0.0" MaxValue="1000.0" StepSize="0.1000000014901161"
+                         SkewFactor="0.3010300099849701" ID="Release" Value="709.9000105783343"/>
+              <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Gate" Automated="1"/>
+              <Parameter MinValue="0.0" MaxValue="1.0" ID="AttackCurve" Value="0.5"/>
+            </Parameters>
+          </Node>
+        </Nodes>
+        <Parameters/>
+      </Node>
+      <Node ID="branch" FactoryPath="container.branch" Bypassed="0" Comment="Feed the ramp either in the release or attack branch based on the Gate value"
+            ShowParameters="1">
+        <Nodes>
+          <Node ID="release" FactoryPath="container.chain" Bypassed="0" NodeColour="4284068530">
+            <Nodes>
+              <Node ID="mod_inv" FactoryPath="math.mod_inv" Bypassed="0" NodeColour="4284068530"
+                    Comment="Invert the signal from 0...1 to 1...0 for reversing the scanning direction"
+                    Folded="1">
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Value="0.0"/>
+                </Parameters>
+              </Node>
+              <Node ID="release_lut" FactoryPath="math.table" Bypassed="0" NodeColour="4284068530">
+                <ComplexData>
+                  <Tables>
+                    <Table Index="-1" EmbeddedData="48..........9C...vOsX5L9XwhE6C...vOrgxC+3qWu7C...vO...f+.........vO"/>
+                  </Tables>
+                </ComplexData>
+                <Parameters/>
+              </Node>
+            </Nodes>
+            <Parameters/>
+          </Node>
+          <Node ID="attack" FactoryPath="container.chain" Bypassed="0" NodeColour="4289900121">
+            <Nodes>
+              <Node ID="attack_lut" FactoryPath="math.table" Bypassed="0" NodeColour="4289900121">
+                <ComplexData>
+                  <Tables>
+                    <Table Index="-1" EmbeddedData="24...............vO...f+....9ytPteO"/>
+                  </Tables>
+                </ComplexData>
+                <Parameters/>
+              </Node>
+            </Nodes>
+            <Parameters/>
+          </Node>
+        </Nodes>
+        <Parameters>
+          <Parameter MinValue="0.0" MaxValue="1" StepSize="1.0" ID="Index" Automated="1"/>
+        </Parameters>
+      </Node>
+      <Node ID="chain1" FactoryPath="container.chain" Bypassed="0" NodeColour="4289888345">
+        <Nodes>
+          <Node ID="peak" FactoryPath="core.peak" Bypassed="0" NodeColour="4289888345">
+            <ModulationTargets>
+              <Connection NodeId="public_mod" ParameterId="Value"/>
+            </ModulationTargets>
+            <ComplexData>
+              <DisplayBuffers>
+                <DisplayBuffer Index="-1"/>
+              </DisplayBuffers>
+            </ComplexData>
+            <Parameters/>
+          </Node>
+          <Node ID="public_mod" FactoryPath="routing.public_mod" Bypassed="0"
+                NodeColour="4289888345">
+            <Parameters>
+              <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+            </Parameters>
+          </Node>
+        </Nodes>
+        <Parameters/>
+      </Node>
+    </Nodes>
+    <Parameters>
+      <Parameter ID="Gate" MinValue="0.0" MaxValue="1.0" StepSize="1" Value="0.0">
+        <Connections>
+          <Connection NodeId="simple_ar" ParameterId="Gate"/>
+          <Connection NodeId="branch" ParameterId="Index"/>
+        </Connections>
+      </Parameter>
+    </Parameters>
+  </Node>
+</Network>
