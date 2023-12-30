@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Network ID="neural_sine" AllowPolyphonic="1" Version="0.0.0">
+  <Node FactoryPath="container.chain" ID="neural_sine" Bypassed="0">
+    <Nodes>
+      <Node ID="phasor" FactoryPath="core.phasor" Bypassed="0" Comment="Creates a naive 0...1 ramp that will be shaped by the neural network into a sine wave-ish waveform">
+        <Parameters>
+          <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Gate" Value="1.0"/>
+          <Parameter MinValue="20.0" MaxValue="20000.0" StepSize="0.1000000014901161"
+                     SkewFactor="0.2299045622348785" ID="Frequency" Value="220.0"/>
+          <Parameter MinValue="1.0" MaxValue="16.0" StepSize="1.0" ID="Freq Ratio"
+                     Value="1.0"/>
+          <Parameter MinValue="0.0" MaxValue="1.0" ID="Phase" Value="0.0"/>
+        </Parameters>
+      </Node>
+      <Node ID="mono2stereo" FactoryPath="core.mono2stereo" Bypassed="0"
+            Comment="duplicate the signal to stereo. This is not really required, but it shows that the neural network node can handle multiple channels"
+            Folded="1">
+        <Parameters/>
+      </Node>
+      <Node ID="chain" FactoryPath="container.chain" Bypassed="0">
+        <Nodes>
+          <Node ID="neural" FactoryPath="math.neural" Bypassed="0" Comment="&#10;">
+            <Properties>
+              <Property ID="Model" Value="Sine"/>
+            </Properties>
+            <Parameters/>
+          </Node>
+          <Node ID="multi" FactoryPath="container.multi" Bypassed="0" Comment="Move the network in here and it will resize it's internal network list to fit the mono processing context">
+            <Nodes>
+              <Node ID="mul" FactoryPath="math.mul" Bypassed="0">
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Value="1.0"/>
+                </Parameters>
+              </Node>
+            </Nodes>
+            <Parameters/>
+          </Node>
+        </Nodes>
+        <Parameters/>
+      </Node>
+    </Nodes>
+    <Parameters/>
+  </Node>
+</Network>
