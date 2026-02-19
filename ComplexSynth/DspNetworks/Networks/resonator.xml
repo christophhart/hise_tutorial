@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Network ID="resonator" AllowCompilation="1" Version="0.0.0">
+  <Node FactoryPath="container.chain" ID="resonator" Bypassed="0" Name="resonator"
+        ShowParameters="1">
+    <Nodes>
+      <Node ID="dry_wet1" FactoryPath="container.split" ShowParameters="1"
+            NodeColour="4284976537" Bypassed="0" Name="dry_wet">
+        <Nodes>
+          <Node ID="dry_path" FactoryPath="container.chain" Bypassed="0" Name="dry_path">
+            <Nodes>
+              <Node ID="dry_wet_mixer" FactoryPath="control.xfader" Bypassed="0"
+                    Name="dry_wet_mixer" NodeColour="4284976537">
+                <Properties>
+                  <Property ID="NumParameters" Value="2"/>
+                  <Property ID="Mode" Value="Cosine Half"/>
+                </Properties>
+                <SwitchTargets>
+                  <SwitchTarget>
+                    <Connections>
+                      <Connection NodeId="dry_gain" ParameterId="Gain"/>
+                    </Connections>
+                  </SwitchTarget>
+                  <SwitchTarget>
+                    <Connections>
+                      <Connection NodeId="wet_gain" ParameterId="Gain"/>
+                    </Connections>
+                  </SwitchTarget>
+                </SwitchTargets>
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Value="0.0"/>
+                </Parameters>
+              </Node>
+              <Node ID="dry_gain" FactoryPath="core.gain" Bypassed="0" Name="dry_gain"
+                    NodeColour="4284976537" Folded="1">
+                <Parameters>
+                  <Parameter MinValue="-100.0" MaxValue="0.0" StepSize="0.1000000014901161"
+                             SkewFactor="5.422270774841309" ID="Gain" Value="0.0"/>
+                  <Parameter MinValue="0.0" MaxValue="1000.0" StepSize="0.1000000014901161"
+                             SkewFactor="0.3010300099849701" ID="Smoothing" Value="20.0"/>
+                  <Parameter MinValue="-100.0" MaxValue="0.0" StepSize="0.1000000014901161"
+                             SkewFactor="5.422270774841309" ID="ResetValue" Value="0.0"/>
+                </Parameters>
+              </Node>
+            </Nodes>
+            <Parameters/>
+          </Node>
+          <Node ID="wet_path" FactoryPath="container.chain" Bypassed="0" Name="wet_path">
+            <Nodes>
+              <Node ID="midichain1" FactoryPath="container.midichain" Bypassed="0"
+                    Name="midichain1">
+                <Nodes>
+                  <Node ID="midi1" FactoryPath="control.midi" Bypassed="0" Name="midi1">
+                    <Properties>
+                      <Property ID="Mode" Value="NoteNumber"/>
+                    </Properties>
+                    <ModulationTargets>
+                      <Connection NodeId="converter2" ParameterId="Value"/>
+                    </ModulationTargets>
+                    <Parameters/>
+                  </Node>
+                  <Node ID="converter2" FactoryPath="control.converter" Bypassed="0"
+                        Name="converter2">
+                    <Properties>
+                      <Property ID="Mode" Value="Midi2Freq"/>
+                    </Properties>
+                    <ModulationTargets>
+                      <Connection NodeId="converter4" ParameterId="Value"/>
+                    </ModulationTargets>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="127.0" StepSize="1.0" ID="Value" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                  <Node ID="converter4" FactoryPath="control.converter" Bypassed="0"
+                        Name="converter4">
+                    <Properties>
+                      <Property ID="Mode" Value="Freq2Ms"/>
+                    </Properties>
+                    <ModulationTargets>
+                      <Connection NodeId="smoothed_parameter_unscaled" ParameterId="Value"/>
+                    </ModulationTargets>
+                    <Parameters>
+                      <Parameter MinValue="20.0" MaxValue="20000.0" StepSize="0.1" SkewFactor="0.2299045584686382"
+                                 ID="Value" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                </Nodes>
+                <Parameters/>
+              </Node>
+              <Node ID="frame2_block1" FactoryPath="container.frame2_block" Bypassed="0"
+                    Name="frame2_block1">
+                <Nodes>
+                  <Node ID="receive1" FactoryPath="routing.receive" Bypassed="0" Name="receive1">
+                    <Parameters>
+                      <Parameter MinValue="0.8" MaxValue="1.0" ID="Feedback" DefaultValue="0.0"
+                                 Automated="1"/>
+                    </Parameters>
+                  </Node>
+                  <Node ID="smoothed_parameter_unscaled" FactoryPath="control.smoothed_parameter_unscaled"
+                        Bypassed="0" Name="smoothed_parameter_unscaled">
+                    <Properties>
+                      <Property ID="Mode" Value="Linear Ramp"/>
+                    </Properties>
+                    <ModulationTargets>
+                      <Connection NodeId="jdelay_cubic" ParameterId="DelayTime"/>
+                    </ModulationTargets>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+                      <Parameter MinValue="0.1000000014901161" MaxValue="1000.0" StepSize="0.1000000014901161"
+                                 ID="SmoothingTime" DefaultValue="100.0" Automated="1"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Value="1.0"/>
+                    </Parameters>
+                  </Node>
+                  <Node ID="one_pole1" FactoryPath="filters.one_pole" Bypassed="0" Name="one_pole1">
+                    <ComplexData>
+                      <Filters>
+                        <Filter Index="-1"/>
+                      </Filters>
+                    </ComplexData>
+                    <Parameters>
+                      <Parameter MinValue="20.0" MaxValue="20000.0" SkewFactor="0.2299045622348785"
+                                 ID="Frequency" TextToValueConverter="Frequency" DefaultValue="1000.0"
+                                 Automated="1"/>
+                      <Parameter MinValue="0.300000011920929" MaxValue="9.899999618530273" SkewFactor="0.2647178173065186"
+                                 ID="Q" Value="1.0"/>
+                      <Parameter MinValue="-18.0" MaxValue="18.0" ID="Gain" Value="0.0"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" SkewFactor="0.3010300099849701"
+                                 ID="Smoothing" Value="0.0" DefaultValue="0.009999999776482582"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Mode" Value="0.0"/>
+                      <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Value="1.0"/>
+                    </Parameters>
+                  </Node>
+                  <Node ID="phase_delay" FactoryPath="fx.phase_delay" Bypassed="0" Name="phase_delay">
+                    <Parameters>
+                      <Parameter MinValue="20.0" MaxValue="20000.0" StepSize="0.1000000014901161"
+                                 SkewFactor="0.2299045622348785" ID="Frequency" DefaultValue="400.0"
+                                 Automated="1"/>
+                    </Parameters>
+                  </Node>
+                  <Node ID="jdelay_cubic" FactoryPath="jdsp.jdelay_cubic" Bypassed="0"
+                        Name="jdelay_cubic">
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1000.0" SkewFactor="0.3010300099849701"
+                                 ID="Limit" Value="1000.0"/>
+                      <Parameter MinValue="0.0" MaxValue="1000.0" SkewFactor="0.3010300099849701"
+                                 ID="DelayTime" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                  <Node ID="send1" FactoryPath="routing.send" Bypassed="0" Name="send1">
+                    <Properties>
+                      <Property ID="Connection" Value="receive1"/>
+                    </Properties>
+                    <Parameters/>
+                  </Node>
+                </Nodes>
+                <Parameters/>
+              </Node>
+              <Node ID="soft_bypass" FactoryPath="container.soft_bypass" Bypassed="0"
+                    Name="soft_bypass">
+                <Properties>
+                  <Property ID="SmoothingTime" Value="20"/>
+                </Properties>
+                <Nodes>
+                  <Node ID="tanh" FactoryPath="math.tanh" Bypassed="0" Name="tanh">
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Value="1.0"/>
+                    </Parameters>
+                  </Node>
+                </Nodes>
+                <Parameters/>
+              </Node>
+              <Node ID="jcompressor" FactoryPath="jdsp.jcompressor" Bypassed="0"
+                    Name="jcompressor">
+                <ComplexData>
+                  <DisplayBuffers>
+                    <DisplayBuffer Index="-1"/>
+                  </DisplayBuffers>
+                </ComplexData>
+                <Parameters>
+                  <Parameter MinValue="-100.0" MaxValue="0.0" SkewFactor="5.422270774841309"
+                             ID="Treshold" Value="-5.120687857958444" DefaultValue="0.0"/>
+                  <Parameter MinValue="1.0" MaxValue="32.0" SkewFactor="0.4658005833625793"
+                             ID="Ratio" Value="32.0" DefaultValue="1.0"/>
+                  <Parameter MinValue="0.0" MaxValue="300.0" SkewFactor="0.3868528008460999"
+                             ID="Attack" Value="12.89526084372136" DefaultValue="1.0"/>
+                  <Parameter MinValue="0.0" MaxValue="300.0" SkewFactor="0.2037950456142426"
+                             ID="Release" Value="102.4793975243356" DefaultValue="100.0"/>
+                </Parameters>
+              </Node>
+              <Node ID="wet_gain" FactoryPath="core.gain" Bypassed="0" Name="wet_gain"
+                    NodeColour="4284976537" Folded="1">
+                <Parameters>
+                  <Parameter MinValue="-100.0" MaxValue="0.0" StepSize="0.1000000014901161"
+                             SkewFactor="5.422270774841309" ID="Gain" Value="0.0"/>
+                  <Parameter MinValue="0.0" MaxValue="1000.0" StepSize="0.1000000014901161"
+                             SkewFactor="0.3010300099849701" ID="Smoothing" Value="20.0"/>
+                  <Parameter MinValue="-100.0" MaxValue="0.0" StepSize="0.1000000014901161"
+                             SkewFactor="5.422270774841309" ID="ResetValue" Value="0.0"/>
+                </Parameters>
+              </Node>
+            </Nodes>
+            <Parameters/>
+          </Node>
+        </Nodes>
+        <Parameters>
+          <Parameter MinValue="0.0" MaxValue="1.0" ID="DryWet" Automated="1">
+            <Connections>
+              <Connection NodeId="dry_wet_mixer" ParameterId="Value"/>
+            </Connections>
+          </Parameter>
+        </Parameters>
+      </Node>
+    </Nodes>
+    <Parameters>
+      <Parameter ID="Mix" MinValue="0.0" MaxValue="1.0" Value="0.2519999999999998"
+                 DefaultValue="1.0" TextToValueConverter="NormalizedPercentage"
+                 ExternalModulation="Disabled">
+        <Connections>
+          <Connection NodeId="dry_wet1" ParameterId="DryWet"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="Damping" MinValue="0.0" MaxValue="1.0" Value="0.7160000000000001"
+                 DefaultValue="1.0" TextToValueConverter="NormalizedPercentage"
+                 ExternalModulation="Disabled">
+        <Connections>
+          <Connection NodeId="one_pole1" ParameterId="Frequency"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="Glide" MinValue="0.1000000014901161" MaxValue="1000.0" StepSize="0.1000000014901161"
+                 Value="60.10000089555978" DefaultValue="1.000000014901161" TextToValueConverter="Time"
+                 ExternalModulation="Disabled">
+        <Connections>
+          <Connection NodeId="smoothed_parameter_unscaled" ParameterId="SmoothingTime"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="Decay" MinValue="0.0" MaxValue="1.0" Value="0.748" DefaultValue="1.0"
+                 TextToValueConverter="NormalizedPercentage" ExternalModulation="Disabled">
+        <Connections>
+          <Connection NodeId="receive1" ParameterId="Feedback"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="Tonality" MinValue="0.0" MaxValue="1.0" Value="1.0" TextToValueConverter="NormalizedPercentage"
+                 ExternalModulation="Disabled">
+        <Connections>
+          <Connection NodeId="phase_delay" ParameterId="Frequency"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="Fuzz" MinValue="0.0" MaxValue="1.0" StepSize="1" Value="1.0"
+                 ExternalModulation="Disabled">
+        <Connections>
+          <Connection NodeId="soft_bypass" ParameterId="Bypassed"/>
+          <Connection NodeId="soft_bypass" ParameterId="Bypassed"/>
+        </Connections>
+      </Parameter>
+    </Parameters>
+  </Node>
+</Network>

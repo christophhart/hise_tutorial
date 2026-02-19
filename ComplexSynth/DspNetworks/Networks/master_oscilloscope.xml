@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Network ID="master_oscilloscope" AllowCompilation="1" Version="0.0.0">
+  <Node FactoryPath="container.chain" ID="master_oscilloscope" Bypassed="0"
+        Name="master_oscilloscope">
+    <Nodes>
+      <Node ID="midichain" FactoryPath="container.midichain" Bypassed="0"
+            Name="midichain">
+        <Nodes>
+          <Node ID="oscilloscope" FactoryPath="analyse.oscilloscope" Bypassed="0"
+                Name="oscilloscope">
+            <ComplexData>
+              <DisplayBuffers>
+                <DisplayBuffer Index="0" EmbeddedData=""/>
+              </DisplayBuffers>
+            </ComplexData>
+            <Parameters/>
+          </Node>
+        </Nodes>
+        <Parameters/>
+      </Node>
+    </Nodes>
+    <Parameters/>
+  </Node>
+</Network>

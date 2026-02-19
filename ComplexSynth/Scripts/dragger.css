@@ -1,0 +1,90 @@
+*
+{
+    color: white;
+}
+
+@fontface
+{
+	font-family: 'Oswald';
+	src: url('{PROJECT_FOLDER}Fonts/Oswald.ttf');
+}
+
+
+/** The panel that houses the draggers. */
+#Draggers
+{
+	gap: 2px;
+	margin: 5px;
+}
+
+/** The add / remove / clear buttons next to the draggers. */
+.control-button
+{
+	display: none;
+}
+
+.dragger
+{
+	margin: 0px;
+
+	font-family: Oswald;
+
+	background: #222;
+	color: #aaa;
+	padding: 0px 9px;
+	border-radius: 2px;
+	border: 1px solid #444;
+	cursor: grabbing;
+	height: 30px;
+	
+	font-size: 22px;
+	letter-spacing: 0.03em;
+	box-sizing: border-box;
+}
+
+.dragger:hover
+{
+	background: #252525;
+}
+
+.dragger:active
+{
+	background: #aaa;
+	color: #222;
+	box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.dragger::before
+{
+	content: '';
+	width: 20px;
+	background-color: white;
+	margin: 2px;
+	margin-left: 5px;
+	background-image: var(--dragPath);
+	box-shadow: 0px 0px 5px rgba(255,255,255, 0.5);
+}
+
+.dragger::before:active
+{
+	background-color: #222;
+}
+
+button
+{
+	font-family: Oswald;
+
+	background: transparent;
+	border-radius: 2px;
+	margin: 5px 0px;
+	
+}
+
+button:checked
+{
+	background: #FFFFF600;
+	color: #161616;
+	box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.25);
+	border: 1px solid #bbb;
+	
+}

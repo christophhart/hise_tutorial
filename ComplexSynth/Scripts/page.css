@@ -1,0 +1,15 @@
+*
+{
+    color: white;
+}
+
+
+div
+{
+	background: #111;
+	margin: 0px;
+	text-transform: uppercase;
+	content: var(--title);
+	vertical-align: top;
+	padding: 10px;
+}

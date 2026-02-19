@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentProperties DeviceType="Desktop">
+  <Component type="ScriptPanel" id="BG" x="0.0" y="0.0" width="1000.0" height="800.0"
+             borderSize="0.0" borderRadius="0.0" itemColour="4279308561" itemColour2="4282005568">
+    <Component type="ScriptFloatingTile" id="Keyboard" x="66.0" y="723.0" parentComponent="BG"
+               ContentType="Keyboard" bgColour="4284769380" itemColour="452984831"
+               itemColour2="4294967295" textColour="0" Data="{&#10;  &quot;KeyWidth&quot;: 18.0,&#10;  &quot;DisplayOctaveNumber&quot;: false,&#10;  &quot;LowKey&quot;: 24,&#10;  &quot;HiKey&quot;: 127,&#10;  &quot;CustomGraphics&quot;: false,&#10;  &quot;DefaultAppearance&quot;: false,&#10;  &quot;BlackKeyRatio&quot;: 0.6,&#10;  &quot;ToggleMode&quot;: false,&#10;  &quot;MidiChannel&quot;: 1,&#10;  &quot;UseVectorGraphics&quot;: true,&#10;  &quot;UseFlatStyle&quot;: false,&#10;  &quot;MPEKeyboard&quot;: false,&#10;  &quot;MPEStartChannel&quot;: 2,&#10;  &quot;MPEEndChannel&quot;: 16&#10;}"
+               height="80.0" width="882.0"/>
+    <Component type="ScriptPanel" id="Header" x="0.0" y="0.0" width="1000.0"
+               height="40.0" parentComponent="BG" bgColour="1442840575" itemColour="805306368"
+               itemColour2="805306368" textColour="603979775">
+      <Component type="ScriptButton" id="Main_PageButton" x="0.0" y="0.0" width="75.0"
+                 height="40.0" text="Main" saveInPreset="0" parentComponent="Header"
+                 radioGroup="95210.0" bgColour="1442840575" itemColour="1714631475"
+                 itemColour2="4212199697" textColour="4294967295"/>
+      <Component type="ScriptButton" id="Matrix_PageButton" x="75.0" y="0.0" width="75.0"
+                 height="40.0" text="Matrix" saveInPreset="0" parentComponent="Header"
+                 radioGroup="95210.0" bgColour="1442840575" itemColour="1714631475"
+                 itemColour2="4212199697" textColour="4294967295"/>
+      <Component type="ScriptButton" id="FX_PageButton" x="150.0" y="0.0" width="75.0"
+                 height="40.0" text="FX" saveInPreset="0" parentComponent="Header"
+                 radioGroup="95210.0" bgColour="1442840575" itemColour="1714631475"
+                 itemColour2="4212199697" textColour="4294967295"/>
+      <Component type="ScriptButton" id="Presets_PageButton" x="225.0" y="0.0"
+                 width="75.0" height="40.0" text="Presets" saveInPreset="0" parentComponent="Header"
+                 radioGroup="95210.0" bgColour="1442840575" itemColour="1714631475"
+                 itemColour2="4212199697" textColour="4294967295"/>
+    </Component>
+    <Component type="ScriptPanel" id="Content" x="0.0" y="40.0" width="1000.0"
+               height="350.0" parentComponent="BG" itemColour="822023188">
+      <Component type="ScriptPanel" id="Main_Page" x="0.0" y="0.0" width="1000.0"
+                 height="350.0" parentComponent="Content" itemColour="806717473"
+                 text="Main">
+        <Component type="ScriptPanel" id="OSC1_Page" x="0" y="0" parentComponent="Main_Page"
+                   width="500.0" text="OSC 1" height="200">
+          <Component type="ScriptButton" id="OSC1Enabled" x="0" y="0" parentComponent="OSC1_Page"
+                     processorId="OSC1" parameterId="Enabled" width="500" height="35"
+                     bgColour="1442840575" itemColour="1714631475" itemColour2="4212199697"
+                     textColour="4294967295"/>
+          <Component type="ScriptFloatingTile" id="WT_Panel1" x="263" y="44" parentComponent="OSC1_Page"
+                     ContentType="WavetableWaterfall" bgColour="4280427042" itemColour="4294967295"
+                     itemColour2="234881023" textColour="2164260863" Data="{&#10;  &quot;ProcessorId&quot;: &quot;WT1&quot;,&#10;  &quot;Index&quot;: 0,&#10;  &quot;FollowWorkspace&quot;: false,&#10;  &quot;Displacement&quot;: [&#10;    0.4000000059604645,&#10;    -0.800000011920929&#10;  ],&#10;  &quot;LineThickness&quot;: [&#10;    2.0,&#10;    0.4000000059604645&#10;  ],&#10;  &quot;NumDisplayTables&quot;: 128,&#10;  &quot;IsometricFactor&quot;: 0.5,&#10;  &quot;AlphaData&quot;: {&#10;    &quot;NeighbourGlow&quot;: 0.0,&#10;    &quot;ActiveGlowColour&quot;: -1,&#10;    &quot;ActiveGlowRadius&quot;: 3.0,&#10;    &quot;Decay3D&quot;: 0.800000011920929,&#10;    &quot;FillGain&quot;: 0.5,&#10;    &quot;FillGainCenter&quot;: 0.0,&#10;    &quot;PeakGain&quot;: 2.0,&#10;    &quot;PrerenderBackground&quot;: true,&#10;    &quot;NumHighlights&quot;: 8,&#10;    &quot;HighlightColour&quot;: 0,&#10;    &quot;SmoothRange&quot;: [&#10;      0.0,&#10;      1.0&#10;    ]&#10;  },&#10;  &quot;DownsamplingFactor&quot;: 2.0,&#10;  &quot;GainGamma&quot;: 1.0,&#10;  &quot;Margin&quot;: 5.0&#10;}"
+                     width="221" height="110" itemColour3="2808668415"/>
+          <Component type="ScriptComboBox" id="Unisono1" x="258" y="163" max="8" parentComponent="OSC1_Page"
+                     width="100" height="24" items="1 Voices&#10;2 Voices&#10;3 Voices&#10;4 Voices&#10;5 Voices&#10;6 Voices&#10;7 Voices&#10;8 Voices"
+                     bgColour="1442840575" itemColour="1714631475" itemColour2="4212199697"
+                     textColour="4294967295"/>
+          <Component type="ScriptSlider" id="OSC1Position" x="20" y="115" middlePosition="0.5"
+                     suffix="%" parentComponent="OSC1_Page" width="60" height="70"
+                     text="Position" processorId="OSC1 Position" parameterId="Value"
+                     textColour="2852126720" mode="NormalizedPercentage" itemColour="4278255492"
+                     stepSize="0.009999999776482582" bgColour="1442840575" itemColour2="4212199697"
+                     min="0.0" max="1.0"/>
+          <Component type="ScriptSlider" id="OSC1Pitch" x="180" y="115" middlePosition="0.0"
+                     stepSize="1.0" min="-24.0" max="24.0" suffix=" st" parentComponent="OSC1_Page"
+                     width="60" height="70" text="Pitch" processorId="OSC1 Pitch"
+                     parameterId="Value" textColour="2852126720" itemColour="4289200383"
+                     bgColour="1442840575" itemColour2="4212199697"/>
+          <Component type="ScriptSlider" id="OSC1Detune" x="20" y="40" max="6.0" suffix=" st"
+                     parentComponent="OSC1_Page" width="60" height="70" text="Detune"
+                     processorId="OSC1 Detune" parameterId="Value" textColour="2852126720"
+                     itemColour="4294901857" middlePosition="1.0" bgColour="1442840575"
+                     itemColour2="4212199697" min="0.0"/>
+          <Component type="ScriptSlider" id="OSC1Gain" x="100" y="115" middlePosition="0.0"
+                     min="-100.0" max="6.0" parentComponent="OSC1_Page" width="60"
+                     height="70" text="Gain" processorId="OSC1 Gain" parameterId="Value"
+                     textColour="2852126720" itemColour="4294953472" mode="Decibel"
+                     bgColour="1442840575" itemColour2="4212199697"/>
+          <Component type="ScriptSlider" id="OSC1Pan" x="100" y="40" stepSize="1"
+                     min="-100" max="100" parentComponent="OSC1_Page" width="60" height="70"
+                     text="Pan" processorId="OSC1 Pan" parameterId="Value" textColour="2852126720"
+                     mode="Pan" itemColour="4281969306" bgColour="1442840575" itemColour2="4212199697"/>
+          <Component type="ScriptSlider" id="OSC1Fine" x="180" y="40" stepSize="1"
+                     min="-100.0" max="100.0" suffix=" ct" parentComponent="OSC1_Page"
+                     width="60" height="70" text="Fine" processorId="OSC1 Fine" parameterId="Value"
+                     textColour="2852126720" itemColour="4289200383" bgColour="1442840575"
+                     itemColour2="4212199697"/>
+          <Component type="ScriptComboBox" id="Waveform1" x="360" y="163" max="11"
+                     parentComponent="OSC1_Page" width="128" height="24" items="asd&#10;Combined&#10;dudel&#10;Noise&#10;Saw&#10;saw_dudel&#10;Sine&#10;sine_custom&#10;Special&#10;Square&#10;Triangle"
+                     bgColour="1442840575" itemColour="1714631475" itemColour2="4212199697"
+                     textColour="4294967295"/>
+        </Component>
+        <Component type="ScriptPanel" id="OSC2_Page" x="500" y="0" parentComponent="Main_Page"
+                   width="500.0" text="OSC 2" height="200">
+          <Component type="ScriptButton" id="OSC2Enabled" x="0" y="0" parentComponent="OSC2_Page"
+                     processorId="OSC2" parameterId="Enabled" width="500" height="35"
+                     bgColour="1442840575" itemColour="1714631475" itemColour2="4212199697"
+                     textColour="4294967295"/>
+          <Component type="ScriptFloatingTile" id="WT_Panel2" x="263" y="44" parentComponent="OSC2_Page"
+                     ContentType="WavetableWaterfall" bgColour="4280427042" itemColour="4294967295"
+                     itemColour2="234881023" textColour="2164260863" Data="{&#10;  &quot;ProcessorId&quot;: &quot;WT2&quot;,&#10;  &quot;Index&quot;: 0,&#10;  &quot;FollowWorkspace&quot;: false,&#10;  &quot;Displacement&quot;: [&#10;    0.4000000059604645,&#10;    -0.800000011920929&#10;  ],&#10;  &quot;LineThickness&quot;: [&#10;    2.0,&#10;    0.4000000059604645&#10;  ],&#10;  &quot;NumDisplayTables&quot;: 128,&#10;  &quot;IsometricFactor&quot;: 0.5,&#10;  &quot;AlphaData&quot;: {&#10;    &quot;NeighbourGlow&quot;: 0.0,&#10;    &quot;ActiveGlowColour&quot;: -1,&#10;    &quot;ActiveGlowRadius&quot;: 3.0,&#10;    &quot;Decay3D&quot;: 0.800000011920929,&#10;    &quot;FillGain&quot;: 0.5,&#10;    &quot;FillGainCenter&quot;: 0.0,&#10;    &quot;PeakGain&quot;: 2.0,&#10;    &quot;PrerenderBackground&quot;: true,&#10;    &quot;NumHighlights&quot;: 8,&#10;    &quot;HighlightColour&quot;: 0,&#10;    &quot;SmoothRange&quot;: [&#10;      0.0,&#10;      1.0&#10;    ]&#10;  },&#10;  &quot;DownsamplingFactor&quot;: 2.0,&#10;  &quot;GainGamma&quot;: 1.0,&#10;  &quot;Margin&quot;: 5.0&#10;}"
+                     itemColour3="2808668415" width="221" height="110"/>
+          <Component type="ScriptComboBox" id="Unisono2" x="258" y="163" max="8" parentComponent="OSC2_Page"
+                     width="100" height="24" items="1 Voices&#10;2 Voices&#10;3 Voices&#10;4 Voices&#10;5 Voices&#10;6 Voices&#10;7 Voices&#10;8 Voices"
+                     bgColour="1442840575" itemColour="1714631475" itemColour2="4212199697"
+                     textColour="4294967295"/>
+          <Component type="ScriptSlider" id="OSC2Position" x="20" y="115" middlePosition="0.5"
+                     suffix="%" parentComponent="OSC2_Page" width="60" height="70"
+                     text="Position" processorId="OSC2 Position" parameterId="Value"
+                     textColour="2852126720" mode="NormalizedPercentage" itemColour="4278255492"
+                     stepSize="0.009999999776482582" bgColour="1442840575" itemColour2="4212199697"
+                     min="0.0" max="1.0"/>
+          <Component type="ScriptSlider" id="OSC2Gain" x="100" y="115" middlePosition="0.0"
+                     min="-100.0" max="6.0" parentComponent="OSC2_Page" width="60"
+                     height="70" text="Gain" processorId="OSC2 Gain" parameterId="Value"
+                     textColour="2852126720" mode="Decibel" itemColour="4294953472"
+                     bgColour="1442840575" itemColour2="4212199697"/>
+          <Component type="ScriptSlider" id="OSC2Pitch" x="180" y="115" middlePosition="0.0"
+                     stepSize="1.0" min="-24.0" max="24.0" suffix=" st" parentComponent="OSC2_Page"
+                     width="60" height="70" text="Pitch" processorId="OSC2 Pitch"
+                     parameterId="Value" textColour="2852126720" itemColour="4289200383"
+                     bgColour="1442840575" itemColour2="4212199697"/>
+          <Component type="ScriptSlider" id="OSC2Detune" x="20" y="40" max="6.0" suffix=" st"
+                     parentComponent="OSC2_Page" width="60" height="70" text="Detune"
+                     processorId="OSC2 Detune" parameterId="Value" textColour="2852126720"
+                     itemColour="4294901857" middlePosition="1.0" bgColour="1442840575"
+                     itemColour2="4212199697" min="0.0"/>
+          <Component type="ScriptSlider" id="OSC2Pan" x="100" y="40" stepSize="1"
+                     min="-100" max="100" parentComponent="OSC2_Page" width="60" height="70"
+                     text="Pan" processorId="OSC2 Pan" parameterId="Value" textColour="2852126720"
+                     mode="Pan" itemColour="4281969306" bgColour="1442840575" itemColour2="4212199697"/>
+          <Component type="ScriptSlider" id="OSC2Fine" x="180" y="40" stepSize="1"
+                     min="-100.0" max="100.0" suffix=" ct" parentComponent="OSC2_Page"
+                     width="60" height="70" text="Fine" processorId="OSC2 Fine" parameterId="Value"
+                     textColour="2852126720" itemColour="4289200383" bgColour="1442840575"
+                     itemColour2="4212199697"/>
+          <Component type="ScriptComboBox" id="Waveform2" x="360" y="163" max="11"
+                     parentComponent="OSC2_Page" width="128" height="24" items="asd&#10;Combined&#10;dudel&#10;Noise&#10;Saw&#10;saw_dudel&#10;Sine&#10;sine_custom&#10;Special&#10;Square&#10;Triangle"
+                     bgColour="1442840575" itemColour="1714631475" itemColour2="4212199697"
+                     textColour="4294967295"/>
+        </Component>
+        <Component type="ScriptPanel" id="OSC1_Filter_Page" x="0" y="200" parentComponent="Main_Page"
+                   text="OSC 1 Filter" height="150" width="350">
+          <Component type="ScriptButton" id="OSC1_FilterEnabled" x="0" y="0" parentComponent="OSC1_Filter_Page"
+                     processorId="OSC1_Filter" parameterId="Enabled" width="350" height="35"
+                     bgColour="1442840575" itemColour="1714631475" itemColour2="4212199697"
+                     textColour="4294967295"/>
+          <Component type="ScriptFloatingTile" id="OSC1_FilterDisplay" x="100" y="50"
+                     parentComponent="OSC1_Filter_Page" ContentType="FilterDisplay"
+                     bgColour="4281545523" itemColour="4294967295" itemColour2="2164260863"
+                     Data="{&#10;  &quot;ProcessorId&quot;: &quot;OSC1_Filter&quot;,&#10;  &quot;Index&quot;: 0,&#10;  &quot;FollowWorkspace&quot;: false,&#10;  &quot;GainRange&quot;: 24.0,&#10;  &quot;ShowLines&quot;: false&#10;}"
+                     height="45" width="150"/>
+          <Component type="ScriptSlider" id="OSC1Filter Frequency" x="20" y="50" middlePosition="2000.0"
+                     stepSize="1.0" min="20.0" max="20000.0" suffix=" Hz" parentComponent="OSC1_Filter_Page"
+                     width="60" height="70" text="Frequency" processorId="OSC1 Filter Frequency"
+                     parameterId="Value" textColour="2852126720" mode="Frequency"
+                     itemColour="4281969306" bgColour="1442840575" itemColour2="4212199697"/>
+          <Component type="ScriptSlider" id="OSC1Filter Q" x="270" y="50" middlePosition="1.0"
+                     min="0.3" max="8.0" parentComponent="OSC1_Filter_Page" width="60"
+                     height="70" text="Filter Q" processorId="OSC1 Filter Q" parameterId="Value"
+                     textColour="2852126720" itemColour="4281969306" bgColour="1442840575"
+                     itemColour2="4212199697" stepSize="0.01"/>
+          <Component type="ScriptComboBox" id="FilterType1" x="96" y="105" max="3"
+                     parentComponent="OSC1_Filter_Page" width="156" height="24" items="LP&#10;HP&#10;BP"
+                     bgColour="1442840575" itemColour="1714631475" itemColour2="4212199697"
+                     textColour="4294967295"/>
+        </Component>
+        <Component type="ScriptPanel" id="OSC1_Shaper_Page" x="350" y="200" parentComponent="Main_Page"
+                   text="OSC 1 Shaper" height="150" width="150"/>
+        <Component type="ScriptPanel" id="OSC2_Filter_Page" x="500" y="200" parentComponent="Main_Page"
+                   text="OSC 2 Filter" height="150" width="350">
+          <Component type="ScriptButton" id="OSC2_FilterEnabled" x="0" y="0" parentComponent="OSC2_Filter_Page"
+                     processorId="OSC2_Filter" parameterId="Enabled" width="350" height="35"
+                     bgColour="1442840575" itemColour="1714631475" itemColour2="4212199697"
+                     textColour="4294967295"/>
+          <Component type="ScriptFloatingTile" id="OSC2_FilterDisplay" x="100" y="50"
+                     parentComponent="OSC2_Filter_Page" ContentType="FilterDisplay"
+                     bgColour="4281545523" itemColour="4294967295" itemColour2="2164260863"
+                     Data="{&#10;  &quot;ProcessorId&quot;: &quot;OSC2_Filter&quot;,&#10;  &quot;Index&quot;: 0,&#10;  &quot;FollowWorkspace&quot;: false,&#10;  &quot;GainRange&quot;: 24.0,&#10;  &quot;ShowLines&quot;: false&#10;}"
+                     height="45" width="150"/>
+          <Component type="ScriptSlider" id="OSC2Filter Frequency" x="20" y="50" middlePosition="2000.0"
+                     stepSize="1.0" min="20.0" max="20000.0" suffix=" Hz" parentComponent="OSC2_Filter_Page"
+                     width="60" height="70" text="Frequency" processorId="OSC2 Filter Frequency"
+                     parameterId="Value" textColour="2852126720" mode="Frequency"
+                     itemColour="4281969306" bgColour="1442840575" itemColour2="4212199697"/>
+          <Component type="ScriptSlider" id="OSC2Filter Q" x="270" y="50" middlePosition="1.0"
+                     min="0.3" max="8.0" parentComponent="OSC2_Filter_Page" width="60"
+                     height="70" text="Filter Q" processorId="OSC2 Filter Q" parameterId="Value"
+                     textColour="2852126720" itemColour="4281969306" bgColour="1442840575"
+                     itemColour2="4212199697" stepSize="0.01"/>
+          <Component type="ScriptComboBox" id="FilterType2" x="96" y="105" max="3"
+                     parentComponent="OSC2_Filter_Page" width="156" height="24" items="LP&#10;HP&#10;BP"
+                     bgColour="1442840575" itemColour="1714631475" itemColour2="4212199697"
+                     textColour="4294967295"/>
+        </Component>
+        <Component type="ScriptPanel" id="OSC2_Shaper_Page" x="850" y="200" parentComponent="Main_Page"
+                   text="OSC 2 Shaper" height="150" width="150"/>
+      </Component>
+      <Component type="ScriptPanel" id="Matrix_Page" x="0.0" y="0.0" width="1000.0"
+                 height="350.0" parentComponent="Content" text="Matrix" visible="0">
+        <Component type="ScriptFloatingTile" id="Matrix" x="2.0" y="2.0" parentComponent="Matrix_Page"
+                   ContentType="ModulationMatrix" bgColour="0" itemColour="0" itemColour2="0"
+                   textColour="0" Data="{&#10;  &quot;ProcessorId&quot;: &quot;Global Modulator Container1&quot;,&#10;  &quot;Index&quot;: -1,&#10;  &quot;FollowWorkspace&quot;: false,&#10;  &quot;SliderStyle&quot;: &quot;Knob&quot;&#10;}"
+                   width="997.0" height="347.0">
+          <Component type="ScriptButton" id="MatrixOptions" x="950" y="6" parentComponent="Matrix"
+                     width="32" height="28" saveInPreset="0" isMomentary="1" bgColour="1442840575"
+                     itemColour="1714631475" itemColour2="4212199697" textColour="4294967295"/>
+        </Component>
+      </Component>
+      <Component type="ScriptPanel" id="FX_Page" x="0.0" y="0.0" width="1000.0"
+                 height="350.0" parentComponent="Content" text="FX" visible="0"/>
+      <Component type="ScriptPanel" id="Presets_Page" x="0.0" y="0.0" width="1000.0"
+                 height="350.0" parentComponent="Content" text="Presets" visible="0">
+        <Component type="ScriptFloatingTile" id="PresetBrowser" x="8.0" y="32.0"
+                   width="986.0" height="311.0" parentComponent="Presets_Page" ContentType="PresetBrowser"
+                   bgColour="0" itemColour="4278190080" itemColour2="2717908992"
+                   Data="{&#10;  &quot;ShowSaveButton&quot;: true,&#10;  &quot;ShowExpansionsAsColumn&quot;: false,&#10;  &quot;ShowFolderButton&quot;: true,&#10;  &quot;ShowNotes&quot;: false,&#10;  &quot;ShowEditButtons&quot;: true,&#10;  &quot;EditButtonOffset&quot;: 10,&#10;  &quot;ShowAddButton&quot;: true,&#10;  &quot;ShowRenameButton&quot;: true,&#10;  &quot;ShowDeleteButton&quot;: true,&#10;  &quot;ShowSearchBar&quot;: true,&#10;  &quot;FavoriteIconOffset&quot;: 0,&#10;  &quot;ShowFavoriteIcon&quot;: false,&#10;  &quot;FullPathFavorites&quot;: false,&#10;  &quot;ButtonsInsideBorder&quot;: false,&#10;  &quot;NumColumns&quot;: 2,&#10;  &quot;ColumnWidthRatio&quot;: [&#10;    0.3333333333333333,&#10;    0.3333333333333333,&#10;    0.3333333333333333&#10;  ],&#10;  &quot;ListAreaOffset&quot;: [&#10;    0,&#10;    0,&#10;    0,&#10;    0&#10;  ],&#10;  &quot;ColumnRowPadding&quot;: [&#10;    0,&#10;    0,&#10;    0,&#10;    0&#10;  ],&#10;  &quot;SearchBarBounds&quot;: [],&#10;  &quot;MoreButtonBounds&quot;: [],&#10;  &quot;SaveButtonBounds&quot;: [],&#10;  &quot;FavoriteButtonBounds&quot;: []&#10;}"
+                   textColour="4278190080" Font="Oswald" FontSize="22.0"/>
+      </Component>
+    </Component>
+    <Component type="ScriptPanel" id="PresetPanel" x="300.0" y="0.0" parentComponent="BG"
+               width="400.0" height="40.0" allowCallbacks="Clicks &amp; Hover"
+               bgColour="1442840575" itemColour="805306368" itemColour2="805306368"
+               textColour="603979775">
+      <Component type="ScriptButton" id="PrevPreset" x="0.0" y="0.0" width="40.0"
+                 height="40.0" parentComponent="PresetPanel" saveInPreset="0"
+                 isMomentary="1" bgColour="1442840575" itemColour="1714631475"
+                 itemColour2="4212199697" textColour="4294967295"/>
+      <Component type="ScriptButton" id="NextPreset" x="360.0" y="0.0" width="40.0"
+                 height="40.0" parentComponent="PresetPanel" saveInPreset="0"
+                 isMomentary="1" bgColour="1442840575" itemColour="1714631475"
+                 itemColour2="4212199697" textColour="4294967295"/>
+    </Component>
+  </Component>
+  <Component type="ScriptFloatingTile" id="Draggers" x="-3.0" y="386.0" height="40.0"
+             width="1010.0" ContentType="ModulationMatrixController" bgColour="0"
+             itemColour="0" itemColour2="0" textColour="0" Data="{&#10;  &quot;ProcessorId&quot;: &quot;Global Modulator Container1&quot;,&#10;  &quot;Index&quot;: 0,&#10;  &quot;FollowWorkspace&quot;: false&#10;}"/>
+  <Component type="ScriptPanel" id="ModPage" x="0.0" y="422.0" width="1000.0"
+             height="298.0" text="Modulation">
+    <Component type="ScriptPanel" id="AHDSR_ModPanel" x="0" y="0" parentComponent="ModPage"
+               width="320" height="298.0" text="AHDSR" allowCallbacks="Clicks, Hover &amp; Dragging"
+               visible="0">
+      <Component type="ScriptSlider" id="AHDSR_Release" x="258.0" y="230.0" middlePosition="100.0"
+                 stepSize="1.0" max="20000.0" suffix=" ms" parentComponent="AHDSR_ModPanel"
+                 text="Release" processorId="AHDSR" parameterId="Release" width="51.0"
+                 height="58.0" textColour="2566914048" mode="Time" itemColour="4294951168"
+                 matrixTargetId="AHDSR Release" bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptSlider" id="AHDSR_Decay" x="132.0" y="230.0" middlePosition="100.0"
+                 stepSize="1.0" max="20000.0" suffix=" ms" parentComponent="AHDSR_ModPanel"
+                 text="Decay" processorId="AHDSR" parameterId="Decay" width="51.0"
+                 height="58.0" textColour="2566914048" mode="Time" itemColour="4294951168"
+                 matrixTargetId="AHDSR Decay" bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptSlider" id="AHDSR_Hold" x="69.0" y="230.0" middlePosition="100.0"
+                 stepSize="1.0" max="20000.0" suffix=" ms" parentComponent="AHDSR_ModPanel"
+                 text="Hold" processorId="AHDSR" parameterId="Hold" width="51.0"
+                 height="58.0" textColour="2566914048" mode="Time" itemColour="4294951168"
+                 matrixTargetId="AHDSR Hold" bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptFloatingTile" id="AHDSR_Graph" x="14.0" y="65.0"
+                 parentComponent="AHDSR_ModPanel" width="290.0" height="81.0"
+                 ContentType="FlexAHDSRGraph" bgColour="4278190080" itemColour="4294964736"
+                 itemColour2="4294939904" textColour="1178624" Data="{&#10;  &quot;ProcessorId&quot;: &quot;AHDSR&quot;,&#10;  &quot;Index&quot;: 0,&#10;  &quot;FollowWorkspace&quot;: false&#10;}"/>
+      <Component type="ScriptSlider" id="AHDSR_Attack" x="7.0" y="230.0" middlePosition="100.0"
+                 stepSize="1.0" max="20000.0" suffix=" ms" parentComponent="AHDSR_ModPanel"
+                 text="Attack" processorId="AHDSR" parameterId="Attack" width="51.0"
+                 height="58.0" mode="Time" textColour="2566914048" itemColour="4294951168"
+                 matrixTargetId="AHDSR Attack" bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptSlider" id="AHDSR_AttackCurve" x="7.0" y="170.0"
+                 middlePosition="0.5" suffix="%" parentComponent="AHDSR_ModPanel"
+                 text="Curve" processorId="AHDSR" parameterId="AttackCurve" width="51.0"
+                 height="58.0" mode="NormalizedPercentage" textColour="2566914048"
+                 itemColour="4294951168" matrixTargetId="AHDSR AttackCurve" defaultValue="0.5"
+                 stepSize="0.009999999776482582" bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptSlider" id="AHDSR_Sustain" x="195.0" y="230.0" middlePosition="0.5"
+                 suffix="%" parentComponent="AHDSR_ModPanel" text="Sustain" processorId="AHDSR"
+                 parameterId="Sustain" width="51.0" height="58.0" mode="NormalizedPercentage"
+                 textColour="2566914048" itemColour="4294951168" matrixTargetId="AHDSR Sustain"
+                 stepSize="0.009999999776482582" bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptSlider" id="AHDSR_AttackLevel" x="69.0" y="170.0"
+                 middlePosition="0.5" suffix="%" parentComponent="AHDSR_ModPanel"
+                 text="Level" processorId="AHDSR" parameterId="AttackLevel" width="51.0"
+                 height="58.0" mode="NormalizedPercentage" textColour="2566914048"
+                 itemColour="4294951168" matrixTargetId="AHDSR AttackLevel" defaultValue="1.0"
+                 stepSize="0.009999999776482582" bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptPanel" id="AHDSR_ModVAlue" x="300" y="12" width="12"
+                 height="12" parentComponent="AHDSR_ModPanel" opaque="1"/>
+      <Component type="ScriptSlider" id="AHDSR_DecayCurve" x="132.0" y="170.0"
+                 middlePosition="0.5" suffix="%" parentComponent="AHDSR_ModPanel"
+                 text="Curve" processorId="AHDSR" parameterId="DecayCurve" width="51.0"
+                 height="58.0" mode="NormalizedPercentage" textColour="2566914048"
+                 matrixTargetId="AHDSR DecayCurve" itemColour="4294951168" defaultValue="0.5"
+                 stepSize="0.009999999776482582" bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptSlider" id="AHDSR_ReleaseCurve" x="258.0" y="170.0"
+                 middlePosition="0.5" suffix="%" parentComponent="AHDSR_ModPanel"
+                 text="Curve" processorId="AHDSR" parameterId="ReleaseCurve" width="51.0"
+                 height="58.0" mode="NormalizedPercentage" textColour="2566914048"
+                 matrixTargetId="AHDSR ReleaseCurve" itemColour="4294951168" defaultValue="0.5"
+                 stepSize="0.009999999776482582" bgColour="1442840575" itemColour2="4212199697"/>
+    </Component>
+    <Component type="ScriptPanel" id="AHDSR2_ModPanel" x="0" y="0" parentComponent="ModPage"
+               width="320" height="298.0" text="AHDSR2" allowCallbacks="Clicks, Hover &amp; Dragging">
+      <Component type="ScriptPanel" id="AHDSR2_ModVAlue" x="300" y="12" width="12"
+                 height="12" parentComponent="AHDSR2_ModPanel" opaque="1"/>
+      <Component type="ScriptFloatingTile" id="AHDSR2_Graph" x="14.0" y="65.0"
+                 parentComponent="AHDSR2_ModPanel" width="290.0" height="81.0"
+                 ContentType="FlexAHDSRGraph" bgColour="4278190080" itemColour="4294964736"
+                 itemColour2="4294939904" textColour="1178624" Data="{&#10;  &quot;ProcessorId&quot;: &quot;AHDSR2&quot;,&#10;  &quot;Index&quot;: 0,&#10;  &quot;FollowWorkspace&quot;: false&#10;}"/>
+      <Component type="ScriptSlider" id="AHDSR2_Attack" x="7.0" y="230.0" middlePosition="1000.0"
+                 stepSize="1.0" max="20000.0" suffix=" ms" parentComponent="AHDSR2_ModPanel"
+                 text="Attack" processorId="AHDSR2" parameterId="Attack" width="51.0"
+                 height="58.0" mode="Time" textColour="2566914048" matrixTargetId="AHDSR2 Attack"
+                 itemColour="4294951168" bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptSlider" id="AHDSR2_Hold" x="69.0" y="230.0" middlePosition="1000.0"
+                 stepSize="1.0" max="20000.0" suffix=" ms" parentComponent="AHDSR2_ModPanel"
+                 text="Hold" processorId="AHDSR2" parameterId="Hold" width="51.0"
+                 height="58.0" mode="Time" textColour="2566914048" matrixTargetId="AHDSR2 Hold"
+                 itemColour="4294951168" bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptSlider" id="AHDSR2_Decay" x="132.0" y="230.0" middlePosition="1000.0"
+                 stepSize="1.0" max="20000.0" suffix=" ms" parentComponent="AHDSR2_ModPanel"
+                 text="Decay" processorId="AHDSR2" parameterId="Decay" width="51.0"
+                 height="58.0" mode="Time" textColour="2566914048" matrixTargetId="AHDSR2 Decay"
+                 itemColour="4294951168" bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptSlider" id="AHDSR2_Sustain" x="195.0" y="230.0" middlePosition="0.5"
+                 suffix="%" parentComponent="AHDSR2_ModPanel" text="Sustain" processorId="AHDSR2"
+                 parameterId="Sustain" width="51.0" height="58.0" mode="NormalizedPercentage"
+                 textColour="2566914048" matrixTargetId="AHDSR2 Sustain" itemColour="4294951168"
+                 stepSize="0.009999999776482582" bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptSlider" id="AHDSR2_Release" x="258.0" y="230.0" middlePosition="1000.0"
+                 stepSize="1.0" max="20000.0" suffix=" ms" parentComponent="AHDSR2_ModPanel"
+                 text="Release" processorId="AHDSR2" parameterId="Release" width="51.0"
+                 height="58.0" mode="Time" textColour="2566914048" matrixTargetId="AHDSR2 Release"
+                 itemColour="4294951168" bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptSlider" id="AHDSR2_AttackCurve" x="7.0" y="170.0"
+                 middlePosition="0.5" suffix="%" parentComponent="AHDSR2_ModPanel"
+                 text="Curve" processorId="AHDSR2" parameterId="AttackCurve" width="51.0"
+                 height="58.0" mode="NormalizedPercentage" textColour="2566914048"
+                 matrixTargetId="AHDSR2 AttackCurve" itemColour="4294951168" stepSize="0.009999999776482582"
+                 defaultValue="0.5" bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptSlider" id="AHDSR2_DecayCurve" x="132.0" y="170.0"
+                 middlePosition="0.5" suffix="%" parentComponent="AHDSR2_ModPanel"
+                 text="Curve" processorId="AHDSR2" parameterId="DecayCurve" width="51.0"
+                 height="58.0" mode="NormalizedPercentage" textColour="2566914048"
+                 matrixTargetId="AHDSR2 DecayCurve" itemColour="4294951168" stepSize="0.009999999776482582"
+                 bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptSlider" id="AHDSR2_ReleaseCurve" x="258.0" y="170.0"
+                 middlePosition="0.5" suffix="%" parentComponent="AHDSR2_ModPanel"
+                 text="Curve" processorId="AHDSR2" parameterId="ReleaseCurve"
+                 width="51.0" height="58.0" mode="NormalizedPercentage" textColour="2566914048"
+                 matrixTargetId="AHDSR2 ReleaseCurve" itemColour="4294951168"
+                 stepSize="0.009999999776482582" bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptSlider" id="AHDSR2_AttackLevel" x="69.0" y="170.0"
+                 middlePosition="0.5" suffix="%" parentComponent="AHDSR2_ModPanel"
+                 text="Level" processorId="AHDSR2" parameterId="AttackLevel" width="51.0"
+                 height="58.0" mode="NormalizedPercentage" textColour="2566914048"
+                 matrixTargetId="AHDSR2 AttackLevel" itemColour="4294951168" stepSize="0.009999999776482582"
+                 bgColour="1442840575" itemColour2="4212199697"/>
+    </Component>
+    <Component type="ScriptPanel" id="AHDSR3_ModPanel" x="0" y="0" parentComponent="ModPage"
+               width="320" height="298.0" text="AHDSR3" allowCallbacks="Clicks, Hover &amp; Dragging"
+               visible="0">
+      <Component type="ScriptPanel" id="AHDSR3_ModVAlue" x="300" y="12" width="12"
+                 height="12" parentComponent="AHDSR3_ModPanel" opaque="1"/>
+      <Component type="ScriptFloatingTile" id="AHDSR3_Graph" x="14.0" y="65.0"
+                 parentComponent="AHDSR3_ModPanel" width="290.0" height="81.0"
+                 ContentType="FlexAHDSRGraph" bgColour="4278190080" itemColour="4294964736"
+                 itemColour2="4294939904" textColour="1178624" Data="{&#10;  &quot;ProcessorId&quot;: &quot;AHDSR3&quot;,&#10;  &quot;Index&quot;: 0,&#10;  &quot;FollowWorkspace&quot;: false&#10;}"/>
+      <Component type="ScriptSlider" id="AHDSR3_Attack" x="7.0" y="230.0" middlePosition="1000.0"
+                 stepSize="1.0" max="20000.0" suffix=" ms" parentComponent="AHDSR3_ModPanel"
+                 text="Attack" processorId="AHDSR3" parameterId="Attack" width="51.0"
+                 height="58.0" mode="Time" textColour="2566914048" matrixTargetId="AHDSR3 Attack"
+                 itemColour="4294951168" bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptSlider" id="AHDSR3_Hold" x="69.0" y="230.0" middlePosition="1000.0"
+                 stepSize="1.0" max="20000.0" suffix=" ms" parentComponent="AHDSR3_ModPanel"
+                 text="Hold" processorId="AHDSR3" parameterId="Hold" width="51.0"
+                 height="58.0" mode="Time" textColour="2566914048" matrixTargetId="AHDSR3 Hold"
+                 itemColour="4294951168" bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptSlider" id="AHDSR3_Decay" x="132.0" y="230.0" middlePosition="1000.0"
+                 stepSize="1.0" max="20000.0" suffix=" ms" parentComponent="AHDSR3_ModPanel"
+                 text="Decay" processorId="AHDSR3" parameterId="Decay" width="51.0"
+                 height="58.0" mode="Time" textColour="2566914048" matrixTargetId="AHDSR3 Decay"
+                 itemColour="4294951168" bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptSlider" id="AHDSR3_Sustain" x="195.0" y="230.0" middlePosition="0.5"
+                 suffix="%" parentComponent="AHDSR3_ModPanel" text="Sustain" processorId="AHDSR3"
+                 parameterId="Sustain" width="51.0" height="58.0" mode="NormalizedPercentage"
+                 textColour="2566914048" matrixTargetId="AHDSR3 Sustain" itemColour="4294951168"
+                 stepSize="0.009999999776482582" bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptSlider" id="AHDSR3_Release" x="258.0" y="230.0" middlePosition="1000.0"
+                 stepSize="1.0" max="20000.0" suffix=" ms" parentComponent="AHDSR3_ModPanel"
+                 text="Release" processorId="AHDSR3" parameterId="Release" width="51.0"
+                 height="58.0" mode="Time" textColour="2566914048" matrixTargetId="AHDSR3 Release"
+                 itemColour="4294951168" bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptSlider" id="AHDSR3_AttackCurve" x="7.0" y="170.0"
+                 middlePosition="0.5" suffix="%" parentComponent="AHDSR3_ModPanel"
+                 text="Curve" processorId="AHDSR3" parameterId="AttackCurve" width="51.0"
+                 height="58.0" mode="NormalizedPercentage" textColour="2566914048"
+                 matrixTargetId="AHDSR3 AttackCurve" itemColour="4294951168" stepSize="0.009999999776482582"
+                 defaultValue="0.5" bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptSlider" id="AHDSR3_DecayCurve" x="132.0" y="170.0"
+                 middlePosition="0.5" suffix="%" parentComponent="AHDSR3_ModPanel"
+                 text="Curve" processorId="AHDSR3" parameterId="DecayCurve" width="51.0"
+                 height="58.0" mode="NormalizedPercentage" textColour="2566914048"
+                 matrixTargetId="AHDSR3 DecayCurve" itemColour="4294951168" stepSize="0.009999999776482582"
+                 bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptSlider" id="AHDSR3_ReleaseCurve" x="258.0" y="170.0"
+                 middlePosition="0.5" suffix="%" parentComponent="AHDSR3_ModPanel"
+                 text="Curve" processorId="AHDSR3" parameterId="ReleaseCurve"
+                 width="51.0" height="58.0" mode="NormalizedPercentage" textColour="2566914048"
+                 matrixTargetId="AHDSR3 ReleaseCurve" itemColour="4294951168"
+                 stepSize="0.009999999776482582" bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptSlider" id="AHDSR3_AttackLevel" x="69.0" y="170.0"
+                 middlePosition="0.5" suffix="%" parentComponent="AHDSR3_ModPanel"
+                 text="Level" processorId="AHDSR3" parameterId="AttackLevel" width="51.0"
+                 height="58.0" mode="NormalizedPercentage" textColour="2566914048"
+                 matrixTargetId="AHDSR3 AttackLevel" itemColour="4294951168" stepSize="0.009999999776482582"
+                 bgColour="1442840575" itemColour2="4212199697"/>
+    </Component>
+    <Component type="ScriptPanel" id="AHDSR4_ModPanel" x="0" y="0" parentComponent="ModPage"
+               width="320" height="298.0" text="AHDSR4" allowCallbacks="Clicks, Hover &amp; Dragging"
+               visible="0">
+      <Component type="ScriptPanel" id="AHDSR4_ModVAlue" x="300" y="12" width="12"
+                 height="12" parentComponent="AHDSR4_ModPanel" opaque="1"/>
+      <Component type="ScriptFloatingTile" id="AHDSR4_Graph" x="14.0" y="65.0"
+                 parentComponent="AHDSR4_ModPanel" width="290.0" height="81.0"
+                 ContentType="FlexAHDSRGraph" bgColour="4278190080" itemColour="4294964736"
+                 itemColour2="4294939904" textColour="1178624" Data="{&#10;  &quot;ProcessorId&quot;: &quot;AHDSR4&quot;,&#10;  &quot;Index&quot;: 0,&#10;  &quot;FollowWorkspace&quot;: false&#10;}"/>
+      <Component type="ScriptSlider" id="AHDSR4_Attack" x="7.0" y="230.0" middlePosition="1000.0"
+                 stepSize="1.0" max="20000.0" suffix=" ms" parentComponent="AHDSR4_ModPanel"
+                 text="Attack" processorId="AHDSR4" parameterId="Attack" width="51.0"
+                 height="58.0" mode="Time" textColour="2566914048" matrixTargetId="AHDSR4 Attack"
+                 itemColour="4294951168" bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptSlider" id="AHDSR4_Hold" x="69.0" y="230.0" middlePosition="1000.0"
+                 stepSize="1.0" max="20000.0" suffix=" ms" parentComponent="AHDSR4_ModPanel"
+                 text="Hold" processorId="AHDSR4" parameterId="Hold" width="51.0"
+                 height="58.0" mode="Time" textColour="2566914048" matrixTargetId="AHDSR4 Hold"
+                 itemColour="4294951168" bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptSlider" id="AHDSR4_Decay" x="132.0" y="230.0" middlePosition="1000.0"
+                 stepSize="1.0" max="20000.0" suffix=" ms" parentComponent="AHDSR4_ModPanel"
+                 text="Decay" processorId="AHDSR4" parameterId="Decay" width="51.0"
+                 height="58.0" mode="Time" textColour="2566914048" matrixTargetId="AHDSR4 Decay"
+                 itemColour="4294951168" bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptSlider" id="AHDSR4_Sustain" x="195.0" y="230.0" middlePosition="0.5"
+                 suffix="%" parentComponent="AHDSR4_ModPanel" text="Sustain" processorId="AHDSR4"
+                 parameterId="Sustain" width="51.0" height="58.0" mode="NormalizedPercentage"
+                 textColour="2566914048" matrixTargetId="AHDSR4 Sustain" itemColour="4294951168"
+                 stepSize="0.009999999776482582" bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptSlider" id="AHDSR4_Release" x="258.0" y="230.0" middlePosition="1000.0"
+                 stepSize="1.0" max="20000.0" suffix=" ms" parentComponent="AHDSR4_ModPanel"
+                 text="Release" processorId="AHDSR4" parameterId="Release" width="51.0"
+                 height="58.0" mode="Time" textColour="2566914048" matrixTargetId="AHDSR4 Release"
+                 itemColour="4294951168" bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptSlider" id="AHDSR4_AttackCurve" x="7.0" y="170.0"
+                 middlePosition="0.5" suffix="%" parentComponent="AHDSR4_ModPanel"
+                 text="Curve" processorId="AHDSR4" parameterId="AttackCurve" width="51.0"
+                 height="58.0" mode="NormalizedPercentage" textColour="2566914048"
+                 matrixTargetId="AHDSR4 AttackCurve" itemColour="4294951168" stepSize="0.009999999776482582"
+                 defaultValue="0.5" bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptSlider" id="AHDSR4_DecayCurve" x="132.0" y="170.0"
+                 middlePosition="0.5" suffix="%" parentComponent="AHDSR4_ModPanel"
+                 text="Curve" processorId="AHDSR4" parameterId="DecayCurve" width="51.0"
+                 height="58.0" mode="NormalizedPercentage" textColour="2566914048"
+                 matrixTargetId="AHDSR4 DecayCurve" itemColour="4294951168" stepSize="0.009999999776482582"
+                 bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptSlider" id="AHDSR4_ReleaseCurve" x="258.0" y="170.0"
+                 middlePosition="0.5" suffix="%" parentComponent="AHDSR4_ModPanel"
+                 text="Curve" processorId="AHDSR4" parameterId="ReleaseCurve"
+                 width="51.0" height="58.0" mode="NormalizedPercentage" textColour="2566914048"
+                 matrixTargetId="AHDSR4 ReleaseCurve" itemColour="4294951168"
+                 stepSize="0.009999999776482582" bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptSlider" id="AHDSR4_AttackLevel" x="69.0" y="170.0"
+                 middlePosition="0.5" suffix="%" parentComponent="AHDSR4_ModPanel"
+                 text="Level" processorId="AHDSR4" parameterId="AttackLevel" width="51.0"
+                 height="58.0" mode="NormalizedPercentage" textColour="2566914048"
+                 matrixTargetId="AHDSR4 AttackLevel" itemColour="4294951168" stepSize="0.009999999776482582"
+                 bgColour="1442840575" itemColour2="4212199697"/>
+    </Component>
+    <Component type="ScriptPanel" id="LFO_ModPanel" x="320" y="0" parentComponent="ModPage"
+               width="220" height="298.0" text="LFO" allowCallbacks="Clicks, Hover &amp; Dragging">
+      <Component type="ScriptSlider" id="LFO_Frequency" x="20.0" y="226.0" middlePosition="2.0"
+                 min="0.009999999776482582" max="100.0" suffix=" Hz" parentComponent="LFO_ModPanel"
+                 text="Speed" processorId="LFO" parameterId="Frequency" width="51.0"
+                 height="59.0" mode="Frequency" textColour="2566914048" itemColour="4294951168"
+                 matrixTargetId="LFO Frequency" bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptSlider" id="LFO_SmoothingTime" x="84.0" y="226.0"
+                 middlePosition="1000.0" stepSize="1.0" max="20000.0" suffix=" ms"
+                 parentComponent="LFO_ModPanel" text="Smooth" processorId="LFO"
+                 parameterId="SmoothingTime" width="51.0" height="59.0" mode="Time"
+                 textColour="2566914048" itemColour="4294951168" matrixTargetId="LFO SmoothingTime"
+                 bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptFloatingTile" id="LFOGraph" x="22.0" y="65.0" ContentType="Waveform"
+                 bgColour="4279703319" itemColour="4294964736" itemColour2="4294939904"
+                 textColour="4278190080" Data="{&#10;  &quot;ProcessorId&quot;: &quot;LFO&quot;,&#10;  &quot;Index&quot;: -1,&#10;  &quot;FollowWorkspace&quot;: false&#10;}"
+                 itemColour3="4278190080" width="175.0" height="81.0" parentComponent="LFO_ModPanel"/>
+      <Component type="ScriptSlider" id="LFO_PhaseOffset" x="148.0" y="228.0"
+                 middlePosition="0.5" suffix="%" parentComponent="LFO_ModPanel"
+                 text="Phase" processorId="LFO" parameterId="PhaseOffset" width="51.0"
+                 height="58.0" mode="NormalizedPercentage" textColour="2566914048"
+                 itemColour="4294951168" matrixTargetId="LFO PhaseOffset" bgColour="1442840575"
+                 itemColour2="4212199697"/>
+      <Component type="ScriptComboBox" id="LFO_WaveFormType" x="18.0" y="163.0"
+                 max="5" parentComponent="LFO_ModPanel" text="WaveFormType" processorId="LFO"
+                 parameterId="WaveFormType" width="183.0" height="25.0" items="Sine&#10;Triangle&#10;Saw&#10;Square&#10;Random"
+                 textColour="2566914048" bgColour="1442840575" itemColour="1714631475"
+                 itemColour2="4212199697"/>
+      <Component type="ScriptPanel" id="LFO_ModVAlue" x="200" y="12" width="12"
+                 height="12" parentComponent="LFO_ModPanel" opaque="1"/>
+    </Component>
+    <Component type="ScriptPanel" id="MIDI CC_ModPanel" x="540" y="0" parentComponent="ModPage"
+               width="100" height="298.0" text="MIDI CC" allowCallbacks="Clicks, Hover &amp; Dragging">
+      <Component type="ScriptComboBox" id="MIDI CC_ControllerNumber" x="13.0"
+                 y="163.0" max="3" parentComponent="MIDI CC_ModPanel" text="ControllerNumber"
+                 processorId="MIDI CC" parameterId="ControllerNumber" width="78.0"
+                 height="25.0" items="Modwheel&#10;BC&#10;Volume" textColour="2566914048"
+                 bgColour="1442840575" itemColour="1714631475" itemColour2="4212199697"/>
+      <Component type="ScriptFloatingTile" id="CCPlotter" x="17.0" y="65.0" parentComponent="MIDI CC_ModPanel"
+                 width="69.0" ContentType="Plotter" bgColour="4280690214" itemColour="4294964736"
+                 itemColour2="4294939904" Data="{&#10;  &quot;ProcessorId&quot;: &quot;MIDI CC&quot;,&#10;  &quot;Index&quot;: -1,&#10;  &quot;FollowWorkspace&quot;: false&#10;}"
+                 textColour="16777215" height="81.0"/>
+      <Component type="ScriptSlider" id="MIDI CC_SmoothTime" x="25.0" y="225.0"
+                 middlePosition="1000.0" stepSize="1.0" max="20000.0" suffix=" ms"
+                 parentComponent="MIDI CC_ModPanel" text="Smooth" processorId="MIDI CC"
+                 parameterId="SmoothTime" width="51.0" height="58.0" mode="Time"
+                 textColour="2566914048" itemColour="4294951168" matrixTargetId="MIDI CC SmoothTime"
+                 bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptPanel" id="MIDI CC_ModVAlue" x="80" y="12" width="12"
+                 height="12" parentComponent="MIDI CC_ModPanel" opaque="1"/>
+    </Component>
+    <Component type="ScriptPanel" id="Velocity_ModPanel" x="640" y="0" parentComponent="ModPage"
+               width="100" height="163.9" text="Velocity" allowCallbacks="Clicks, Hover &amp; Dragging">
+      <Component type="ScriptTable" id="VelocityTable" x="15.0" y="66.0" parentComponent="Velocity_ModPanel"
+                 width="70.0" height="77.0" itemColour="4294964736" itemColour2="4294939904"
+                 processorId="Velocity"/>
+      <Component type="ScriptPanel" id="Velocity_ModVAlue" x="80" y="12" width="12"
+                 height="12" parentComponent="Velocity_ModPanel" opaque="1"/>
+    </Component>
+    <Component type="ScriptPanel" id="Table_ModPanel" x="740" y="0" parentComponent="ModPage"
+               width="260" height="178.8" text="Table" allowCallbacks="Clicks, Hover &amp; Dragging">
+      <Component type="ScriptTable" id="AttackTable" x="17.0" y="46.0" processorId="Table"
+                 parentComponent="Table_ModPanel" itemColour="4294964736" itemColour2="4294939904"
+                 height="60.0" width="106.0"/>
+      <Component type="ScriptTable" id="ReleaseTable" x="133.0" y="46.0" processorId="Table"
+                 tableIndex="1" parentComponent="Table_ModPanel" itemColour="4294964736"
+                 itemColour2="4294939904" height="60.0" width="106.0"/>
+      <Component type="ScriptSlider" id="Table_Attack" x="41.0" y="115.0" middlePosition="1000.0"
+                 stepSize="1.0" max="20000.0" suffix=" ms" parentComponent="Table_ModPanel"
+                 text="Attack" processorId="Table" parameterId="Attack" width="51.0"
+                 height="61.0" mode="Time" textColour="2566914048" itemColour="4294951168"
+                 matrixTargetId="Table Attack" bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptSlider" id="Table_Release" x="160.0" y="115.0" middlePosition="1000.0"
+                 stepSize="1.0" max="20000.0" suffix=" ms" parentComponent="Table_ModPanel"
+                 text="Release" processorId="Table" parameterId="Release" width="51.0"
+                 height="61.0" mode="Time" textColour="2566914048" itemColour="4294951168"
+                 matrixTargetId="Table Release" bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptPanel" id="Table_ModVAlue" x="240" y="12" width="12"
+                 height="12" parentComponent="Table_ModPanel" opaque="1"/>
+    </Component>
+    <Component type="ScriptPanel" id="Random_ModPanel" x="1000" y="0" parentComponent="ModPage"
+               width="0" height="0.0" text="Random" allowCallbacks="Clicks, Hover &amp; Dragging">
+      <Component type="ScriptPanel" id="Random_ModVAlue" x="-20" y="12" width="12"
+                 height="12" parentComponent="Random_ModPanel" opaque="1"/>
+    </Component>
+    <Component type="ScriptPanel" id="Pitch Wheel_ModPanel" x="640" y="164"
+               parentComponent="ModPage" width="100" height="134.1" text="Pitch Wheel"
+               allowCallbacks="Clicks, Hover &amp; Dragging">
+      <Component type="ScriptSlider" id="Pitch Wheel_Smoothing" x="25.0" y="58.0"
+                 middlePosition="1000.0" stepSize="1.0" max="20000.0" suffix=" ms"
+                 parentComponent="Pitch Wheel_ModPanel" text="Smooth" processorId="Pitch Wheel"
+                 parameterId="Smoothing" width="51.0" height="58.0" mode="Time"
+                 textColour="2566914048" itemColour="4294951168" matrixTargetId="Pitch Wheel Smoothing"
+                 bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptPanel" id="Pitch Wheel_ModVAlue" x="80" y="12" width="12"
+                 height="12" parentComponent="Pitch Wheel_ModPanel" opaque="1"/>
+    </Component>
+    <Component type="ScriptPanel" id="Ramp_ModPanel" x="740" y="179" parentComponent="ModPage"
+               width="260" height="119.2" text="Ramp" allowCallbacks="Clicks, Hover &amp; Dragging">
+      <Component type="ScriptSlider" id="Ramp_Attack" x="41.0" y="40.0" middlePosition="1000.0"
+                 stepSize="1.0" max="20000.0" suffix=" ms" parentComponent="Ramp_ModPanel"
+                 text="Attack" processorId="Ramp" parameterId="Attack" width="51.0"
+                 height="61.0" mode="Time" textColour="2566914048" itemColour="4294951168"
+                 matrixTargetId="Ramp Attack" bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptSlider" id="Ramp_Release" x="160.0" y="40.0" middlePosition="1000.0"
+                 stepSize="1.0" max="20000.0" suffix=" ms" parentComponent="Ramp_ModPanel"
+                 text="Release" processorId="Ramp" parameterId="Release" width="51.0"
+                 height="61.0" mode="Time" textColour="2566914048" itemColour="4294951168"
+                 matrixTargetId="Ramp Release" bgColour="1442840575" itemColour2="4212199697"/>
+      <Component type="ScriptPanel" id="Ramp_ModVAlue" x="240" y="12" width="12"
+                 height="12" parentComponent="Ramp_ModPanel" opaque="1"/>
+    </Component>
+    <Component type="ScriptButton" id="AHDSR1_PageButton" x="6" y="3" parentComponent="ModPage"
+               width="20" radioGroup="5125" text="1" height="29" saveInPreset="0"
+               bgColour="1442840575" itemColour="1714631475" itemColour2="4212199697"
+               textColour="4294967295"/>
+    <Component type="ScriptButton" id="AHDSR2_PageButton" x="26" y="3" parentComponent="ModPage"
+               width="20" radioGroup="5125" text="2" height="29" saveInPreset="0"
+               bgColour="1442840575" itemColour="1714631475" itemColour2="4212199697"
+               textColour="4294967295"/>
+    <Component type="ScriptButton" id="AHDSR3_PageButton" x="46" y="3" parentComponent="ModPage"
+               width="20" radioGroup="5125" text="3" height="29" saveInPreset="0"
+               bgColour="1442840575" itemColour="1714631475" itemColour2="4212199697"
+               textColour="4294967295"/>
+    <Component type="ScriptButton" id="AHDSR4_PageButton" x="66" y="3" parentComponent="ModPage"
+               width="20" radioGroup="5125" text="4" height="29" saveInPreset="0"
+               bgColour="1442840575" itemColour="1714631475" itemColour2="4212199697"
+               textColour="4294967295"/>
+  </Component>
+</ContentProperties>

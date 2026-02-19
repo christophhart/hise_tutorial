@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Network ID="poly_lfo" AllowPolyphonic="1" Version="0.0.0" AllowCompilation="1"
+         CompileChannelAmount="1" HasTail="0">
+  <Node FactoryPath="container.chain" ID="poly_lfo" Bypassed="0" Name="poly_lfo"
+        ShowParameters="1">
+    <Nodes>
+      <Node ID="chain2" FactoryPath="container.chain" Bypassed="0" Name="chain2"
+            Comment="Calculates the modes:&#10;&#10;1. Note Unsynced&#10;2. Note Synced&#10;3. Free running Synced&#10;"
+            Folded="1">
+        <Properties>
+          <Property ID="IsVertical" Value="0"/>
+        </Properties>
+        <Nodes>
+          <Node ID="cable_expr" FactoryPath="control.cable_expr" Bypassed="0"
+                Name="cable_expr">
+            <Properties>
+              <Property ID="Code" Value="input &lt; 0.9 ? 0.0 : 1.0"/>
+              <Property ID="Debug" Value="1"/>
+            </Properties>
+            <ModulationTargets>
+              <Connection NodeId="tempo_sync" ParameterId="Enabled"/>
+            </ModulationTargets>
+            <Parameters>
+              <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+            </Parameters>
+          </Node>
+          <Node ID="cable_expr1" FactoryPath="control.cable_expr" Bypassed="0"
+                Name="cable_expr">
+            <Properties>
+              <Property ID="Code" Value="input &lt; 1.5 ? 0.0 : 1.0"/>
+              <Property ID="Debug" Value="1"/>
+            </Properties>
+            <ModulationTargets>
+              <Connection NodeId="branch" ParameterId="Index"/>
+            </ModulationTargets>
+            <Parameters>
+              <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+            </Parameters>
+          </Node>
+        </Nodes>
+        <Parameters/>
+      </Node>
+      <Node ID="branch" FactoryPath="container.branch" Bypassed="0" Name="branch"
+            ShowParameters="1">
+        <Nodes>
+          <Node ID="chain" FactoryPath="container.chain" Bypassed="0" Name="trigger_ramp">
+            <Nodes>
+              <Node ID="converter" FactoryPath="control.converter" Bypassed="0" Name="converter">
+                <Properties>
+                  <Property ID="Mode" Value="Freq2Ms"/>
+                </Properties>
+                <ModulationTargets>
+                  <Connection NodeId="pma_unscaled" ParameterId="Value"/>
+                </ModulationTargets>
+                <Parameters>
+                  <Parameter MinValue="20.0" MaxValue="20000.0" StepSize="0.1" SkewFactor="0.2299045584686382"
+                             ID="Value" Automated="1"/>
+                </Parameters>
+              </Node>
+              <Node ID="pma_unscaled" FactoryPath="control.pma_unscaled" Bypassed="0"
+                    Name="pma_unscaled">
+                <ModulationTargets>
+                  <Connection NodeId="tempo_sync" ParameterId="UnsyncedTime"/>
+                </ModulationTargets>
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+                  <Parameter MinValue="1.0" MaxValue="16.0" SkewFactor="0.9094748120090845"
+                             ID="Multiply" DefaultValue="1.0" Automated="1"/>
+                  <Parameter MinValue="-1.0" MaxValue="1.0" ID="Add" Value="0.0"/>
+                </Parameters>
+              </Node>
+              <Node ID="tempo_sync" FactoryPath="control.tempo_sync" Bypassed="0"
+                    Name="tempo_sync">
+                <ModulationTargets>
+                  <Connection NodeId="ramp" ParameterId="PeriodTime"/>
+                </ModulationTargets>
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="18.0" StepSize="1.0" ID="Tempo" Automated="1"/>
+                  <Parameter MinValue="1.0" MaxValue="16.0" StepSize="1.0" ID="Multiplier"
+                             DefaultValue="1.0" Automated="1"/>
+                  <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Automated="1"/>
+                  <Parameter MinValue="0.0" MaxValue="1000.0" StepSize="0.1000000014901161"
+                             ID="UnsyncedTime" DefaultValue="200.0" Automated="1"/>
+                </Parameters>
+              </Node>
+              <Node ID="ramp" FactoryPath="core.ramp" Bypassed="0" Name="ramp">
+                <ComplexData>
+                  <DisplayBuffers>
+                    <DisplayBuffer Index="-1"/>
+                  </DisplayBuffers>
+                </ComplexData>
+                <Parameters>
+                  <Parameter MinValue="0.1000000014901161" MaxValue="1000.0" StepSize="0.1000000014901161"
+                             ID="PeriodTime" DefaultValue="100.0" Automated="1"/>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="LoopStart" Value="0.0"/>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Gate" Value="1.0"/>
+                </Parameters>
+              </Node>
+            </Nodes>
+            <Parameters/>
+          </Node>
+          <Node ID="chain1" FactoryPath="container.chain" Bypassed="0" Name="free_ramp">
+            <Nodes>
+              <Node ID="clock_ramp" FactoryPath="core.clock_ramp" Bypassed="0" Name="clock_ramp">
+                <ComplexData>
+                  <DisplayBuffers>
+                    <DisplayBuffer Index="-1"/>
+                  </DisplayBuffers>
+                </ComplexData>
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="18.0" StepSize="1.0" ID="Tempo" DefaultValue="5.0"
+                             Automated="1"/>
+                  <Parameter MinValue="1.0" MaxValue="16.0" StepSize="1.0" ID="Multiplier"
+                             DefaultValue="1.0" Automated="1"/>
+                  <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="AddToSignal"
+                             Value="1.0" DefaultValue="0.0"/>
+                  <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="UpdateMode"
+                             Value="1.0"/>
+                  <Parameter MinValue="0.0" MaxValue="2.0" StepSize="1.0" ID="Inactive" Value="0.0"/>
+                </Parameters>
+              </Node>
+            </Nodes>
+            <Parameters/>
+          </Node>
+        </Nodes>
+        <Parameters>
+          <Parameter MinValue="0.0" MaxValue="1" StepSize="1.0" ID="Index" DefaultValue="0.0"
+                     Automated="1"/>
+        </Parameters>
+      </Node>
+      <Node ID="branch1" FactoryPath="container.branch" Bypassed="0" Name="playback_modes"
+            ShowParameters="1">
+        <Nodes>
+          <Node ID="chain3" FactoryPath="container.chain" Bypassed="0" Name="normal">
+            <Nodes/>
+            <Parameters/>
+          </Node>
+          <Node ID="chain4" FactoryPath="container.chain" Bypassed="0" Name="chain4">
+            <Nodes>
+              <Node ID="mul" FactoryPath="math.mul" Bypassed="0" Name="mul">
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="2.0" ID="Value" Value="2.0" DefaultValue="1.0"/>
+                </Parameters>
+              </Node>
+              <Node ID="mod_inv" FactoryPath="math.mod_inv" Bypassed="0" Name="mod_inv">
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Value="0.0"/>
+                </Parameters>
+              </Node>
+              <Node ID="abs" FactoryPath="math.abs" Bypassed="0" Name="abs">
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Value="0.0"/>
+                </Parameters>
+              </Node>
+              <Node ID="mod_inv1" FactoryPath="math.mod_inv" Bypassed="0" Name="mod_inv1">
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Value="0.0"/>
+                </Parameters>
+              </Node>
+            </Nodes>
+            <Parameters/>
+          </Node>
+          <Node ID="chain5" FactoryPath="container.chain" Bypassed="0" Name="chain5">
+            <Nodes>
+              <Node ID="mod_inv2" FactoryPath="math.mod_inv" Bypassed="0" Name="mod_inv2">
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Value="0.0"/>
+                </Parameters>
+              </Node>
+            </Nodes>
+            <Parameters/>
+          </Node>
+        </Nodes>
+        <Parameters>
+          <Parameter MinValue="0.0" MaxValue="2" StepSize="1.0" ID="Index" Automated="1"/>
+        </Parameters>
+      </Node>
+      <Node ID="chain8" FactoryPath="container.chain" Bypassed="0" Name="phase_offset">
+        <Properties>
+          <Property ID="IsVertical" Value="0"/>
+        </Properties>
+        <Nodes>
+          <Node ID="add" FactoryPath="math.add" Bypassed="0" Name="add">
+            <Parameters>
+              <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+            </Parameters>
+          </Node>
+          <Node ID="fmod" FactoryPath="math.fmod" Bypassed="0" Name="fmod">
+            <Parameters>
+              <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Value="1.0"/>
+            </Parameters>
+          </Node>
+        </Nodes>
+        <Parameters/>
+      </Node>
+      <Node ID="branch2" FactoryPath="container.branch" Bypassed="0" Name="shapers"
+            ShowParameters="1">
+        <Nodes>
+          <Node ID="chain6" FactoryPath="container.chain" Bypassed="0" Name="chain6">
+            <Nodes>
+              <Node ID="table" FactoryPath="math.table" Bypassed="0" Name="table">
+                <ComplexData>
+                  <Tables>
+                    <Table Index="0"/>
+                  </Tables>
+                </ComplexData>
+                <Parameters/>
+              </Node>
+            </Nodes>
+            <Parameters/>
+          </Node>
+          <Node ID="chain7" FactoryPath="container.chain" Bypassed="0" Name="chain7">
+            <Nodes>
+              <Node ID="offline" FactoryPath="container.offline" Bypassed="0" Name="offline">
+                <Properties>
+                  <Property ID="IsVertical" Value="0"/>
+                </Properties>
+                <Nodes>
+                  <Node ID="cable_expr2" FactoryPath="control.cable_expr" Bypassed="0"
+                        Name="cable_expr2">
+                    <Properties>
+                      <Property ID="Code" Value="input &lt; 0.5 || input &gt; 1.5 ? 1.0 : 0.0"/>
+                      <Property ID="Debug" Value="1"/>
+                    </Properties>
+                    <ModulationTargets>
+                      <Connection NodeId="snex_node" ParameterId="AttackLevel"/>
+                    </ModulationTargets>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                  <Node ID="cable_expr3" FactoryPath="control.cable_expr" Bypassed="0"
+                        Name="cable_expr2">
+                    <Properties>
+                      <Property ID="Code" Value="input &gt; 0.5 ? 1.0 : 0.0"/>
+                      <Property ID="Debug" Value="0"/>
+                    </Properties>
+                    <ModulationTargets>
+                      <Connection NodeId="snex_node" ParameterId="DecayLevel"/>
+                    </ModulationTargets>
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                </Nodes>
+                <Parameters/>
+              </Node>
+              <Node ID="pack_resizer" FactoryPath="control.pack_resizer" Bypassed="0"
+                    Name="pack_resizer">
+                <ComplexData>
+                  <SliderPacks>
+                    <SliderPack Index="0" EmbeddedData="4....f+."/>
+                  </SliderPacks>
+                </ComplexData>
+                <Parameters>
+                  <Parameter MinValue="2.0" MaxValue="32.0" StepSize="1.0" ID="NumSliders"
+                             Automated="1"/>
+                </Parameters>
+              </Node>
+              <Node ID="snex_node" FactoryPath="core.snex_node" Bypassed="0" Name="snex_node">
+                <Properties>
+                  <Property ID="ClassId" Value="seq_attack_decay"/>
+                </Properties>
+                <ComplexData>
+                  <Tables/>
+                  <SliderPacks>
+                    <SliderPack Index="0" EmbeddedData="64.8nvE+Lb8n7iYlYxO1iB29XlYl7C6QgyOrGEN+....8C...zO...P+XlYl7SOJbwORgqG+T35Q7iBWOpOOJb89."/>
+                  </SliderPacks>
+                  <AudioFiles/>
+                  <Filters/>
+                  <DisplayBuffers/>
+                </ComplexData>
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="AttackLevel" DefaultValue="0.0"
+                             Automated="1"/>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="DecayLevel" DefaultValue="0.0"
+                             Automated="1"/>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Curve" DefaultValue="0.0" Automated="1"/>
+                </Parameters>
+              </Node>
+            </Nodes>
+            <Parameters/>
+          </Node>
+        </Nodes>
+        <Parameters>
+          <Parameter MinValue="0.0" MaxValue="1" StepSize="1.0" ID="Index" Automated="1"/>
+        </Parameters>
+      </Node>
+    </Nodes>
+    <Parameters>
+      <Parameter ID="Tempo" MinValue="0.0" MaxValue="18.0" StepSize="1.0" Value="0.0"
+                 DefaultValue="1.0" TextToValueConverter="TempoSync" ExternalModulation="Disabled">
+        <Connections>
+          <Connection NodeId="tempo_sync" ParameterId="Tempo"/>
+          <Connection NodeId="clock_ramp" ParameterId="Tempo"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="Frequency" MinValue="0.1" MaxValue="100.0" SkewFactor="0.1976716771423364"
+                 Value="0.3432149538641409" DefaultValue="1.0" TextToValueConverter="Frequency"
+                 ExternalModulation="Disabled">
+        <Connections>
+          <Connection NodeId="converter" ParameterId="Value"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="Multiplier" MinValue="1.0" MaxValue="16.0" StepSize="1.0"
+                 Value="4.0" DefaultValue="1.0">
+        <Connections>
+          <Connection NodeId="tempo_sync" ParameterId="Multiplier"/>
+          <Connection NodeId="clock_ramp" ParameterId="Multiplier"/>
+          <Connection NodeId="pma_unscaled" ParameterId="Multiply"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="Mode" MinValue="0.0" MaxValue="2.0" StepSize="1.0" Value="2.0"
+                 DefaultValue="1.0" ExternalModulation="Disabled">
+        <Connections>
+          <Connection NodeId="cable_expr" ParameterId="Value"/>
+          <Connection NodeId="cable_expr1" ParameterId="Value"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="Direction" MinValue="0.0" MaxValue="2.0" StepSize="1.0" Value="0.0"
+                 DefaultValue="1.0" ExternalModulation="Disabled">
+        <Connections>
+          <Connection NodeId="branch1" ParameterId="Index"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="Phase" MinValue="0.0" MaxValue="1.0" Value="0.0" DefaultValue="1.0">
+        <Connections>
+          <Connection NodeId="add" ParameterId="Value"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="Sequencer" MinValue="0.0" MaxValue="1.0" StepSize="1.0" Value="1.0">
+        <Connections>
+          <Connection NodeId="branch2" ParameterId="Index"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="NumSteps" MinValue="2.0" MaxValue="32.0" StepSize="1.0" Value="32.0"
+                 DefaultValue="1.0">
+        <Connections>
+          <Connection NodeId="pack_resizer" ParameterId="NumSliders"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="SeqMode" MinValue="0.0" MaxValue="2.0" StepSize="1" Value="1.0"
+                 ExternalModulation="Disabled">
+        <Connections>
+          <Connection NodeId="cable_expr2" ParameterId="Value"/>
+          <Connection NodeId="cable_expr3" ParameterId="Value"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="SeqCurve" MinValue="0.0" MaxValue="1.0" Value="1.0">
+        <Connections>
+          <Connection NodeId="snex_node" ParameterId="Curve"/>
+        </Connections>
+      </Parameter>
+    </Parameters>
+  </Node>
+</Network>

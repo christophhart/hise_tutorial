@@ -1,0 +1,25 @@
+
+#search
+{
+	color: white;
+	padding: 10px;
+	text-align: left;
+}
+
+#search:empty
+{
+	content: 'Filter modulation...';
+	color: #666;
+}
+
+
+
+.slider
+{
+	height: 30px;
+}
+
+scrollbar
+{
+	background: red;
+}

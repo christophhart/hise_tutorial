@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Network ID="mod_panner" Version="0.0.0">
+  <Node FactoryPath="container.chain" ID="mod_panner" Bypassed="0" Name="mod_panner"
+        ShowParameters="1">
+    <Nodes>
+      <Node ID="matrix_mod" FactoryPath="core.matrix_mod" Bypassed="0" Name="matrix_mod">
+        <ComplexData>
+          <DisplayBuffers>
+            <DisplayBuffer Index="-1"/>
+          </DisplayBuffers>
+        </ComplexData>
+        <Parameters>
+          <Parameter MinValue="-1.0" MaxValue="16.0" StepSize="1.0" ID="SourceIndex"
+                     Value="-1.0"/>
+          <Parameter MinValue="-1.0" MaxValue="1.0" ID="Intensity" Value="0.0"/>
+          <Parameter MinValue="0.0" MaxValue="2.0" StepSize="1.0" ID="Mode" Value="0.0"/>
+          <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Inverted" Value="0.0"/>
+          <Parameter MinValue="-1.0" MaxValue="16.0" StepSize="1.0" ID="AuxIndex"
+                     Value="-1.0"/>
+          <Parameter MinValue="0.0" MaxValue="1.0" ID="AuxIntensity" Value="0.0"/>
+        </Parameters>
+      </Node>
+      <Node ID="xfader" FactoryPath="control.xfader" Bypassed="0" Name="xfader">
+        <Properties>
+          <Property ID="NumParameters" Value="2"/>
+          <Property ID="Mode" Value="Squared"/>
+        </Properties>
+        <SwitchTargets>
+          <SwitchTarget>
+            <Connections>
+              <Connection NodeId="mul" ParameterId="Value"/>
+            </Connections>
+          </SwitchTarget>
+          <SwitchTarget>
+            <Connections>
+              <Connection NodeId="mul1" ParameterId="Value"/>
+            </Connections>
+          </SwitchTarget>
+        </SwitchTargets>
+        <Parameters>
+          <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+        </Parameters>
+      </Node>
+      <Node ID="frame2_block" FactoryPath="container.frame2_block" Bypassed="0"
+            Name="frame2_block">
+        <Nodes>
+          <Node ID="extra_mod" FactoryPath="core.extra_mod" Bypassed="0" Name="extra_mod">
+            <ModulationTargets>
+              <Connection NodeId="xfader" ParameterId="Value"/>
+            </ModulationTargets>
+            <ComplexData>
+              <DisplayBuffers>
+                <DisplayBuffer Index="-1"/>
+              </DisplayBuffers>
+            </ComplexData>
+            <Parameters>
+              <Parameter MinValue="0.0" MaxValue="16.0" StepSize="1.0" ID="Index" Value="0.0"/>
+              <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="ProcessSignal"
+                         Value="0.0"/>
+            </Parameters>
+          </Node>
+          <Node ID="multi" FactoryPath="container.multi" Bypassed="0" Name="multi">
+            <Nodes>
+              <Node ID="mul" FactoryPath="math.mul" Bypassed="0" Name="mul">
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" DefaultValue="1.0" Automated="1"/>
+                </Parameters>
+              </Node>
+              <Node ID="mul1" FactoryPath="math.mul" Bypassed="0" Name="mul">
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" DefaultValue="1.0" Automated="1"/>
+                </Parameters>
+              </Node>
+            </Nodes>
+            <Parameters/>
+          </Node>
+        </Nodes>
+        <Parameters/>
+      </Node>
+    </Nodes>
+    <Parameters>
+      <Parameter ID="Pan" MinValue="0.0" MaxValue="1.0" Value="0.476" DefaultValue="1.0"
+                 TextToValueConverter="Pan" ExternalModulation="Pan">
+        <Connections/>
+      </Parameter>
+    </Parameters>
+  </Node>
+</Network>

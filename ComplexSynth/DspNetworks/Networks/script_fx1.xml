@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Network ID="script_fx1" AllowCompilation="1" AllowPolyphonic="1" HasTail="0"
+         Version="0.0.0">
+  <Node FactoryPath="container.chain" ID="script_fx1" Bypassed="0" Name="script_fx1"
+        ShowParameters="1">
+    <Nodes>
+      <Node ID="midichain" FactoryPath="container.midichain" Bypassed="0"
+            Name="midichain">
+        <Nodes>
+          <Node ID="frame2_block" FactoryPath="container.frame2_block" Bypassed="0"
+                Name="frame2_block">
+            <Nodes>
+              <Node ID="extra_mod" FactoryPath="core.extra_mod" Bypassed="0" Name="extra_mod"
+                    NodeColour="4289888345">
+                <ModulationTargets>
+                  <Connection NodeId="xfader" ParameterId="Value"/>
+                </ModulationTargets>
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="16.0" StepSize="1.0" ID="Index" Value="0.0"/>
+                  <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="ProcessSignal"
+                             Value="0.0"/>
+                </Parameters>
+                <ComplexData>
+                  <DisplayBuffers>
+                    <DisplayBuffer Index="-1"/>
+                  </DisplayBuffers>
+                </ComplexData>
+              </Node>
+              <Node ID="xfader" FactoryPath="control.xfader" Bypassed="0" Name="xfader"
+                    NodeColour="4289878873">
+                <Properties>
+                  <Property ID="NumParameters" Value="2"/>
+                  <Property ID="Mode" Value="Linear"/>
+                </Properties>
+                <SwitchTargets>
+                  <SwitchTarget>
+                    <Connections>
+                      <Connection NodeId="mul" ParameterId="Value"/>
+                    </Connections>
+                  </SwitchTarget>
+                  <SwitchTarget>
+                    <Connections>
+                      <Connection NodeId="mul2" ParameterId="Value"/>
+                    </Connections>
+                  </SwitchTarget>
+                </SwitchTargets>
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+                </Parameters>
+              </Node>
+              <Node ID="multi" FactoryPath="container.multi" Bypassed="0" Name="multi">
+                <Nodes>
+                  <Node ID="mul" FactoryPath="math.mul" Bypassed="0" Name="mul">
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" DefaultValue="1.0" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                  <Node ID="mul2" FactoryPath="math.mul" Bypassed="0" Name="mul">
+                    <Parameters>
+                      <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" DefaultValue="1.0" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                </Nodes>
+                <Parameters/>
+              </Node>
+              <Node ID="svf" FactoryPath="filters.svf" Bypassed="0" Name="svf" NodeColour="4284068464">
+                <ComplexData>
+                  <Filters>
+                    <Filter Index="-1"/>
+                  </Filters>
+                </ComplexData>
+                <Parameters>
+                  <Parameter MinValue="20.0" MaxValue="20000.0" SkewFactor="0.2299045622348785"
+                             ID="Frequency" TextToValueConverter="Frequency" DefaultValue="1000.0"
+                             Automated="1"/>
+                  <Parameter MinValue="0.300000011920929" MaxValue="9.899999618530273" SkewFactor="0.2647178173065186"
+                             ID="Q" Value="1.0"/>
+                  <Parameter MinValue="-18.0" MaxValue="18.0" ID="Gain" Value="0.0"/>
+                  <Parameter MinValue="0.0" MaxValue="1.0" SkewFactor="0.3010300099849701"
+                             ID="Smoothing" Value="0.0" DefaultValue="0.009999999776482582"/>
+                  <Parameter MinValue="0.0" MaxValue="4.0" StepSize="1.0" ID="Mode" Value="0.0"/>
+                  <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Value="1.0"/>
+                </Parameters>
+              </Node>
+            </Nodes>
+            <Parameters/>
+          </Node>
+        </Nodes>
+        <Parameters/>
+      </Node>
+    </Nodes>
+    <Parameters>
+      <Parameter ID="Gain" MinValue="0.0" MaxValue="1.0" Value="1.0">
+        <Connections/>
+      </Parameter>
+      <Parameter ID="Balance" MinValue="-100.0" MaxValue="100.0" Value="-46.50344848632812"
+                 TextToValueConverter="Pan" ExternalModulation="Combined" DefaultValue="1.0">
+        <Connections/>
+      </Parameter>
+      <Parameter ID="Freq" MinValue="20.0" MaxValue="20000.0" Value="12654.76697592903"
+                 TextToValueConverter="Frequency" ExternalModulation="Combined"
+                 SkewFactor="0.2299045622348785" DefaultValue="20.0">
+        <Connections>
+          <Connection NodeId="svf" ParameterId="Frequency"/>
+        </Connections>
+      </Parameter>
+    </Parameters>
+  </Node>
+</Network>

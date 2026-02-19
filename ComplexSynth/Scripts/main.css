@@ -1,0 +1,293 @@
+@fontface
+{
+	font-family: 'Oswald';
+	src: url('{PROJECT_FOLDER}Fonts/Oswald.ttf');
+	
+}
+
+*
+{
+    color: white;
+    font-family: 'Oswald';
+    font-size: 22px;
+    --dropDown: '84.t0VXfyBQX1ssCw1agyBQ19ssCwlVkYBQ7cxvCwF..d.QTfZgCwl5h2.QXUbbCw1c8YBQDegpCwlEc7CQJDabCwF..VDQZ4YgCwVXfyBQX1ssCMVY';
+    
+}
+
+.search
+{
+	background: #FF3A3840;
+	box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.8);
+	border: 1px solid #bbb;
+	box-sizing: border-box;
+	margin: 3px;
+	border-radius: 4px;
+	padding: 5px 30px;
+	margin-right: 50px;
+}
+
+#clearsearch
+{
+	margin: 12px;
+	background: #777;
+	
+}
+
+input
+{
+	caret-color: white;
+	color: white;
+	border-radius: 4px;
+	background: rgba(0, 0, 0, 0.8);
+	padding: 5px;
+}
+
+::selection
+{
+	background-color: rgba(255,255,255, 0.4);
+	color: black;
+}
+
+.search:empty
+{
+	content: 'Type to filter connections...';
+	color: #666;
+	caret-color: white;
+}
+
+.search::before
+{
+	width: 100vh;
+	position: absolute;
+	content: '';
+	background-color: white;
+	margin: 11px;
+	background-image: var(--icon);
+}
+
+scrollbar
+{
+	background-color: black;
+	border-radius: 4px;
+	margin: 3px;
+}
+
+/** The background panel for the matrix. */
+.matrix
+{
+	background: linear-gradient(to bottom, #0AAAAB5, #A59999);
+	
+	border-radius: 3px;
+	border: 1px solid #bbb;
+	padding: 1px;
+	color: #555;
+	margin: 0px;
+}
+
+/** The matrix header. */
+th
+{
+	background: #222;
+	border: 1px solid #aaa;
+	box-sizing: border-box;
+}
+
+/** The matrix header cells. */
+td
+{
+	color: #aaa;
+	font-size: 22px;
+	font-family: Oswald;
+	font-weight: 400;
+	height: 20px;
+	margin-top: 8px;
+	text-transform: uppercase;
+}
+
+/** The matrix rows. */
+tr
+{
+	border-bottom: 1px solid #333;
+	padding: 5px;
+}
+
+#inverted
+{
+	width: 60px;
+	background: #FF3A3840;
+	color: #aaa;
+	margin: 12px;
+	border-radius: 3px;
+	content: 'INV';
+	font-size: 20px;
+	border: 1px solid #bbb;
+}
+
+#inverted:checked
+{
+	background: linear-gradient(to bottom, #FFFFF600, #FFFF9500);
+	color: #111;
+	box-shadow: inset 0px 2px 5px #161616;
+}
+
+/** Comboboxes. */
+select
+{
+	background: #FF3A3840;
+	box-shadow: inset 0px 2px 4px black;
+	color: #ddd;
+	text-align: left;
+	padding: 1px 10px;
+	margin: 1px;
+	font-size: 20px;
+	border-radius: 3px;
+	border: 1px solid #bbb;
+	margin: 0px;
+	box-sizing: border-box;
+}
+
+select::after
+{
+	background-image: var(--dropDown);
+	content: '';
+	background: #888;
+	position: absolute;
+	width: 100vh;
+	margin: 6px;
+}
+
+
+
+
+
+
+/** Matrix intensity column */
+#intensity
+{
+	width: 150px;
+}
+
+.bypass
+{
+	background: transparent;
+	content : ' ';
+	
+}
+
+
+.bypass::before
+{
+	content: '';
+	background-image: var(--icon);
+	width: 100vh;
+	margin: 11px;
+	background-color: #666;
+}
+
+.bypass::before:hover
+{
+	background-color: #999;
+}
+
+.bypass::before:checked
+{
+	background-color: white;
+	box-shadow: 0px 0px 5px white;
+}
+
+.modplotter
+{
+	background: red;
+	margin: 10px;
+}
+
+
+
+/** This styles the entire background of the menu. */
+.popup
+{
+	background: #FF3A3840;
+	font-family: Oswald;
+	border: 1px solid #aaa;
+}
+
+/** This styles the individual items in a menu. */
+.popup-item
+{
+	background: transparent;
+	color: #999;
+	font-family: Oswald;
+	font-size: 20px;
+	padding: 0px 5px;
+	
+	margin: 2px -3px;
+}
+
+/** The currently hovered popup menu item. */
+.popup-item:hover
+{
+	background: rgba(255,255,255, 0.05);
+	color: white;
+}
+
+/** The currently selected popup menu item. */
+.popup-item:active
+{
+	color: white;
+
+	font-weight: bold;
+}
+
+/** A disabled popup menu item. */
+.popup-item:disabled
+{
+	color: #555;
+}
+
+.popup-item:focus
+{
+	color: white;
+}
+
+
+
+.popup-item::after
+{
+	content: '';
+
+	background-image: '84.t0lL+rCQHfzrCwFNnHAQ.rq.DwF..d.QPVB7CwF+VBCQ7demCwlGHd.Q3R6ECwVUvHAQ.fh1BwF..VDQDcZmCwFm.sCQNtzrCwlL+rCQHfzrCMVY';
+	background-color: transparent;
+	width: 100vh;
+	margin: 5px;
+	position: absolute;
+}
+
+.popup-item::after:root
+{
+	
+	background: white;
+	
+	width: 100vh;
+}
+
+/** A separator item can be styled using the HTML tag for horizontal rulers. */
+hr
+{
+	margin: -15px;
+	border: 1px solid #444;
+}
+
+.more-button
+{
+	background: #161616;
+	content: ' ';
+	margin: 5px;
+	background-image: var(--dropDown);
+}
+
+.more-button:hover
+{
+	background: #444;
+}
+
+
